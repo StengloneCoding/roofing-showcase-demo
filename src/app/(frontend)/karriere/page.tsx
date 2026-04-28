@@ -21,17 +21,18 @@ export default async function CareerPage() {
 
   return (
     <>
-      <PageHero hero={page.hero} siteSettings={siteSettings} />
+      <PageHero compact hero={page.hero} pageSlug="karriere" siteSettings={siteSettings} />
       {page.sections.map((section, index) => (
         <RenderSection key={`${section.blockType}-${index}`} section={section} />
       ))}
       <InquiryForm
+        id="bewerbung"
         sourcePage="bewerbung"
         submitLabel="Bewerbung senden"
-        title="Kurz vorstellen und unverbindlich melden"
+        title="Kurz vorstellen und unkompliziert melden"
         interestOptions={[
           "Dachdecker / Dachdeckerin",
-          "Spenglerarbeiten",
+          "Dachdeckerhelfer",
           "Ausbildung",
           "Initiativbewerbung",
         ]}

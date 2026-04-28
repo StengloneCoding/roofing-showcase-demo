@@ -1,0 +1,6 @@
+<svg width="220" height="88" viewBox="0 0 220 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="88" rx="18" fill="#ffffff"/>
+  <text x="110" y="51" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" letter-spacing="2" fill="#B33420">BRAAS</text>
+  <path d="M52 28C60 20 68 20 76 28" stroke="#B33420" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M144 28C152 20 160 20 168 28" stroke="#B33420" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

@@ -7,205 +7,257 @@ import type {
 export const fallbackSiteSettings: SiteSettingsContent = {
   companyName: "Grimm & Lechner",
   legalName: "Grimm GmbH & Co. KG",
-  tagline: "Dachdeckermeister. Ihr Dach in guten Haenden.",
-  phone: "0951 123456",
-  email: "info@grimmundlechner.de",
-  address: "Bamberg und Umgebung\nTermin nach Vereinbarung",
+  tagline: "Dachdeckermeister aus Bamberg seit 1919",
+  phone: "0951 62840",
+  email: "grimmundlechner@t-online.de",
+  address: "Blumenstr. 3\n96049 Bamberg",
   navigation: [
-    { label: "Start", href: "/" },
-    { label: "Referenzen", href: "/referenzen" },
+    { label: "Leistungen", href: "/#leistungen" },
+    { label: "Referenzen", href: "/#referenzen" },
+    { label: "Über uns", href: "/#über-uns" },
     { label: "Karriere", href: "/karriere" },
     { label: "Kontakt", href: "/kontakt" },
   ],
   footerText:
-    "Seit 1919 steht Grimm & Lechner fuer Dachdeckerarbeiten mit Substanz, saubere Ausfuehrung und klare Kommunikation auf der Baustelle.",
+    "Von der kleinen Reparatur bis zum fertigen Dach begleiten wir Projekte in Bamberg und Umgebung mit Erfahrung, sauberer Ausführung und direkter Kommunikation.",
 };
 
 export const fallbackPages: Record<string, PageContent> = {
   start: {
     slug: "start",
-    title: "Dachdeckermeister Grimm & Lechner in Bamberg",
+    title: "Grimm & Lechner – Dachdeckermeister in Bamberg",
     metaDescription:
-      "Grimm & Lechner plant, saniert und wartet Daecher, Fassaden und Blechdetails in Bamberg und Umgebung.",
+      "Grimm & Lechner ist Ihr Dachdeckermeister in Bamberg für Dachsanierung, Blecharbeiten, Wärmedämmung, Dachfenster und Reparaturen.",
     hero: {
-      eyebrow: "Seit 1919 aus Bamberg",
-      title: "Daecher mit Haltung, Handwerk und einem klaren Ansprechpartner.",
+      eyebrow: "Seit 1919 in vierter Generation",
+      title: "Dachdeckermeister Grimm & Lechner in Bamberg und Umgebung",
       description:
-        "Von der klassischen Steildachsanierung bis zu Spenglerarbeiten, Abdichtungen und Dachfenstern begleiten wir Projekte mit ruhiger Planung und sauberer Ausfuehrung.",
+        "Wir beraten ehrlich, arbeiten sauber und kümmern uns um alles rund ums Dach – von der Reparatur über Sanierung und Wärmedämmung bis zu Dachfenstern und Blecharbeiten.",
       primaryCta: {
         label: "Projekt anfragen",
-        href: "/kontakt",
+        href: "/#kontaktformular",
       },
       secondaryCta: {
-        label: "Karriere entdecken",
-        href: "/karriere",
+        label: "Referenzen ansehen",
+        href: "/#referenzen",
       },
     },
     sections: [
       {
         blockType: "stats",
-        eyebrow: "Wofuer wir stehen",
-        heading: "Ein Dachprojekt laeuft besser, wenn Kommunikation und Ausfuehrung zusammenpassen.",
+        eyebrow: "Kurz zusammengefasst",
+        heading: "Meisterbetrieb mit klarer Beratung, kurzen Wegen und echter Erfahrung auf dem Dach.",
         items: [
           {
             value: "1919",
             label: "Tradition im Handwerk",
-            description: "Langfristig gewachsenes Wissen fuer Altbau, Sanierung und Neubau.",
+            description: "Seit über hundert Jahren als Dachdeckerbetrieb in Bamberg verwurzelt.",
           },
           {
-            value: "1",
-            label: "Team fuer Dach und Blech",
-            description: "Kurze Wege, klare Verantwortungen und keine Reibungsverluste.",
+            value: "96049",
+            label: "Mitten in Bamberg",
+            description: "Blumenstraße 3 als fester Standort für Beratung und Projektabstimmung.",
           },
           {
-            value: "100%",
-            label: "Saubere Abwicklung",
-            description: "Von der Besichtigung bis zur finalen Abstimmung mit Blick aufs Ganze.",
+            value: "7+",
+            label: "Leistungsbereiche",
+            description: "Von Dachsanierung über Blecharbeiten bis hin zu Dachfenstern und Reparaturen.",
           },
         ],
       },
       {
         blockType: "serviceGrid",
         eyebrow: "Leistungen",
-        heading: "Alles, was das Dach langfristig dicht, robust und wertig haelt.",
+        heading: "Unsere Leistungen rund ums Dach im Überblick.",
         description:
-          "Wir decken klassische Dachdeckerleistungen genauso ab wie Details, bei denen Erfahrung und Sorgfalt den Unterschied machen.",
+          "Ziegel-, Schiefer- und Blecharbeiten in allen Bereichen, sauber strukturiert und als eigene Leistungsbausteine dargestellt.",
         items: [
+          {
+            title: "Neubauten",
+            description:
+              "Komplette Dacharbeiten für neue Gebäude mit sauberem Aufbau, klarer Abstimmung und fachgerechter Ausführung.",
+            bullets: ["neue Dachaufbauten", "Anschlüsse", "saubere Ausführung"],
+          },
           {
             title: "Dachsanierung",
             description:
-              "Behutsame Sanierungen im Bestand mit einem Blick fuer Substanz, Anschluesse und langlebige Loesungen.",
-            bullets: ["Steildach", "Flachdach", "Wartung und Reparatur"],
+              "Sanierungen im Bestand mit Blick auf Substanz, Details und eine langfristig passende Lösung für Ihr Dach.",
+            bullets: ["Bestand", "Substanzprüfung", "Anschlussdetails"],
           },
           {
-            title: "Spenglerarbeiten",
+            title: "Arbeiten im Denkmalbereich",
             description:
-              "Praezise Blechanschluesse, Verkleidungen und Entwaesserungsdetails fuer ein stimmiges Gesamtbild.",
-            bullets: ["Rinnen", "Gauben", "Verwahrungen"],
+              "Sorgfältige Arbeiten an sensiblen Bestandsgebäuden mit Respekt vor Material, Bestand und handwerklichem Detail.",
+            bullets: ["Bestandsgebäude", "Detailtreue", "sensible Ausführung"],
           },
           {
-            title: "Dachfenster und Belichtung",
+            title: "Wärmedämmarbeiten",
             description:
-              "Mehr Licht, bessere Nutzbarkeit und fachgerechte Integration in bestehende Dachaufbauten.",
-            bullets: ["Einbau", "Austausch", "Innenanschluesse"],
+              "Wärmedämmarbeiten nach Energieeinsparverordnung für mehr Effizienz, besseren Wohnkomfort und einen stimmigen Dachaufbau.",
+            bullets: ["Energieeinsparverordnung", "Dämmaufbau", "Effizienz"],
           },
           {
-            title: "Abdichtung und Schutz",
+            title: "Asbestentsorgung",
             description:
-              "Loesungen fuer Anschluesse, Durchdringungen und sensible Bereiche mit hoher Beanspruchung.",
-            bullets: ["Abdichtungen", "Anschluesse", "Details"],
+              "Fachgerechte Entsorgung im Rahmen von Dacharbeiten mit klarem Ablauf und dem nötigen Verantwortungsbewusstsein.",
+            bullets: ["fachgerecht", "sicher", "sauber koordiniert"],
+          },
+          {
+            title: "Reparaturarbeiten",
+            description:
+              "Schnelle, pragmatische Hilfe bei Schäden, undichten Stellen oder einzelnen defekten Bauteilen.",
+            bullets: ["Schadstellen", "kurzfristige Hilfe", "gezielte Maßnahmen"],
+          },
+          {
+            title: "Dachfenstereinbau",
+            description:
+              "Mehr Licht und bessere Nutzung unterm Dach durch fachgerechten Einbau und Austausch.",
+            bullets: ["Einbau", "Austausch", "mehr Tageslicht"],
+          },
+          {
+            title: "Ziegel-, Schiefer- und Blecharbeiten",
+            description:
+              "Handwerklich saubere Arbeiten in allen Bereichen des Dachs, abgestimmt auf Bestand, Material und Nutzung.",
+            bullets: ["Ziegel", "Schiefer", "Blech"],
           },
         ],
       },
       {
         blockType: "process",
-        eyebrow: "Ablauf",
-        heading: "So fuehren wir Projekte ohne unnötiges Hin und Her.",
+        eyebrow: "Unser Prozess",
+        heading: "Von der ersten Beratung bis zur fertigen Ausführung begleiten wir Sie zuverlässig durch jeden Schritt.",
         description:
-          "Ein fester Ablauf sorgt dafuer, dass Termine, Material und Ausfuehrung zusammenlaufen.",
+          "Kein unnötiges Theater, sondern ein klarer Ablauf mit persönlicher Abstimmung und einem festen Ansprechpartner.",
         steps: [
           {
-            title: "Vor-Ort-Termin",
+            title: "Unverbindliches Beratungsgespräch",
             description:
-              "Wir schauen uns Dach, Bestand und Anforderungen direkt an und besprechen die sinnvollen Optionen.",
+              "Sie schildern uns, worum es geht. Wir hören zu, stellen die richtigen Fragen und geben eine erste ehrliche Einschätzung.",
           },
           {
-            title: "Klare Empfehlung",
+            title: "Besichtigung und Aufmaß",
             description:
-              "Sie bekommen eine nachvollziehbare Einschätzung, welche Loesung technisch und wirtschaftlich passt.",
+              "Vor Ort prüfen wir Dach, Bestand und Gegebenheiten, damit das Angebot nicht nur schön klingt, sondern auch passt.",
           },
           {
-            title: "Saubere Umsetzung",
+            title: "Transparentes Angebot",
             description:
-              "Auf der Baustelle arbeiten wir strukturiert, abgestimmt und mit Blick auf Details und Anschluesse.",
+              "Sie erhalten eine nachvollziehbare Empfehlung ohne versteckte Punkte – verständlich, verbindlich und sauber gegliedert.",
           },
           {
-            title: "Abschluss und Betreuung",
+            title: "Ausführung und Abstimmung",
             description:
-              "Zum Projektende gehen wir alles gemeinsam durch und bleiben auch fuer Wartung und Nachfragen greifbar.",
+              "Auf der Baustelle arbeiten wir strukturiert, halten Sie auf dem Laufenden und achten besonders auf Details und Anschlüsse.",
           },
         ],
       },
       {
         blockType: "textColumns",
-        eyebrow: "Warum Grimm & Lechner",
-        heading: "Handwerklich solide, im Umgang angenehm und auf der Baustelle verlässlich.",
+        eyebrow: "Über uns",
+        heading: "Was Grimm & Lechner für Bauherren und Eigentümer in Bamberg auszeichnet.",
         description:
-          "Uns geht es nicht um laute Selbstdarstellung, sondern um Arbeit, die man Jahre spaeter noch gut findet.",
+          "Wir verbinden Erfahrung aus dem klassischen Dachdeckerhandwerk mit einer ruhigen, direkten Art der Projektabwicklung.",
         columns: [
           {
-            title: "Bestand mit Respekt behandeln",
+            title: "Beratung auf Augenhöhe",
             body:
-              "Gerade bei aelteren Gebaeuden kommt es darauf an, vorhandene Substanz zu verstehen und nur dort einzugreifen, wo es wirklich sinnvoll ist.",
+              "Wir erklären verständlich, welche Lösung sinnvoll ist, welche nicht – und warum. Das spart Missverständnisse und unnötige Maßnahmen.",
           },
           {
-            title: "Details ernst nehmen",
+            title: "Saubere Ausführung",
             body:
-              "Viele Probleme entstehen nicht in der Flaeche, sondern an Uebergaengen. Genau dort investieren wir viel Aufmerksamkeit.",
+              "Ob Reparatur, Sanierung oder Blecharbeit: Gerade die Details an Anschlüssen und Übergängen entscheiden über die Qualität.",
           },
           {
-            title: "Verstaendlich beraten",
+            title: "Verlässlich erreichbar",
             body:
-              "Sie bekommen keine unnötig komplizierten Erklaerungen, sondern eine klare Einschaetzung, mit der man Entscheidungen treffen kann.",
+              "Vom ersten Termin bis zur Abstimmung nach der Ausführung bleiben wir greifbar und kümmern uns um einen klaren Ablauf.",
           },
         ],
       },
       {
         blockType: "faq",
-        eyebrow: "Haeufige Fragen",
-        heading: "Was Bauherren und Eigentuemer vorab oft wissen wollen.",
+        eyebrow: "Häufige Fragen",
+        heading: "Das Wichtigste rund ums Dach kurz und verständlich erklärt.",
+        description:
+          "Viele Fragen bekommen wir vor dem ersten Termin immer wieder gestellt. Hier sind die wichtigsten Antworten vorab.",
         items: [
           {
-            question: "Welche Projekte uebernehmt ihr?",
+            question: "Kostet die Besichtigung und das Angebot etwas?",
             answer:
-              "Wir arbeiten an Sanierungen, Reparaturen und Neubauprojekten rund um Dach, Blech und angrenzende Details.",
+              "Die erste Beratung vor Ort und ein unverbindliches Angebot sind in der Regel kostenfrei. Wenn für eine saubere Einschätzung zusätzlicher Aufwand nötig ist, sprechen wir das vorher offen mit Ihnen ab.",
           },
           {
-            question: "Ist auch ein Austausch einzelner Bauteile moeglich?",
+            question: "Wie schnell liegt ein Angebot normalerweise vor?",
             answer:
-              "Ja. Nicht jedes Projekt braucht sofort eine Komplettsanierung. Oft sind gezielte Massnahmen die bessere Loesung.",
+              "Das hängt vom Umfang des Projekts ab. Für kleinere Arbeiten geht es oft recht zügig, bei umfangreicheren Sanierungen brauchen wir etwas mehr Zeit, damit das Angebot nicht nur schnell, sondern auch belastbar ist.",
           },
           {
-            question: "Arbeitet ihr nur in Bamberg?",
+            question: "Wann können Dacharbeiten nach der Beauftragung starten?",
             answer:
-              "Unser Schwerpunkt liegt in Bamberg und Umgebung. Bei passenden Projekten pruefen wir den Radius gern individuell.",
+              "Der Starttermin richtet sich nach Auftragslage, Material und Jahreszeit. Wir nennen Ihnen nach der Besichtigung eine realistische Einschätzung und halten den Ablauf so planbar wie möglich.",
+          },
+          {
+            question: "Kann auch im Winter am Dach gearbeitet werden?",
+            answer:
+              "Ja, viele Arbeiten sind auch in der kühleren Jahreszeit möglich. Entscheidend sind Witterung, Sicherheit und die Art des Dachs. Wenn Bedingungen gegen eine saubere Ausführung sprechen, sagen wir das klar.",
+          },
+          {
+            question: "Wie schnell helfen Sie bei einem akuten Schaden?",
+            answer:
+              "Bei undichten Stellen oder Sturmschäden versuchen wir so schnell wie möglich zu reagieren. Wie kurzfristig das geht, hängt immer von der aktuellen Situation ab, aber dringende Fälle priorisieren wir selbstverständlich.",
+          },
+          {
+            question: "Übernehmen Sie auch kleinere Reparaturen?",
+            answer:
+              "Ja, selbstverständlich. Nicht jedes Dach braucht sofort eine große Sanierung. Wir kümmern uns auch um kleinere Schäden und sagen ehrlich, ob eine Reparatur ausreicht oder mehr nötig ist.",
+          },
+          {
+            question: "Mit welchen Materialien arbeiten Sie?",
+            answer:
+              "Wir setzen auf bewährte und passende Materialien für das jeweilige Dach. Dazu gehören je nach Projekt zum Beispiel Ziegel, Schiefer, Blech, Dämmstoffe und Komponenten namhafter Hersteller.",
+          },
+          {
+            question: "Wie lange dauert eine Dachsanierung oder Neueindeckung?",
+            answer:
+              "Das lässt sich erst nach Besichtigung seriös einordnen. Größe, Dachform, Detailanschlüsse und Witterung spielen eine große Rolle. Wir geben Ihnen vorab einen realistischen Zeitrahmen statt eines pauschalen Versprechens.",
           },
         ],
       },
       {
         blockType: "cta",
-        eyebrow: "Naechster Schritt",
-        heading: "Wenn Sie ein Dachprojekt im Blick haben, schauen wir gemeinsam drauf.",
+        eyebrow: "Nächster Schritt",
+        heading: "Wenn Sie ein Dachprojekt planen, schauen wir gemeinsam drauf.",
         description:
-          "Ein erstes Gespraech reicht oft schon, um die naechsten sinnvollen Schritte einzuordnen.",
+          "Ein kurzes Gespräch reicht oft schon, um die nächsten sinnvollen Schritte einzuordnen und das Projekt sauber anzustoßen.",
         primaryCta: {
-          label: "Kontakt aufnehmen",
-          href: "/kontakt",
+          label: "Jetzt Anfrage starten",
+          href: "/#kontaktformular",
         },
         secondaryCta: {
-          label: "Referenzen ansehen",
-          href: "/referenzen",
+          label: "Kontaktseite öffnen",
+          href: "/kontakt",
         },
       },
     ],
   },
   kontakt: {
     slug: "kontakt",
-    title: "Kontakt zu Grimm & Lechner",
+    title: "Kontakt | Grimm & Lechner",
     metaDescription:
-      "Kontaktieren Sie Grimm & Lechner fuer Dachsanierung, Blecharbeiten und Wartung in Bamberg und Umgebung.",
+      "Kontaktieren Sie Grimm & Lechner in Bamberg für Dachsanierung, Blecharbeiten, Dachfenster und Reparaturen.",
     hero: {
       eyebrow: "Kontakt",
       title: "Kurze Wege, klare Antworten und ein Termin, der wirklich weiterhilft.",
       description:
-        "Erzaehlen Sie uns kurz, worum es geht. Wir melden uns mit einer realistischen Einschaetzung und dem passenden naechsten Schritt.",
+        "Erzählen Sie uns kurz, worum es geht. Wir melden uns mit einer realistischen Einschätzung und dem passenden nächsten Schritt.",
       primaryCta: {
         label: "Anfrage senden",
         href: "#anfrage",
       },
       secondaryCta: {
-        label: "Telefonisch melden",
-        href: "tel:0951123456",
+        label: "Direkt anrufen",
+        href: "tel:095162840",
       },
     },
     sections: [
@@ -216,51 +268,51 @@ export const fallbackPages: Record<string, PageContent> = {
         items: [
           {
             title: "Anrufen",
-            body: "Wenn es schnell gehen soll oder Sie das Projekt direkt besprechen moechten.",
-            label: "0951 123456",
-            href: "tel:0951123456",
+            body: "Für schnelle Rückfragen oder eine direkte Terminabstimmung.",
+            label: "0951 62840",
+            href: "tel:095162840",
             icon: "phone",
           },
           {
             title: "E-Mail",
-            body: "Praktisch fuer erste Unterlagen, Fotos oder eine kurze Projektbeschreibung.",
-            label: "info@grimmundlechner.de",
-            href: "mailto:info@grimmundlechner.de",
+            body: "Praktisch für Fotos, Unterlagen oder eine kurze Projektbeschreibung.",
+            label: "grimmundlechner@t-online.de",
+            href: "mailto:grimmundlechner@t-online.de",
             icon: "mail",
           },
           {
-            title: "Einsatzgebiet",
-            body: "Bamberg und Umgebung mit Fokus auf private und gewerbliche Dachprojekte.",
-            label: "Region Bamberg",
+            title: "Adresse",
+            body: "Grimm & Lechner, Blumenstraße 3, 96049 Bamberg.",
+            label: "Blumenstraße 3",
             icon: "map",
           },
           {
-            title: "Terminabstimmung",
-            body: "Besichtigungen und Abstimmungen nach Vereinbarung.",
-            label: "Flexible Termine",
+            title: "Termine",
+            body: "Beratung und unverbindliche Angebote sind selbstverständlich kostenlos.",
+            label: "Nach Vereinbarung",
             icon: "clock",
           },
         ],
       },
       {
         blockType: "textColumns",
-        eyebrow: "Vorbereitung",
-        heading: "Damit wir Ihre Anfrage schnell einordnen koennen.",
+        eyebrow: "Gut vorbereitet",
+        heading: "Was uns bei der ersten Einschätzung hilft.",
         columns: [
           {
-            title: "Projektart",
+            title: "Art des Projekts",
             body:
-              "Ob Sanierung, Wartung, Blechdetail oder Dachfenster: eine kurze Einordnung hilft uns bei der Vorbereitung.",
+              "Zum Beispiel Reparatur, Dachsanierung, Wärmedämmung, Blecharbeiten oder Dachfenster.",
           },
           {
-            title: "Objekt und Ort",
+            title: "Ort und Objekt",
             body:
-              "Ein Satz zum Gebaeude und die Lage reichen fuer den ersten Abgleich oft schon aus.",
+              "Ein kurzer Hinweis zu Gebäudeart, Standort und der aktuellen Situation hilft uns bei der Einordnung.",
           },
           {
             title: "Dringlichkeit",
             body:
-              "Wenn es um akute Schaeden oder einen engen Bauzeitenplan geht, sagen Sie es direkt dazu.",
+              "Wenn es schnell gehen muss oder bereits ein Schaden vorhanden ist, sagen Sie das direkt dazu.",
           },
         ],
       },
@@ -268,167 +320,133 @@ export const fallbackPages: Record<string, PageContent> = {
   },
   karriere: {
     slug: "karriere",
-    title: "Karriere bei Grimm & Lechner",
+    title: "Karriere | Grimm & Lechner",
     metaDescription:
-      "Arbeiten bei Grimm & Lechner: Dachdeckerhandwerk mit Haltung, Struktur und echten Perspektiven im Raum Bamberg.",
+      "Karriere bei Grimm & Lechner: motivierte Dachdeckerhelfer, Quereinsteiger und Dachdeckergesellen gesucht.",
     hero: {
       eyebrow: "Karriere",
-      title: "Gute Arbeit braucht ein Team, das sich aufeinander verlassen kann.",
+      title: "Wir suchen Verstärkung für unser Team in Bamberg.",
       description:
-        "Wir suchen Menschen, die Lust auf solides Handwerk, saubere Baustellen und eine Mannschaft mit ruhigem, direktem Umgang haben.",
+        "Gesucht werden motivierte Dachdeckerhelfer, gerne auch Quereinsteiger und Dachdeckergesellen – ab sofort und mit übertariflicher Bezahlung.",
       primaryCta: {
         label: "Jetzt bewerben",
         href: "#bewerbung",
       },
       secondaryCta: {
-        label: "Kontakt",
-        href: "/kontakt",
+        label: "Per E-Mail melden",
+        href: "mailto:grimmundlechner@t-online.de",
       },
     },
     sections: [
       {
         blockType: "jobHighlights",
-        eyebrow: "Das erwartet dich",
-        heading: "Ein Umfeld, in dem man konzentriert arbeiten und sich entwickeln kann.",
+        eyebrow: "Was Sie erwartet",
+        heading: "Ein Team, das Handwerk ernst nimmt und direkt miteinander arbeitet.",
         description:
-          "Wir wollen kein aufgesetztes Employer Branding, sondern Bedingungen, unter denen man seinen Job gerne macht.",
+          "Wir suchen keine große Selbstdarstellung, sondern Leute, die anpacken wollen und sich aufeinander verlassen können.",
         items: [
-          "Verlaessliche Absprachen und ein direkter Draht auf der Baustelle.",
-          "Abwechslungsreiche Projekte zwischen Sanierung, Detailarbeit und klassischem Dachhandwerk.",
-          "Ein Team, das Erfahrung teilt und neue Kolleginnen und Kollegen wirklich aufnimmt.",
-          "Ein Betrieb mit Geschichte, der trotzdem nach vorn denkt.",
+          "Übertarifliche Bezahlung und ein ehrlicher Umgang im Alltag.",
+          "Einstieg auch für motivierte Quereinsteiger möglich.",
+          "Abwechslungsreiche Arbeiten von Reparaturen bis zu kompletten Dachsanierungen.",
+          "Ein Meisterbetrieb mit Geschichte und einem festen Platz in Bamberg.",
         ],
         note:
-          "Wenn du handwerklich sauber arbeitest, mitdenken willst und keine Lust auf Theater hast, sollten wir reden.",
+          "Wenn Sie Interesse haben, reicht eine kurze Nachricht oder ein Anruf. Den Rest besprechen wir unkompliziert.",
       },
       {
         blockType: "textColumns",
         eyebrow: "Wen wir suchen",
-        heading: "Wichtig ist weniger die grosse Pose als die richtige Haltung zur Arbeit.",
+        heading: "Wichtig sind Haltung, Zuverlässigkeit und Lust auf gutes Handwerk.",
         columns: [
           {
-            title: "Fachlich",
+            title: "Dachdeckerhelfer",
             body:
-              "Ob mit Erfahrung im Dachdeckerhandwerk oder mit ehrlichem Interesse am Einstieg: handwerkliches Verstaendnis ist uns wichtig.",
+              "Wer handwerklich zupacken kann und sich in ein eingespieltes Team einbringen möchte, ist bei uns willkommen.",
           },
           {
-            title: "Im Team",
+            title: "Quereinsteiger",
             body:
-              "Wir suchen Leute, die verbindlich sind, mitdenken und auf der Baustelle klar miteinander umgehen.",
+              "Auch ohne klassischen Dachdecker-Lebenslauf ist ein Einstieg möglich, wenn Motivation und Verlässlichkeit stimmen.",
           },
           {
-            title: "In der Entwicklung",
+            title: "Dachdeckergesellen",
             body:
-              "Wer Verantwortung uebernehmen will, soll bei uns nicht auf der Stelle treten muessen.",
+              "Fachliche Erfahrung ist natürlich willkommen – besonders dann, wenn Sie sauber arbeiten und Verantwortung übernehmen möchten.",
           },
         ],
       },
       {
         blockType: "cta",
         eyebrow: "Unkompliziert",
-        heading: "Kein grosses Bewerbungsritual. Lieber ein ehrliches Gespraech.",
+        heading: "Kurz melden, vorstellen und ins Gespräch kommen.",
         description:
-          "Schreib uns kurz, wer du bist, was du machst und was du suchst. Den Rest klaeren wir gemeinsam.",
+          "Schreiben Sie uns einfach an grimmundlechner@t-online.de oder nutzen Sie das Formular auf dieser Seite.",
         primaryCta: {
           label: "Zur Bewerbung",
           href: "#bewerbung",
         },
         secondaryCta: {
-          label: "Anrufen",
-          href: "tel:0951123456",
+          label: "Jetzt anrufen",
+          href: "tel:095162840",
         },
       },
     ],
   },
   referenzen: {
     slug: "referenzen",
-    title: "Referenzen und Projektbeispiele",
+    title: "Referenzen | Grimm & Lechner",
     metaDescription:
-      "Einblicke in Projektbeispiele von Grimm & Lechner rund um Dachsanierung, Blechdetails und Dachfenster.",
+      "Projektbeispiele von Grimm & Lechner rund um Dachsanierung, Blecharbeiten, Dachfenster und Reparaturen.",
     hero: {
       eyebrow: "Referenzen",
-      title: "Ein Querschnitt durch Arbeiten, bei denen Ausfuehrung und Details im Mittelpunkt stehen.",
+      title: "Projektbeispiele aus dem Dachdeckeralltag in Bamberg und Umgebung",
       description:
-        "Unsere Galerie zeigt typische Themenfelder und Projektcharaktere, an denen man unsere Art zu arbeiten gut ablesen kann.",
+        "Dieser Inhalt ist in der aktuellen Struktur als Abschnitt auf der Startseite gedacht und dort per Hash-Navigation erreichbar.",
       primaryCta: {
-        label: "Projekt besprechen",
-        href: "/kontakt",
+        label: "Zur Startseite",
+        href: "/#referenzen",
       },
       secondaryCta: {
-        label: "Karriere",
-        href: "/karriere",
+        label: "Kontakt aufnehmen",
+        href: "/kontakt",
       },
     },
-    sections: [
-      {
-        blockType: "textColumns",
-        eyebrow: "Was wir zeigen",
-        heading: "Nicht jede gute Arbeit muss laut sein. Aber man sollte sie ansehen koennen.",
-        columns: [
-          {
-            title: "Sanierung",
-            body:
-              "Massnahmen im Bestand, bei denen Material, Anschlussdetails und bauphysikalische Fragen sauber ineinandergreifen muessen.",
-          },
-          {
-            title: "Neubau und Ergaenzung",
-            body:
-              "Projekte, bei denen Dachflaechen, Dachfenster und Blechanschluesse als stimmige Einheit gedacht werden.",
-          },
-          {
-            title: "Detailarbeit",
-            body:
-              "Gerade an Gauben, Rinnen und Uebergaengen zeigt sich, wie sorgfaeltig ein Dach wirklich umgesetzt wurde.",
-          },
-        ],
-      },
-    ],
+    sections: [],
   },
 };
 
 export const fallbackGalleryProjects: GalleryProject[] = [
   {
-    slug: "sanierung-bestandsdach",
-    title: "Sanierung im Bestandsdach",
+    slug: "dachsanierung-bestand",
+    title: "Dachsanierung im Bestand",
     serviceType: "Dachsanierung",
     summary:
-      "Neuaufbau einer belasteten Dachflaeche mit sauber gefuehrten Anschluessen und einer robusten Detailausbildung.",
-    location: "Raum Bamberg",
+      "Neuaufbau einer belasteten Dachfläche mit sauber geführten Anschlüssen und einer dauerhaft stimmigen Lösung im Bestand.",
+    location: "Bamberg",
     completionYear: 2025,
-    result: "Neuer Dachaufbau mit klarer Entwaesserung",
-    tags: ["Bestand", "Steildach", "Anschlussdetails"],
+    result: "Substanz gesichert und Dachaufbau neu geordnet",
+    tags: ["Bestand", "Steildach", "Anschlüsse"],
   },
   {
-    slug: "dachfenster-und-blech",
-    title: "Dachfenster mit Blechintegration",
+    slug: "blecharbeiten-und-gaube",
+    title: "Blecharbeiten an Gaube und Rinne",
+    serviceType: "Blecharbeiten",
+    summary:
+      "Präzise Detailarbeit an Übergängen und Anschlüssen, damit das Dach technisch sauber und optisch ruhig bleibt.",
+    location: "Umgebung Bamberg",
+    completionYear: 2024,
+    result: "Saubere Verwahrungen und langlebige Details",
+    tags: ["Gaube", "Rinne", "Detailarbeit"],
+  },
+  {
+    slug: "dachfenster-mit-daemmung",
+    title: "Dachfenster mit ergänzender Dämmung",
     serviceType: "Dachfenster",
     summary:
-      "Einbau neuer Belichtungselemente mit abgestimmten Blechanschluessen und durchdachter Einbindung in die Dachflaeche.",
-    location: "Metropolregion",
-    completionYear: 2024,
-    result: "Mehr Licht und saubere Anschlusspunkte",
-    tags: ["Belichtung", "Blech", "Bestand"],
-  },
-  {
-    slug: "gauben-und-rinnendetails",
-    title: "Gauben- und Rinnendetails",
-    serviceType: "Spenglerarbeiten",
-    summary:
-      "Praezise Blechfuehrung an sensiblen Uebergaengen fuer dauerhaft belastbare und optisch ruhige Details.",
+      "Mehr Licht unterm Dach mit fachgerechter Integration in den vorhandenen Aufbau und abgestimmter Wärmedämmung.",
     location: "Oberfranken",
-    completionYear: 2023,
-    result: "Langlebige Blechdetails ohne Kompromisse",
-    tags: ["Gaube", "Rinne", "Verwahrung"],
-  },
-  {
-    slug: "wartung-und-reparatur",
-    title: "Wartung und gezielte Reparatur",
-    serviceType: "Instandhaltung",
-    summary:
-      "Nicht jede Aufgabe braucht die grosse Loesung. Hier stand eine schnelle, saubere Schadensbehebung im Vordergrund.",
-    location: "Bamberg",
     completionYear: 2026,
-    result: "Substanz gesichert und Folgeschaeden vermieden",
-    tags: ["Wartung", "Reparatur", "Schnelle Hilfe"],
+    result: "Mehr Tageslicht und bessere Nutzbarkeit",
+    tags: ["Dachfenster", "Dämmung", "Sanierung"],
   },
 ];

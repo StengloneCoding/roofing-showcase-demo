@@ -10,7 +10,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Kontakt | Grimm & Lechner",
   description:
-    "Kontakt zu Grimm & Lechner fuer Dachsanierung, Blecharbeiten und Wartung in Bamberg und Umgebung.",
+    "Kontakt zu Grimm & Lechner für Dachsanierung, Blecharbeiten und Wartung in Bamberg und Umgebung.",
 };
 
 export default async function ContactPage() {
@@ -21,19 +21,21 @@ export default async function ContactPage() {
 
   return (
     <>
-      <PageHero hero={page.hero} siteSettings={siteSettings} />
+      <PageHero compact hero={page.hero} pageSlug="kontakt" siteSettings={siteSettings} />
       {page.sections.map((section, index) => (
         <RenderSection key={`${section.blockType}-${index}`} section={section} />
       ))}
       <InquiryForm
+        id="anfrage"
         sourcePage="anfrage"
         submitLabel="Anfrage absenden"
         title="Projekt oder Frage kurz schildern"
         interestOptions={[
           "Dachsanierung",
-          "Spenglerarbeiten",
+          "Blecharbeiten",
           "Dachfenster",
-          "Wartung / Reparatur",
+          "Wärmedämmung",
+          "Reparatur",
           "Allgemeine Anfrage",
         ]}
       />

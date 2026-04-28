@@ -2,57 +2,82 @@ import Image from "next/image";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 
-import type { SiteSettingsContent } from "@/lib/content";
+import type { LinkItem, SiteSettingsContent } from "@/lib/content";
 import { ButtonLink } from "@/components/ui/button-link";
 
 type SiteHeaderProps = {
   siteSettings: SiteSettingsContent;
 };
 
+const buildNavigation = (navigation: LinkItem[]) => [
+  { href: "/", label: "Startseite" },
+  ...navigation,
+];
+
 export function SiteHeader({ siteSettings }: SiteHeaderProps) {
+  const navigation = buildNavigation(siteSettings.navigation);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-[color:var(--color-border)] bg-white/92 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="relative h-12 w-[84px] overflow-hidden rounded-xl bg-white ring-1 ring-black/5">
+    <header className="sticky top-0 z-50 border-b border-[color:var(--color-border)] bg-white/96 backdrop-blur-md">
+      <div className="grid w-full grid-cols-[auto_1fr] items-center gap-6 px-3 py-5 sm:px-5 lg:grid-cols-[auto_1fr_auto] lg:px-8 xl:px-12 2xl:px-16">
+        <Link href="/" className="flex min-w-0 items-center">
+          <div className="relative h-14 w-[150px] shrink-0 sm:h-16 sm:w-[188px]">
             <Image
               src="/logo.webp"
               alt={siteSettings.companyName}
               fill
-              className="object-contain"
-              sizes="84px"
+              className="object-contain object-left"
+              sizes="(max-width: 640px) 150px, 188px"
               priority
             />
           </div>
-          <div className="hidden min-[980px]:block">
-            <p className="text-base font-semibold text-[color:var(--color-foreground)]">
-              {siteSettings.companyName}
-            </p>
-            <p className="text-sm text-[color:var(--color-muted)]">{siteSettings.tagline}</p>
-          </div>
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm font-medium text-[color:var(--color-foreground)] md:flex">
-          {siteSettings.navigation.map((item) => (
+        <nav className="hidden items-center justify-center gap-8 lg:flex">
+          {navigation.map((item, index) => (
             <Link
-              key={item.href}
+              key={`${item.href}-${item.label}`}
               href={item.href}
-              className="transition hover:text-[color:var(--color-primary)]"
+              className={`text-[15px] font-semibold transition ${
+                index === 0
+                  ? "text-[color:var(--color-primary)]"
+                  : "text-[color:var(--color-foreground)] hover:text-[color:var(--color-primary)]"
+              }`}
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-4 lg:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <a
             href={`tel:${siteSettings.phone.replace(/\s+/g, "")}`}
-            className="inline-flex items-center gap-2 text-sm font-medium text-[color:var(--color-foreground)]"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-foreground)]"
           >
             <Phone className="h-4 w-4 text-[color:var(--color-primary)]" />
             {siteSettings.phone}
           </a>
-          <ButtonLink href="/#kontaktformular">Projekt anfragen</ButtonLink>
+          <ButtonLink href="/#kontaktformular" className="px-4">
+            Projekt anfragen
+          </ButtonLink>
+        </div>
+      </div>
+
+      <div className="border-t border-[color:var(--color-border)] lg:hidden">
+        <div className="flex w-full items-center gap-5 overflow-x-auto px-3 py-3 text-sm font-semibold text-[color:var(--color-foreground)] sm:px-5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {navigation.map((item, index) => (
+            <Link
+              key={`${item.href}-${item.label}-mobile`}
+              href={item.href}
+              className={`shrink-0 transition ${
+                index === 0
+                  ? "text-[color:var(--color-primary)]"
+                  : "hover:text-[color:var(--color-primary)]"
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
       </div>
     </header>

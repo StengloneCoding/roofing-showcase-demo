@@ -1,6 +1,14 @@
 import type { ServiceItem } from "@/lib/content";
 
 import { SectionHeading } from "@/components/sections/section-heading";
+import { ButtonLink } from "@/components/ui/button-link";
+import { SectionShell } from "@/components/ui/section-shell";
+
+const cardAccents = [
+  "from-slate-900 via-slate-700 to-slate-500",
+  "from-zinc-900 via-zinc-700 to-zinc-500",
+  "from-stone-900 via-stone-700 to-stone-500",
+];
 
 type ServiceGridSectionProps = {
   description?: string;
@@ -16,38 +24,45 @@ export function ServiceGridSection({
   items,
 }: ServiceGridSectionProps) {
   return (
-    <section id="leistungen" className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <SectionHeading eyebrow={eyebrow} heading={heading} description={description} />
-      <div className="mt-10 grid gap-6 lg:grid-cols-2">
-        {items.map((item) => (
+    <SectionShell id="leistungen">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <SectionHeading eyebrow={eyebrow} heading={heading} description={description} />
+        <ButtonLink href="/#kontaktformular">Alle Leistungen anfragen</ButtonLink>
+      </div>
+
+      <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {items.map((item, index) => (
           <article
             key={item.title}
-            className="rounded-[1.75rem] border border-black/8 bg-white/82 p-6 shadow-[0_18px_50px_rgba(40,26,18,0.08)]"
+            className="overflow-hidden rounded-[28px] bg-[color:var(--color-surface)] shadow-[0_20px_45px_rgba(23,23,23,0.07)]"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[color:var(--color-brand)]">
-              Leistung
-            </p>
-            <h3 className="mt-4 font-display text-3xl uppercase tracking-[0.06em] text-[color:var(--color-ink)]">
-              {item.title}
-            </h3>
-            <p className="mt-4 text-base leading-8 text-[color:var(--color-muted)]">
-              {item.description}
-            </p>
-            {item.bullets?.length ? (
-              <ul className="mt-5 flex flex-wrap gap-3 text-sm font-medium text-[color:var(--color-ink)]">
-                {item.bullets.map((bullet) => (
-                  <li
-                    key={bullet}
-                    className="rounded-full bg-[color:var(--color-background-soft)] px-4 py-2"
-                  >
-                    {bullet}
-                  </li>
-                ))}
-              </ul>
-            ) : null}
+            <div
+              className={`flex min-h-48 items-end bg-gradient-to-br ${cardAccents[index % cardAccents.length]} p-6 text-white`}
+            >
+              <div>
+                <p className="text-sm text-white/72">Leistung</p>
+                <h3 className="mt-2 text-3xl font-semibold tracking-tight">{item.title}</h3>
+              </div>
+            </div>
+
+            <div className="space-y-5 p-6">
+              <p className="text-base leading-7 text-[color:var(--color-muted)]">{item.description}</p>
+              {item.bullets?.length ? (
+                <ul className="flex flex-wrap gap-2 text-sm font-medium text-[color:var(--color-foreground)]">
+                  {item.bullets.map((bullet) => (
+                    <li
+                      key={bullet}
+                      className="rounded-full bg-[color:var(--color-surface-muted)] px-3 py-1.5"
+                    >
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
           </article>
         ))}
       </div>
-    </section>
+    </SectionShell>
   );
 }

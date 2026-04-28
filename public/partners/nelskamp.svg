@@ -1,0 +1,6 @@
+<svg width="220" height="88" viewBox="0 0 220 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="88" rx="18" fill="#ffffff"/>
+  <rect x="26" y="24" width="168" height="40" rx="5" fill="#D61F26"/>
+  <path d="M42 52V36L58 52V36" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="128" y="50" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="1" fill="#ffffff">NELSKAMP</text>
+</svg>

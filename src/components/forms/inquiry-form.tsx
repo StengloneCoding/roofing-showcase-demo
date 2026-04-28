@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 
 type InquiryFormProps = {
+  id: string;
   interestOptions: string[];
   sourcePage: string;
   submitLabel: string;
@@ -15,6 +16,7 @@ type StatusState = {
 };
 
 export function InquiryForm({
+  id,
   interestOptions,
   sourcePage,
   submitLabel,
@@ -24,17 +26,17 @@ export function InquiryForm({
   const [isPending, startTransition] = useTransition();
 
   return (
-    <section id={sourcePage} className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="grid gap-8 rounded-[2rem] border border-black/8 bg-white/88 px-6 py-10 shadow-[0_20px_55px_rgba(40,26,18,0.08)] lg:grid-cols-[0.75fr_1.25fr] sm:px-10">
+    <section id={id} className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="grid gap-8 rounded-[36px] bg-white px-6 py-10 shadow-[0_20px_55px_rgba(23,23,23,0.08)] lg:grid-cols-[0.75fr_1.25fr] sm:px-10">
         <div className="space-y-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[color:var(--color-brand)]">
+          <p className="text-sm font-medium text-[color:var(--color-primary)]">
             Anfrageformular
           </p>
-          <h2 className="font-display text-4xl uppercase leading-none tracking-[0.06em] text-[color:var(--color-ink)] sm:text-5xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-[color:var(--color-foreground)] sm:text-4xl">
             {title}
           </h2>
-          <p className="text-base leading-8 text-[color:var(--color-muted)]">
-            Das Formular legt neue Eintraege direkt in der Payload-Collection `inquiries` an.
+          <p className="text-base leading-7 text-[color:var(--color-muted)]">
+            Das Formular landet direkt in Payload und ist damit sofort in eurem CMS weiterbearbeitbar.
           </p>
         </div>
 
@@ -76,7 +78,7 @@ export function InquiryForm({
               form.reset();
               setStatus({
                 kind: "success",
-                message: "Vielen Dank. Ihre Anfrage wurde erfolgreich uebermittelt.",
+                message: "Vielen Dank. Ihre Anfrage wurde erfolgreich übermittelt.",
               });
             });
           }}
@@ -86,26 +88,26 @@ export function InquiryForm({
               name="name"
               placeholder="Name"
               required
-              className="rounded-2xl border border-black/10 bg-[color:var(--color-background-soft)] px-4 py-3 text-sm outline-none transition focus:border-[color:var(--color-brand)]"
+              className="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
             />
             <input
               name="email"
               type="email"
               placeholder="E-Mail"
               required
-              className="rounded-2xl border border-black/10 bg-[color:var(--color-background-soft)] px-4 py-3 text-sm outline-none transition focus:border-[color:var(--color-brand)]"
+              className="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
             />
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             <input
               name="phone"
               placeholder="Telefon"
-              className="rounded-2xl border border-black/10 bg-[color:var(--color-background-soft)] px-4 py-3 text-sm outline-none transition focus:border-[color:var(--color-brand)]"
+              className="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
             />
             <select
               name="interest"
               defaultValue={interestOptions[0]}
-              className="rounded-2xl border border-black/10 bg-[color:var(--color-background-soft)] px-4 py-3 text-sm outline-none transition focus:border-[color:var(--color-brand)]"
+              className="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
             >
               {interestOptions.map((option) => (
                 <option key={option} value={option}>
@@ -119,14 +121,14 @@ export function InquiryForm({
             placeholder="Worum geht es?"
             rows={6}
             required
-            className="rounded-[1.5rem] border border-black/10 bg-[color:var(--color-background-soft)] px-4 py-3 text-sm outline-none transition focus:border-[color:var(--color-brand)]"
+            className="rounded-[24px] border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
           />
           <input name="website" tabIndex={-1} autoComplete="off" className="hidden" />
-          <label className="flex items-start gap-3 rounded-2xl bg-[color:var(--color-background-soft)] px-4 py-3 text-sm text-[color:var(--color-muted)]">
+          <label className="flex items-start gap-3 rounded-2xl bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm text-[color:var(--color-muted)]">
             <input
               type="checkbox"
               name="consentAccepted"
-              className="mt-1 h-4 w-4 rounded border-black/20 text-[color:var(--color-brand)]"
+              className="mt-1 h-4 w-4 rounded border-black/20 text-[color:var(--color-primary)]"
             />
             <span>
               Ich stimme zu, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden.
@@ -135,7 +137,7 @@ export function InquiryForm({
           <button
             type="submit"
             disabled={isPending}
-            className="rounded-full bg-[color:var(--color-brand)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--color-brand-dark)] disabled:cursor-not-allowed disabled:opacity-70"
+            className="rounded-full bg-[color:var(--color-primary)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)] disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isPending ? "Wird gesendet..." : submitLabel}
           </button>
@@ -143,7 +145,7 @@ export function InquiryForm({
             <p
               className={`text-sm ${
                 status.kind === "success"
-                  ? "text-[color:var(--color-brand)]"
+                  ? "text-[color:var(--color-primary)]"
                   : "text-[#9f2f24]"
               }`}
             >

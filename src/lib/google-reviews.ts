@@ -2,11 +2,44 @@ import type { GoogleReviewsSnapshot } from "@/lib/content";
 
 const fallbackReviews: GoogleReviewsSnapshot = {
   placeName: "Grimm & Lechner",
-  rating: 0,
-  totalReviews: 0,
+  rating: 5,
+  totalReviews: 5,
   source: "fallback",
-  reviews: [],
+  reviews: [
+    {
+      authorName: "Edwin Krein",
+      publishedAt: "vor 4 Jahren",
+      rating: 5,
+      text: "Wir haben die Firma für die Sanierung unseres Daches beauftragt. Leider kam aufgrund von Corona zu mehrmaligen Terminverschiebungen, aber als sie da waren ging es sofort los. Es gab wirklich nichts, was uns an denen gestört hätte. Schnelle und präzise Arbeit, freundlich und absolut zuverlässig. Auch der Chef hat ab und an mitangepackt und die Baustelle wurde immer sauber verlassen. Und das Beste: Der vereinbarte Preis für die Arbeiten wurde eingehalten. Alles in allem sind wir absolut zufrieden und können die Jungs jedem ohne Bedenken weiterempfehlen. Hier nochmals ein herzliches Dankeschön und großes Lob an die Mitarbeiter für die tolle Arbeit.",
+    },
+    {
+      authorName: "Berthold",
+      publishedAt: "vor 8 Monaten",
+      rating: 5,
+      text: "Fa. Grimm & Lechner hat eine Reparatur an unserem Dach schnell und preiswert erledigt. Schön, dass es noch Handwerker gibt, die sich auch bei kleinen Themen zuverlässig um ihre Kunden kümmern.",
+    },
+    {
+      authorName: "Jannik Flach",
+      publishedAt: "vor 6 Monaten",
+      rating: 5,
+      text: "Klasse Service",
+    },
+    {
+      authorName: "Andrea Kessler",
+      publishedAt: "vor 6 Jahren",
+      rating: 5,
+      text: "Top Dachdecker",
+    },
+    {
+      authorName: "Husky",
+      publishedAt: "vor 3 Jahren",
+      rating: 5,
+      text: "",
+    },
+  ],
 };
+
+export const defaultGooglePlaceQuery = "Grimm & Lechner Blumenstr. 3 96049 Bamberg";
 
 type GoogleTextValue = {
   text?: string;
@@ -40,11 +73,7 @@ async function resolvePlaceId(apiKey: string) {
     return process.env.GOOGLE_PLACE_ID;
   }
 
-  const query = process.env.GOOGLE_PLACE_QUERY;
-
-  if (!query) {
-    return undefined;
-  }
+  const query = process.env.GOOGLE_PLACE_QUERY || defaultGooglePlaceQuery;
 
   const response = await fetch("https://places.googleapis.com/v1/places:searchText", {
     method: "POST",

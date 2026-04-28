@@ -1,6 +1,7 @@
 import type { StatItem } from "@/lib/content";
 
 import { SectionHeading } from "@/components/sections/section-heading";
+import { SectionShell } from "@/components/ui/section-shell";
 
 type StatsSectionProps = {
   eyebrow?: string;
@@ -10,23 +11,30 @@ type StatsSectionProps = {
 
 export function StatsSection({ eyebrow, heading, items }: StatsSectionProps) {
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="rounded-[2rem] bg-[color:var(--color-ink)] px-6 py-10 text-white shadow-[0_28px_80px_rgba(24,17,15,0.18)] sm:px-10">
-        <SectionHeading eyebrow={eyebrow} heading={heading} tone="light" />
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+    <SectionShell className="py-10">
+      <div className="space-y-8 rounded-[32px] bg-[color:var(--color-surface)] px-6 py-8 shadow-[0_18px_40px_rgba(23,23,23,0.05)] sm:px-8">
+        <SectionHeading eyebrow={eyebrow} heading={heading} />
+        <div className="grid gap-4 md:grid-cols-3">
           {items.map((item) => (
-            <article key={item.label} className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5">
-              <p className="font-display text-5xl uppercase tracking-[0.08em] text-[color:var(--color-accent)]">
+            <article
+              key={item.label}
+              className="rounded-[24px] border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] p-5"
+            >
+              <p className="text-4xl font-semibold tracking-tight text-[color:var(--color-primary)]">
                 {item.value}
               </p>
-              <p className="mt-4 text-base font-semibold text-white">{item.label}</p>
+              <p className="mt-3 text-base font-semibold text-[color:var(--color-foreground)]">
+                {item.label}
+              </p>
               {item.description ? (
-                <p className="mt-2 text-sm leading-7 text-white/70">{item.description}</p>
+                <p className="mt-2 text-sm leading-7 text-[color:var(--color-muted)]">
+                  {item.description}
+                </p>
               ) : null}
             </article>
           ))}
         </div>
       </div>
-    </section>
+    </SectionShell>
   );
 }

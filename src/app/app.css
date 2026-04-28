@@ -2,7 +2,10 @@
   --background: #faf8f4;
   --surface: #ffffff;
   --surface-muted: #f2eee7;
+  --surface-strong: #1f2933;
+  --surface-strong-muted: #2d3a46;
   --foreground: #171717;
+  --foreground-inverse: #f8f4ee;
   --muted: #6a6a6a;
   --primary: #ef312d;
   --primary-dark: #d92a26;
@@ -15,11 +18,46 @@
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-surface-muted: var(--surface-muted);
+  --color-surface-strong: var(--surface-strong);
+  --color-surface-strong-muted: var(--surface-strong-muted);
   --color-foreground: var(--foreground);
+  --color-foreground-inverse: var(--foreground-inverse);
   --color-muted: var(--muted);
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
   --color-secondary: var(--secondary);
   --color-border: var(--border);
   --font-sans: var(--font-body);
+}
+
+@keyframes partner-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.partner-marquee {
+  animation: partner-marquee 24s linear infinite;
+}
+
+@keyframes reviews-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.reviews-marquee {
+  animation: reviews-marquee 42s linear infinite;
+}
+
+.reviews-marquee:hover {
+  animation-play-state: paused;
 }

@@ -27,7 +27,7 @@ export function validateInquiryInput(input: InquiryInput) {
 
   if (!emailPattern.test(input.email.trim())) {
     return {
-      message: "Bitte geben Sie eine gueltige E-Mail-Adresse an.",
+      message: "Bitte geben Sie eine gültige E-Mail-Adresse an.",
       valid: false,
     } as const;
   }
@@ -41,7 +41,7 @@ export function validateInquiryInput(input: InquiryInput) {
 
   if (!input.consentAccepted) {
     return {
-      message: "Bitte bestaetigen Sie die Datenverarbeitung.",
+      message: "Bitte bestätigen Sie die Datenverarbeitung.",
       valid: false,
     } as const;
   }

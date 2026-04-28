@@ -1,6 +1,12 @@
+"use client";
+
+import { Plus } from "lucide-react";
+import { useState } from "react";
+
 import type { FaqItem } from "@/lib/content";
 
 import { SectionHeading } from "@/components/sections/section-heading";
+import { SectionShell } from "@/components/ui/section-shell";
 
 type FaqSectionProps = {
   description?: string;
@@ -15,24 +21,58 @@ export function FaqSection({
   heading,
   items,
 }: FaqSectionProps) {
+  const [openIndex, setOpenIndex] = useState(0);
+
   return (
-    <section className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <SectionHeading eyebrow={eyebrow} heading={heading} description={description} />
-      <div className="mt-10 grid gap-4">
-        {items.map((item) => (
-          <details
-            key={item.question}
-            className="group rounded-[1.5rem] border border-black/8 bg-white/84 p-6 shadow-[0_16px_40px_rgba(40,26,18,0.06)]"
-          >
-            <summary className="cursor-pointer list-none font-display text-2xl uppercase tracking-[0.05em] text-[color:var(--color-ink)]">
-              {item.question}
-            </summary>
-            <p className="mt-4 max-w-3xl text-base leading-8 text-[color:var(--color-muted)]">
-              {item.answer}
-            </p>
-          </details>
-        ))}
+    <SectionShell>
+      <SectionHeading
+        eyebrow={eyebrow}
+        heading={heading}
+        description={description}
+        align="center"
+      />
+      <div className="mx-auto mt-10 max-w-4xl space-y-3">
+        {items.map((item, index) => {
+          const isOpen = openIndex === index;
+
+          return (
+            <article
+              key={item.question}
+              className="rounded-[24px] bg-white px-5 py-5 shadow-[0_12px_30px_rgba(23,23,23,0.05)]"
+            >
+              <button
+                type="button"
+                onClick={() => setOpenIndex((current) => (current === index ? -1 : index))}
+                className="flex w-full items-start justify-between gap-4 text-left"
+                aria-expanded={isOpen}
+              >
+                <span className="text-lg font-semibold text-[color:var(--color-foreground)]">
+                  {item.question}
+                </span>
+                <span
+                  className={`rounded-full bg-[color:var(--color-surface-muted)] p-2 text-[color:var(--color-foreground)] transition ${
+                    isOpen ? "rotate-45" : ""
+                  }`}
+                >
+                  <Plus className="h-4 w-4" />
+                </span>
+              </button>
+
+              <div
+                className={`grid transition-[grid-template-rows,opacity,margin] duration-200 ease-out ${
+                  isOpen ? "mt-4 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <p className="pr-8 text-base leading-7 text-[color:var(--color-muted)]">
+                    {item.answer}
+                  </p>
+                </div>
+              </div>
+            </article>
+          );
+        })}
       </div>
-    </section>
+    </SectionShell>
   );
 }

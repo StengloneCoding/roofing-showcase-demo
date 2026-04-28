@@ -18,7 +18,7 @@ export const statsBlock: Block = {
   interfaceName: "StatsBlock",
   labels: {
     singular: "Statistik-Band",
-    plural: "Statistik-Baender",
+    plural: "Statistik-Bänder",
   },
   fields: [
     {
@@ -111,7 +111,7 @@ export const processBlock: Block = {
   interfaceName: "ProcessBlock",
   labels: {
     singular: "Ablauf",
-    plural: "Ablaeufe",
+    plural: "Abläufe",
   },
   fields: [
     {
@@ -233,8 +233,8 @@ export const ctaBlock: Block = {
   slug: "cta",
   interfaceName: "CtaBlock",
   labels: {
-    singular: "Call to Action",
-    plural: "Call to Actions",
+    singular: "Handlungsaufruf",
+    plural: "Handlungsaufrufe",
   },
   fields: [
     {
