@@ -1,7 +1,6 @@
 import "dotenv/config";
 
 import { sqliteAdapter } from "@payloadcms/db-sqlite";
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
@@ -26,7 +25,6 @@ export default buildConfig({
   },
   collections: [Users, Media, Pages, GalleryItems, Inquiries],
   globals: [SiteSettings],
-  editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "grimmundlechner-local-secret",
   db: sqliteAdapter({
     client: {

@@ -50,7 +50,7 @@ export async function getPageContent(slug: string): Promise<PageContent> {
       },
     });
 
-    const page = result.docs[0] as PageContent | undefined;
+    const page = result.docs[0] as unknown as PageContent | undefined;
 
     if (page?.hero?.title && Array.isArray(page.sections) && page.sections.length > 0) {
       return page;

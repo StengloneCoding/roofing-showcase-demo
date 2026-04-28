@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Phone } from "lucide-react";
 
 import type { SiteSettingsContent } from "@/lib/content";
+import { ButtonLink } from "@/components/ui/button-link";
 
 type SiteHeaderProps = {
   siteSettings: SiteSettingsContent;
@@ -9,45 +11,49 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ siteSettings }: SiteHeaderProps) {
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-[color:var(--color-background-soft)]/85 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[color:var(--color-border)] bg-white/92 backdrop-blur">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
-          <div className="relative h-12 w-[165px] overflow-hidden rounded-sm bg-white shadow-[0_10px_30px_rgba(0,0,0,0.12)]">
+          <div className="relative h-12 w-[84px] overflow-hidden rounded-xl bg-white ring-1 ring-black/5">
             <Image
               src="/logo.webp"
               alt={siteSettings.companyName}
               fill
               className="object-contain"
-              sizes="165px"
+              sizes="84px"
               priority
             />
           </div>
           <div className="hidden min-[980px]:block">
-            <p className="font-display text-xl uppercase tracking-[0.16em] text-[color:var(--color-ink)]">
+            <p className="text-base font-semibold text-[color:var(--color-foreground)]">
               {siteSettings.companyName}
             </p>
             <p className="text-sm text-[color:var(--color-muted)]">{siteSettings.tagline}</p>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm font-semibold text-[color:var(--color-ink)] md:flex">
+        <nav className="hidden items-center gap-6 text-sm font-medium text-[color:var(--color-foreground)] md:flex">
           {siteSettings.navigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="transition hover:text-[color:var(--color-brand)]"
+              className="transition hover:text-[color:var(--color-primary)]"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <Link
-          href="/kontakt"
-          className="rounded-full bg-[color:var(--color-brand)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--color-brand-dark)]"
-        >
-          Anfrage starten
-        </Link>
+        <div className="hidden items-center gap-4 lg:flex">
+          <a
+            href={`tel:${siteSettings.phone.replace(/\s+/g, "")}`}
+            className="inline-flex items-center gap-2 text-sm font-medium text-[color:var(--color-foreground)]"
+          >
+            <Phone className="h-4 w-4 text-[color:var(--color-primary)]" />
+            {siteSettings.phone}
+          </a>
+          <ButtonLink href="/#kontaktformular">Projekt anfragen</ButtonLink>
+        </div>
       </div>
     </header>
   );

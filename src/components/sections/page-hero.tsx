@@ -1,83 +1,83 @@
-import Link from "next/link";
-
 import type { HeroContent, SiteSettingsContent } from "@/lib/content";
+import { ButtonLink } from "@/components/ui/button-link";
 
 type PageHeroProps = {
+  compact?: boolean;
   hero: HeroContent;
+  pageSlug?: string;
   siteSettings: SiteSettingsContent;
 };
 
-export function PageHero({ hero, siteSettings }: PageHeroProps) {
+export function PageHero({
+  compact = false,
+  hero,
+  pageSlug = "start",
+  siteSettings,
+}: PageHeroProps) {
+  const isHome = pageSlug === "start";
+
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(176,45,39,0.2),transparent_34%),radial-gradient(circle_at_80%_20%,rgba(196,140,45,0.22),transparent_24%),linear-gradient(135deg,rgba(255,255,255,0.76),rgba(243,235,225,0.94))]" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,transparent,rgba(18,15,14,0.08))]" />
-      <div className="relative mx-auto grid w-full max-w-7xl gap-12 px-4 py-18 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-24">
-        <div className="space-y-8">
+    <section
+      className={`relative isolate overflow-hidden ${
+        compact ? "min-h-[420px]" : "min-h-[calc(100vh-72px)]"
+      } bg-[#15181c] text-white`}
+    >
+      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(12,13,16,0.92),rgba(15,16,20,0.7))]" />
+      <div className="absolute inset-0 opacity-90">
+        <div className="absolute left-[-5%] top-[10%] h-[52%] w-[36%] rotate-[-18deg] rounded-[36px] border border-white/18 bg-white/5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]" />
+        <div className="absolute left-[18%] top-[18%] h-[44%] w-[22%] rotate-[-18deg] rounded-[28px] border border-white/16 bg-white/3" />
+        <div className="absolute right-[10%] top-[8%] h-[58%] w-[28%] rotate-[18deg] rounded-[36px] border border-white/18 bg-white/4" />
+        <div className="absolute right-[24%] top-[20%] h-[40%] w-[16%] rotate-[18deg] rounded-[28px] border border-white/14 bg-white/2" />
+        <div className="absolute bottom-0 left-0 h-40 w-full bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.32))]" />
+      </div>
+
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(239,49,45,0.22),transparent_24%),radial-gradient(circle_at_85%_25%,rgba(255,255,255,0.08),transparent_28%)]" />
+
+      <div
+        className={`relative mx-auto flex h-full w-full max-w-7xl items-end px-4 sm:px-6 lg:px-8 ${
+          compact ? "py-18" : "py-24"
+        }`}
+      >
+        <div className="max-w-3xl space-y-8">
           {hero.eyebrow ? (
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[color:var(--color-brand)]">
+            <p className="text-sm font-medium text-white/76">
               {hero.eyebrow}
             </p>
           ) : null}
           <div className="space-y-5">
-            <h1 className="max-w-4xl font-display text-6xl uppercase leading-[0.95] tracking-[0.05em] text-[color:var(--color-ink)] sm:text-7xl">
+            <h1 className="max-w-4xl text-4xl font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
               {hero.title}
             </h1>
-            <p className="max-w-2xl text-lg leading-8 text-[color:var(--color-muted)] sm:text-xl">
+            <p className="max-w-2xl text-base leading-7 text-white/80 sm:text-lg sm:leading-8">
               {hero.description}
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
-            <Link
-              href={hero.primaryCta.href}
-              className="rounded-full bg-[color:var(--color-brand)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--color-brand-dark)]"
-            >
+            <ButtonLink href={hero.primaryCta.href}>
               {hero.primaryCta.label}
-            </Link>
+            </ButtonLink>
             {hero.secondaryCta ? (
-              <Link
-                href={hero.secondaryCta.href}
-                className="rounded-full border border-black/10 px-6 py-3 text-sm font-semibold text-[color:var(--color-ink)] transition hover:border-[color:var(--color-brand)] hover:text-[color:var(--color-brand)]"
-              >
+              <ButtonLink href={hero.secondaryCta.href} variant={isHome ? "light" : "outline"}>
                 {hero.secondaryCta.label}
-              </Link>
+              </ButtonLink>
             ) : null}
           </div>
-        </div>
-
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/55 bg-[color:var(--color-ink)] p-6 text-white shadow-[0_30px_80px_rgba(40,20,14,0.22)]">
-          <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(176,45,39,0.18),transparent_50%),radial-gradient(circle_at_bottom_right,rgba(196,140,45,0.22),transparent_36%)]" />
-          <div className="relative space-y-8">
-            <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/55">
-                Meisterbetrieb
-              </p>
-              <p className="font-display text-4xl uppercase tracking-[0.08em]">
-                {siteSettings.companyName}
-              </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-xs uppercase tracking-[0.22em] text-white/55">Kontakt</p>
-                <p className="mt-3 text-lg font-semibold">{siteSettings.phone}</p>
-                <p className="text-sm text-white/70">{siteSettings.email}</p>
+          {isHome ? (
+            <div className="grid max-w-2xl gap-4 pt-6 sm:grid-cols-3">
+              <div className="rounded-3xl border border-white/12 bg-white/8 p-4 backdrop-blur">
+                <p className="text-xs text-white/60">Standort</p>
+                <p className="mt-2 text-sm font-semibold">Bamberg</p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-xs uppercase tracking-[0.22em] text-white/55">Einsatzgebiet</p>
-                <p className="mt-3 text-lg font-semibold">Bamberg & Region</p>
-                <p className="text-sm text-white/70">Sanierung, Dachdetails, Wartung</p>
+              <div className="rounded-3xl border border-white/12 bg-white/8 p-4 backdrop-blur">
+                <p className="text-xs text-white/60">Kontakt</p>
+                <p className="mt-2 text-sm font-semibold">{siteSettings.phone}</p>
+              </div>
+              <div className="rounded-3xl border border-white/12 bg-white/8 p-4 backdrop-blur">
+                <p className="text-xs text-white/60">Seit</p>
+                <p className="mt-2 text-sm font-semibold">1919</p>
               </div>
             </div>
-            <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--color-accent)]">
-                Haltung statt Hektik
-              </p>
-              <p className="mt-3 text-sm leading-7 text-white/72">
-                Wir planen ruhig, setzen sauber um und bleiben auch dann gut ansprechbar, wenn auf
-                der Baustelle Entscheidungen getroffen werden muessen.
-              </p>
-            </div>
-          </div>
+          ) : null}
         </div>
       </div>
     </section>
