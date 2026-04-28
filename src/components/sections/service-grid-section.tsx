@@ -27,7 +27,6 @@ export function ServiceGridSection({
     <SectionShell id="leistungen">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <SectionHeading eyebrow={eyebrow} heading={heading} description={description} />
-        <ButtonLink href="/#kontaktformular">Alle Leistungen anfragen</ButtonLink>
       </div>
 
       <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -47,18 +46,6 @@ export function ServiceGridSection({
 
             <div className="space-y-5 p-6">
               <p className="text-base leading-7 text-[color:var(--color-muted)]">{item.description}</p>
-              {item.bullets?.length ? (
-                <ul className="flex flex-wrap gap-2 text-sm font-medium text-[color:var(--color-foreground)]">
-                  {item.bullets.map((bullet) => (
-                    <li
-                      key={bullet}
-                      className="rounded-full bg-[color:var(--color-surface-muted)] px-3 py-1.5"
-                    >
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
             </div>
           </article>
         ))}

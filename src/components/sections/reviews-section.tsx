@@ -20,7 +20,7 @@ export async function ReviewsSection() {
 
   return (
     <SectionShell className="py-10">
-      <div className="rounded-[36px] bg-[color:var(--color-surface-muted)] px-6 py-8 sm:px-8 sm:py-10">
+      <div className="px-6 py-8 sm:px-8 sm:py-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-2xl">
             <p className="text-sm font-medium text-[color:var(--color-muted)]">Google-Bewertungen</p>
@@ -66,18 +66,14 @@ export async function ReviewsSection() {
 
         {reviews.reviews.length > 0 ? (
           <div className="mt-8">
-            <p className="mb-4 text-sm font-medium text-[color:var(--color-muted)]">Ausgewählte Stimmen</p>
 
             <div className="relative">
-              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[color:var(--color-surface-muted)] to-transparent sm:w-16" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-[color:var(--color-surface-muted)] to-transparent sm:w-16" />
-
               <div className="overflow-hidden">
-                <div className="reviews-marquee flex w-max gap-4 pb-2">
+                <div className="reviews-marquee flex w-max gap-10 pb-2">
                   {marqueeReviews.map((review, index) => (
                     <article
                       key={`${review.authorName}-${review.publishedAt || review.text.slice(0, 10)}-${index}`}
-                      className="min-h-[280px] w-[320px] shrink-0 rounded-[10px] bg-white p-6 shadow-[0_18px_40px_rgba(0,0,0,0.16)] sm:w-[360px]"
+                      className="min-h-[280px] w-[320px] shrink-0 rounded-[10px] bg-white p-6 shadow-[0_2px_10px_rgba(0,0,0,0.16)] sm:w-[360px]"
                     >
                       <p className="mt-4 text-sm font-semibold text-[color:var(--color-primary)]">
                         {review.authorName}

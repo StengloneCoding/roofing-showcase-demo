@@ -21,15 +21,6 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="relative h-16 w-[112px] shrink-0 overflow-hidden rounded-[20px] bg-white shadow-[0_18px_40px_rgba(0,0,0,0.18)]">
-                <Image
-                  src="/logo.webp"
-                  alt={siteSettings.companyName}
-                  fill
-                  className="object-contain p-2"
-                  sizes="112px"
-                />
-              </div>
               <div className="space-y-2">
                 <p className="text-2xl font-semibold tracking-tight sm:text-3xl">
                   {siteSettings.companyName}
