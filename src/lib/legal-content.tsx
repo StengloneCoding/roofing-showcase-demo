@@ -4,11 +4,11 @@ export const impressumContent = {
   eyebrow: "Platzhalter",
   title: "Impressum",
   intro: [
-    "Diese Demo enthält bewusst keine echten Rechtsangaben.",
+    "Diese Vorabversion enthält bewusst noch keine finalen Rechtsangaben.",
   ],
   sections: [
     {
-      title: "Hinweis für die Demo-Version",
+      title: "Hinweis für diese Vorabversion",
       body: [
         <p key="placeholder">
           Vor einer echten Veröffentlichung müssen hier die vollständigen Angaben zu {DEMO_COMPANY_NAME},
@@ -23,11 +23,11 @@ export const datenschutzContent = {
   eyebrow: "Platzhalter",
   title: "Datenschutz",
   intro: [
-    "Diese Demo enthält bewusst keinen echten Datenschutzhinweis.",
+    "Diese Vorabversion enthält bewusst noch keinen finalen Datenschutzhinweis.",
   ],
   sections: [
     {
-      title: "Hinweis für die Demo-Version",
+      title: "Hinweis für diese Vorabversion",
       body: [
         <p key="p1">
           Vor der Veröffentlichung müssen hier die Datenschutzhinweise für Kontaktformular, Hosting,

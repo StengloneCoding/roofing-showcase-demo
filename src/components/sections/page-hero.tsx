@@ -267,7 +267,7 @@ export function PageHero({
           <div className="flex flex-col lg:min-h-0 lg:flex-1">
             {showTeamImage ? (
               <div className="pointer-events-none relative z-10 mt-3 hidden md:block sm:mt-5 lg:mt-0 lg:flex lg:flex-1 lg:items-center">
-                <div className="relative mx-auto max-w-[820px] overflow-hidden rounded-[32px] border border-white/14 shadow-[0_26px_60px_rgba(4,8,12,0.24)] lg:w-full">
+                <div className="relative mx-auto max-w-[660px] overflow-hidden rounded-[32px] border border-white/14 shadow-[0_26px_60px_rgba(4,8,12,0.24)] lg:w-full">
                   <Image
                     src="/team.webp"
                     alt="Team von Dachdeckern auf der Baustelle"

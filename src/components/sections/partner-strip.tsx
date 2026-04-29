@@ -14,10 +14,10 @@ export function PartnerStrip() {
         <div className="space-y-8 overflow-hidden rounded-[30px] border border-[color:var(--color-outline-variant)]/65 bg-white/65 px-0 py-12 shadow-[0_22px_44px_rgba(20,25,31,0.06)] sm:py-14">
           <div className="mx-auto max-w-3xl px-6 text-center sm:px-10">
             <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[color:var(--color-secondary)]">
-              Beispielhafte Demo-Logos
+              Partner & Hersteller
             </p>
             <h2 className="mt-3 [font-family:var(--font-heading)] text-3xl font-semibold tracking-tight text-[color:var(--color-on-surface)] sm:text-4xl">
-              Für Präsentationen zeigen wir hier bewusst generische Markenplatzhalter statt echter Herstellerlogos.
+              Beispielhafte Partner- und Herstellerdarstellung für einen realistischen Gesamteindruck.
             </h2>
           </div>
 
@@ -34,7 +34,7 @@ export function PartnerStrip() {
                   >
                     <Image
                       src={logo.src}
-                      alt={`${logo.name} Demo-Logo`}
+                      alt={`${logo.name} Logo`}
                       width={logo.width}
                       height={logo.height}
                       className="h-10 w-auto max-w-[164px] opacity-90"

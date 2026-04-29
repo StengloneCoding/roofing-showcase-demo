@@ -9,11 +9,11 @@ import { buildBreadcrumbSchema, buildFaqSchema, buildPageMetadata, buildWebPageS
 export const revalidate = 3600;
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Fakten für {Deine Firma} | Demo-Übersicht",
+  title: "Fakten für {Deine Firma} | Unternehmensprofil",
   description:
-    "Strukturierte Demo-Informationen für einen generischen Dachdeckerbetrieb: Leistungen, Kontakt, Region und Unternehmensprofil.",
+    "Strukturierte Informationen zu Leistungen, Kontakt, Region und Unternehmensprofil für {Deine Firma}.",
   path: "/fakten",
-  keywords: ["Dachdecker Website Vorlage", "Handwerk Demo", "Dachdeckerbetrieb Profil"],
+  keywords: ["Dachdeckerbetrieb Profil", "Dachdecker Leistungen", "Unternehmensprofil Handwerk"],
 });
 
 export default async function FaktenPage() {
@@ -21,7 +21,7 @@ export default async function FaktenPage() {
   const faqItems = [
     {
       question: `Was zeigt ${siteSettings.companyName} auf dieser Seite?`,
-      answer: `${siteSettings.companyName} präsentiert hier eine generische Demo für Dachdeckungen, Sanierungen, Reparaturen, Blecharbeiten und Dachfenster.`,
+      answer: `${siteSettings.companyName} zeigt hier einen kompakten Überblick zu Leistungen, Einsatzgebiet, Kontakt und typischen Schwerpunkten rund ums Dach.`,
     },
     {
       question: `Wo ist ${siteSettings.companyName} aktiv?`,
@@ -29,11 +29,11 @@ export default async function FaktenPage() {
     },
     {
       question: `Wie erreiche ich ${siteSettings.companyName}?`,
-      answer: `Die Demo nutzt die Platzhalter ${siteSettings.phone} und ${siteSettings.email}. Diese Angaben können später durch echte Kontaktdaten ersetzt werden.`,
+      answer: `Aktuell sind ${siteSettings.phone} und ${siteSettings.email} als Platzhalter hinterlegt. Diese Angaben werden vor dem Livegang durch die finalen Kontaktdaten ersetzt.`,
     },
     {
       question: `Wofür eignet sich diese Fakten-Seite?`,
-      answer: "Sie eignet sich als neutrale Unternehmensübersicht für Präsentationen, interne Demos oder die Abstimmung mit anderen Dachdeckerbetrieben.",
+      answer: "Sie dient als kompakte Übersicht zur Abstimmung von Inhalten, Leistungen und Außendarstellung.",
     },
   ];
 
@@ -42,9 +42,9 @@ export default async function FaktenPage() {
       <StructuredData
         data={[
           buildWebPageSchema({
-            title: "Fakten für {Deine Firma} | Demo-Übersicht",
+            title: "Fakten für {Deine Firma} | Unternehmensprofil",
             description:
-              "Strukturierte Demo-Informationen für einen generischen Dachdeckerbetrieb: Leistungen, Kontakt, Region und Unternehmensprofil.",
+              "Strukturierte Informationen zu Leistungen, Kontakt, Region und Unternehmensprofil für {Deine Firma}.",
             path: "/fakten",
             type: "AboutPage",
           }),
@@ -63,10 +63,10 @@ export default async function FaktenPage() {
             </h1>
             <div className="space-y-4 text-base leading-7 text-[color:var(--color-on-surface-variant)]">
               <p>
-                <strong>{siteSettings.companyName}</strong> ist in dieser Version bewusst als generische Demo angelegt. So lässt sich die Website anderen Dachdeckerbetrieben zeigen, ohne dass echte Firmendaten sichtbar bleiben.
+                <strong>{siteSettings.companyName}</strong> ist in dieser Version als vorbereitete Vorabansicht angelegt. So lassen sich Inhalte, Struktur und Wirkung in Ruhe abstimmen, bevor echte Firmendaten final eingebunden werden.
               </p>
               <p>
-                Die Inhalte decken typische Leistungen, Kontaktwege, Karriere-Bausteine und Vertrauenselemente für einen Dachdeckerbetrieb ab und können später gezielt angepasst werden.
+                Die Inhalte decken typische Leistungen, Kontaktwege, Karriere-Bausteine und Vertrauenselemente ab und können gezielt auf den jeweiligen Betrieb angepasst werden.
               </p>
             </div>
           </section>
@@ -114,7 +114,7 @@ export default async function FaktenPage() {
               </div>
               <div className="flex flex-col gap-1 sm:flex-row sm:gap-4">
                 <span className="font-semibold text-[color:var(--color-on-surface)] sm:w-40">Status</span>
-                <span className="text-[color:var(--color-on-surface-variant)]">Demo-Platzhalter</span>
+                <span className="text-[color:var(--color-on-surface-variant)]">Vorabversion</span>
               </div>
             </div>
           </section>
@@ -159,20 +159,20 @@ export default async function FaktenPage() {
 
           <section className="space-y-6 border-t border-[color:var(--color-outline-variant)] pt-12">
             <h2 className="[font-family:var(--font-heading)] text-2xl font-semibold text-[color:var(--color-on-surface)]">
-              Besonderheiten der Demo
+              Aktueller Stand
             </h2>
             <ul className="space-y-3 text-sm text-[color:var(--color-on-surface-variant)]">
               <li className="flex gap-3">
                 <span className="text-[color:var(--color-secondary)]">✓</span>
-                <span><strong>Neutralisiert:</strong> Name, Adresse, Telefonnummer, E-Mail und Rechtstexte sind generisch gehalten.</span>
+                <span><strong>Platzhalter aktiv:</strong> Name, Adresse, Telefonnummer, E-Mail und Rechtstexte sind aktuell noch neutral gehalten.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-[color:var(--color-secondary)]">✓</span>
-                <span><strong>Präsentierbar:</strong> Die Seite kann ohne Markenbezug anderen Dachdeckern gezeigt werden.</span>
+                <span><strong>Abstimmbar:</strong> Struktur, Inhalte und Tonalität lassen sich vor dem Livegang gemeinsam schärfen.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-[color:var(--color-secondary)]">✓</span>
-                <span><strong>Anpassbar:</strong> Alle Platzhalter können später zentral gegen echte Firmendaten ersetzt werden.</span>
+                <span><strong>Anpassbar:</strong> Alle Platzhalter können später zentral gegen die finalen Firmendaten ersetzt werden.</span>
               </li>
             </ul>
           </section>

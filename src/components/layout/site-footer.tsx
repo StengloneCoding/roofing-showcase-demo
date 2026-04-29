@@ -57,13 +57,13 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
           <div>
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.12em] text-white/62">Standort</p>
             <p className="text-sm leading-7 text-white/78">{DEMO_REGION}</p>
-            <p className="mt-4 text-sm leading-7 text-white/78">Generische Demo-Version für Präsentationen, Pitches und die Ansprache weiterer Dachdeckerbetriebe.</p>
+            <p className="mt-4 text-sm leading-7 text-white/78">Vorabversion zur Abstimmung von Inhalten, Struktur und Außendarstellung.</p>
           </div>
         </div>
 
         <div className="flex flex-col gap-3 py-5 text-sm text-white/58 sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} {siteSettings.legalName}.</p>
-          <p>Rechtstexte wurden in dieser Demo bewusst entfernt.</p>
+          <p>Rechtstexte werden vor der Veröffentlichung ergänzt.</p>
         </div>
       </div>
     </footer>
