@@ -16,7 +16,6 @@ export const fallbackSiteSettings: SiteSettingsContent = {
     { label: "Referenzen", href: "/#referenzen" },
     { label: "Über uns", href: "/#über-uns" },
     { label: "Karriere", href: "/karriere" },
-    { label: "Kontakt", href: "/kontakt" },
   ],
   footerText:
     "Von der kleinen Reparatur bis zum fertigen Dach begleiten wir Projekte in Bamberg und Umgebung mit Erfahrung, sauberer Ausführung und direkter Kommunikation.",
