@@ -13,7 +13,6 @@ export const fallbackSiteSettings: SiteSettingsContent = {
   address: "Blumenstr. 3\n96049 Bamberg",
   navigation: [
     { label: "Leistungen", href: "/#leistungen" },
-    { label: "Referenzen", href: "/#referenzen" },
     { label: "Über uns", href: "/#über-uns" },
     { label: "Karriere", href: "/karriere" },
   ],
@@ -37,8 +36,8 @@ export const fallbackPages: Record<string, PageContent> = {
         href: "/#kontaktformular",
       },
       secondaryCta: {
-        label: "Referenzen ansehen",
-        href: "/#referenzen",
+        label: "Leistungen ansehen",
+        href: "/#leistungen",
       },
     },
     sections: [

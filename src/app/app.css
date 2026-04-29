@@ -1,4 +1,5 @@
 :root {
+  --header-offset: 104px;
   --background: #f7fafc;
   --surface: #f7fafc;
   --surface-dim: #d7dadc;
@@ -44,21 +45,28 @@
   --font-heading: var(--font-work-sans);
 }
 
+html {
+  scroll-padding-top: var(--header-offset);
+}
+
+[id] {
+  scroll-margin-top: var(--header-offset);
+}
+
 body {
   color: var(--foreground);
 }
 
-@keyframes partner-marquee {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-@keyframes reviews-marquee {
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes partner-marquee {
   from {
     transform: translateX(0);
   }

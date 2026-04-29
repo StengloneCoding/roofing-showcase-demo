@@ -16,26 +16,28 @@ export function PageHero({
   siteSettings,
 }: PageHeroProps) {
   const isHome = pageSlug === "start";
+  const sectionHeightClass = "min-h-screen min-h-[100svh]";
+  const contentAlignmentClass = compact ? "items-center" : "items-end";
+  const contentPaddingClass = compact
+    ? "pt-36 pb-24 sm:pt-40 sm:pb-28"
+    : "pt-32 pb-24 sm:pt-36 sm:pb-28";
+  const headingSizeClass = compact ? "text-4xl sm:text-5xl lg:text-6xl" : "text-4xl sm:text-6xl lg:text-7xl";
 
   return (
     <section
-      className={`relative isolate overflow-hidden ${
-        compact ? "min-h-[420px]" : "min-h-[calc(100vh-80px)]"
-      } text-white`}
+      className={`relative isolate overflow-hidden ${sectionHeightClass} text-white`}
     >
       <img
         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcQc_eMHGLhyPCAnfmvLHJTs1nuwikYMiunf91UbBWThFR2UjhzKzKhuBAfGIb5iitU0O0TrSDZpqyAt0v7taHJ3n3w5ShPAjSwWuLkxZfkYjMbqeMmhmsJLl3F3TXr0mYlrUpAj-mrIEva3kasKTUq4E79BgZO9SOu18SSsLPkpTF5X06nqCkKy3zOlk5dJoFSPKzWyS1dZVV-PoJZH2q5DE9Pi_51E-cVd2LPbkcwaogA8mAIIaMWw_IzVK4Q43sq4kD9yTz5vPN"
         alt="Bamberg Dächer in der Abendstimmung"
-        className="absolute inset-0 h-full w-full object-cover"
+        className={`absolute inset-0 h-full w-full object-cover ${compact ? "object-[center_32%]" : "object-center"}`}
       />
       <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(17,20,23,0.82),rgba(17,20,23,0.58))]" />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(20,22,25,0.66),rgba(20,22,25,0.25))]" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.35))]" />
 
       <div
-        className={`relative mx-auto flex h-full w-full max-w-[1280px] items-end px-4 sm:px-6 lg:px-8 ${
-          compact ? "py-18" : "py-24"
-        }`}
+        className={`relative mx-auto flex h-full w-full max-w-[1280px] ${contentAlignmentClass} px-4 sm:px-6 lg:px-8 ${contentPaddingClass}`}
       >
         <div className="max-w-4xl space-y-8">
           {hero.eyebrow ? (
@@ -44,7 +46,7 @@ export function PageHero({
             </p>
           ) : null}
           <div className="space-y-5">
-            <h1 className="max-w-4xl [font-family:var(--font-heading)] text-4xl font-bold leading-[1.1] tracking-[-0.02em] sm:text-6xl lg:text-7xl">
+            <h1 className={`max-w-4xl [font-family:var(--font-heading)] font-bold leading-[1.1] tracking-[-0.02em] ${headingSizeClass}`}>
               {hero.title}
             </h1>
             <p className="max-w-2xl text-base leading-7 text-white/90 sm:text-lg">

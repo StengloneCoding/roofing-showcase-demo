@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowUpRight, MapPin, Phone } from "lucide-react";
 
 import type { SiteSettingsContent } from "@/lib/content";
@@ -14,9 +15,17 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
       <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 border-b border-white/10 py-14 md:grid-cols-3 lg:grid-cols-4">
           <div className="space-y-4 md:col-span-2 lg:col-span-1">
-            <p className="[font-family:var(--font-heading)] text-2xl font-bold uppercase tracking-[-0.02em] text-white">
-              {siteSettings.companyName}
-            </p>
+            <div className="inline-flex rounded-2xl bg-white/96 px-3 py-2 shadow-[0_14px_34px_rgba(15,19,24,0.16)] ring-1 ring-black/6 backdrop-blur-sm">
+              <div className="relative h-10 w-[126px] sm:h-11 sm:w-[156px]">
+                <Image
+                  src="/logo.webp"
+                  alt={siteSettings.companyName}
+                  fill
+                  className="object-contain object-left"
+                  sizes="(max-width: 640px) 126px, 156px"
+                />
+              </div>
+            </div>
             <p className="text-sm leading-7 text-white/75">{siteSettings.footerText}</p>
           </div>
 
@@ -47,11 +56,8 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
           <div>
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.12em] text-white/62">Unternehmen</p>
             <div className="flex flex-col gap-3 text-sm text-white/78">
-              <a href="/" className="transition hover:text-white">Startseite</a>
               <a href="/karriere" className="transition hover:text-white">Karriere</a>
               <a href="/fakten" className="transition hover:text-white">Fakten</a>
-              <a href="/impressum" className="transition hover:text-white">Impressum</a>
-              <a href="/datenschutz" className="transition hover:text-white">Datenschutz</a>
             </div>
           </div>
 
@@ -63,7 +69,7 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
         </div>
 
         <div className="flex flex-col gap-3 py-5 text-sm text-white/58 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {currentYear} {siteSettings.legalName}. Alle Rechte vorbehalten.</p>
+          <p>© {currentYear} {siteSettings.legalName}.</p>
           <div className="flex flex-wrap items-center gap-4">
             <a href="/impressum">Impressum</a>
             <a href="/datenschutz">Datenschutz</a>

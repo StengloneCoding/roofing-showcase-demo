@@ -20,23 +20,25 @@ export function TextColumnsSection({
   id,
 }: TextColumnsSectionProps) {
   return (
-    <SectionShell id={id} className="border-y border-[color:var(--color-outline-variant)] bg-[color:var(--color-surface-container-low)]">
-      <SectionHeading eyebrow={eyebrow} heading={heading} description={description} />
-      <div className="mt-10 grid gap-6 lg:grid-cols-3">
-        {columns.map((column) => (
-          <FramedCard
-            key={column.title}
-            className="bg-white p-6"
-          >
-            <h3 className="[font-family:var(--font-heading)] text-2xl font-semibold tracking-tight text-[color:var(--color-on-surface)]">
-              {column.title}
-            </h3>
-            <p className="mt-4 text-base leading-7 text-[color:var(--color-on-surface-variant)]">
-              {column.body}
-            </p>
-          </FramedCard>
-        ))}
-      </div>
-    </SectionShell>
+    <section id={id} className="w-full bg-[linear-gradient(180deg,rgba(229,233,235,0.72),rgba(241,244,246,0.82))] py-16 sm:py-20">
+      <SectionShell className="py-0">
+        <SectionHeading eyebrow={eyebrow} heading={heading} description={description} />
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          {columns.map((column) => (
+            <FramedCard
+              key={column.title}
+              className="bg-white p-7"
+            >
+              <h3 className="[font-family:var(--font-heading)] text-2xl font-semibold tracking-tight text-[color:var(--color-on-surface)]">
+                {column.title}
+              </h3>
+              <p className="mt-4 text-base leading-7 text-[color:var(--color-on-surface-variant)]">
+                {column.body}
+              </p>
+            </FramedCard>
+          ))}
+        </div>
+      </SectionShell>
+    </section>
   );
 }

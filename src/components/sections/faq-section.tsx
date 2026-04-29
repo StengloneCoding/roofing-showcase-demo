@@ -38,19 +38,19 @@ export function FaqSection({
           return (
             <article
               key={item.question}
-              className="border border-[color:var(--color-outline-variant)] bg-white"
+              className="overflow-hidden rounded-3xl border border-[color:var(--color-outline-variant)]/70 bg-white shadow-[0_14px_30px_rgba(20,25,31,0.05)]"
             >
               <button
                 type="button"
                 onClick={() => setOpenIndex((current) => (current === index ? -1 : index))}
-                className="flex w-full items-start justify-between gap-4 px-6 py-6 text-left transition-colors hover:bg-[color:var(--color-surface-container-low)]"
+                className="flex w-full items-start justify-between gap-4 px-6 py-6 text-left transition-colors hover:bg-[color:var(--color-surface-container-low)]/80"
                 aria-expanded={isOpen}
               >
                 <span className="text-lg font-semibold text-[color:var(--color-on-surface)]">
                   {item.question}
                 </span>
                 <span
-                  className={`rounded bg-[color:var(--color-surface-container)] p-2 text-[color:var(--color-on-surface)] transition ${
+                  className={`rounded-xl bg-[color:var(--color-surface-container)] p-2 text-[color:var(--color-on-surface)] transition ${
                     isOpen ? "rotate-45" : ""
                   }`}
                 >

@@ -1,4 +1,4 @@
-import { Phone, ArrowUpRight } from "lucide-react";
+import { Phone } from "lucide-react";
 
 import { ButtonLink } from "@/components/ui/button-link";
 
@@ -13,12 +13,18 @@ export function NextStepsSection() {
                 Nächster Schritt
               </p>
               <h2 className="mt-3 [font-family:var(--font-heading)] text-3xl font-semibold tracking-tight text-[color:var(--color-on-surface)] sm:text-4xl">
-                Wenn Sie ein Dachprojekt planen, schauen wir gemeinsam drauf.
+                Jetzt kurz anfragen und den nächsten sinnvollen Schritt fürs Dachprojekt kennen.
               </h2>
             </div>
             <p className="text-base leading-7 text-[color:var(--color-on-surface-variant)]">
-              Ein kurzes Gespräch reicht oft schon, um die nächsten sinnvollen Schritte einzuordnen und das Projekt sauber anzustoßen.
+              Sie bekommen eine klare Ersteinschätzung ohne unnötigen Vertriebsdruck. Schnell, verständlich und mit echtem Handwerksfokus.
             </p>
+            <ul className="grid gap-2 text-sm text-[color:var(--color-on-surface-variant)] sm:grid-cols-2">
+              <li className="rounded-xl border border-[color:var(--color-outline-variant)]/70 bg-white/70 px-3 py-2">Antwort in der Regel innerhalb von 24h</li>
+              <li className="rounded-xl border border-[color:var(--color-outline-variant)]/70 bg-white/70 px-3 py-2">Direkter Ansprechpartner statt Hotline-Kette</li>
+              <li className="rounded-xl border border-[color:var(--color-outline-variant)]/70 bg-white/70 px-3 py-2">Unverbindliche Ersteinschätzung</li>
+              <li className="rounded-xl border border-[color:var(--color-outline-variant)]/70 bg-white/70 px-3 py-2">Notdienst bei akuten Schäden</li>
+            </ul>
             <div className="flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/kontakt">
                 Jetzt Anfrage starten
@@ -27,7 +33,7 @@ export function NextStepsSection() {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-lg border border-[color:var(--color-outline-variant)] bg-white p-8">
+            <div className="rounded-3xl border border-[color:var(--color-outline-variant)]/70 bg-white p-8 shadow-[0_18px_34px_rgba(20,25,31,0.08)]">
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-[color:var(--color-secondary)]">
                 Notfall-Hotline
               </p>

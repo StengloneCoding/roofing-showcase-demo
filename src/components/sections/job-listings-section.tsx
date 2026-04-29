@@ -26,25 +26,6 @@ export function JobListingsSection({
       <SectionHeading eyebrow={eyebrow} heading={heading} description={description} />
 
       <div className="mt-12">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org/",
-              "@type": "JobPosting",
-              jobLocations: jobs.map((job) => ({
-                "@type": "Place",
-                address: {
-                  "@type": "PostalAddress",
-                  addressRegion: "Bavaria",
-                  addressCountry: "DE",
-                  streetAddress: job.location,
-                },
-              })),
-            }),
-          }}
-        />
-
         <ul className="space-y-4">
           {jobs.map((job) => (
             <li key={job.title}>

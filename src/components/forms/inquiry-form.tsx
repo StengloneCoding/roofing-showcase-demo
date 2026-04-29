@@ -24,6 +24,11 @@ export function InquiryForm({
 }: InquiryFormProps) {
   const [status, setStatus] = useState<StatusState>({ kind: "idle" });
   const [isPending, startTransition] = useTransition();
+  const nameId = `${id}-name`;
+  const emailId = `${id}-email`;
+  const phoneId = `${id}-phone`;
+  const interestId = `${id}-interest`;
+  const messageId = `${id}-message`;
 
   return (
     <section id={id} className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -84,45 +89,75 @@ export function InquiryForm({
           }}
         >
           <div className="grid gap-4 md:grid-cols-2">
-            <input
-              name="name"
-              placeholder="Name"
-              required
-              className="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
-            />
-            <input
-              name="email"
-              type="email"
-              placeholder="E-Mail"
-              required
-              className="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
-            />
+            <div>
+              <label htmlFor={nameId} className="sr-only">
+                Name
+              </label>
+              <input
+                id={nameId}
+                name="name"
+                placeholder="Name"
+                required
+                className="w-full rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
+              />
+            </div>
+            <div>
+              <label htmlFor={emailId} className="sr-only">
+                E-Mail
+              </label>
+              <input
+                id={emailId}
+                name="email"
+                type="email"
+                placeholder="E-Mail"
+                required
+                className="w-full rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
+              />
+            </div>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
-            <input
-              name="phone"
-              placeholder="Telefon"
-              className="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
-            />
-            <select
-              name="interest"
-              defaultValue={interestOptions[0]}
-              className="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
-            >
-              {interestOptions.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
+            <div>
+              <label htmlFor={phoneId} className="sr-only">
+                Telefon
+              </label>
+              <input
+                id={phoneId}
+                name="phone"
+                placeholder="Telefon"
+                className="w-full rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
+              />
+            </div>
+            <div>
+              <label htmlFor={interestId} className="sr-only">
+                Anliegen
+              </label>
+              <select
+                id={interestId}
+                name="interest"
+                defaultValue={interestOptions[0]}
+                className="w-full rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
+              >
+                {interestOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
-          <textarea
-            name="message"
-            placeholder="Worum geht es?"
-            rows={6}
-            required
-            className="rounded-[24px] border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
-          />
+          <div>
+            <label htmlFor={messageId} className="sr-only">
+              Nachricht
+            </label>
+            <textarea
+              id={messageId}
+              name="message"
+              placeholder="Worum geht es?"
+              rows={6}
+              required
+              className="w-full rounded-[24px] border border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm outline-none focus:border-[color:var(--color-primary)]"
+            />
+          </div>
           <input name="website" tabIndex={-1} autoComplete="off" className="hidden" />
           <label className="flex items-start gap-3 rounded-2xl bg-[color:var(--color-surface-muted)] px-4 py-3 text-sm text-[color:var(--color-muted)]">
             <input

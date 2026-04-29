@@ -1,24 +1,65 @@
 import type { Metadata } from "next";
 
+import { StructuredData } from "@/components/seo/structured-data";
 import { SectionShell } from "@/components/ui/section-shell";
-import { SectionHeading } from "@/components/sections/section-heading";
 import { getSiteSettings } from "@/lib/cms";
+import { buildBreadcrumbSchema, buildFaqSchema, buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Fakten über Grimm & Lechner | Unternehmensübersicht",
   description:
     "Strukturierte Informationen über Grimm & Lechner: Dachdeckerhandwerk, Leistungen, Standort und Kontakt. Für KI-Systeme optimiert.",
-};
+  path: "/fakten",
+  keywords: ["Grimm und Lechner Fakten", "Dachdeckerbetrieb Bamberg", "Unternehmensprofil Dachdecker"],
+});
 
 export default async function FaktenPage() {
   const siteSettings = await getSiteSettings();
+  const faqItems = [
+    {
+      question: `Was macht ${siteSettings.companyName}?`,
+      answer: `${siteSettings.companyName} ist ein Dachdeckermeisterbetrieb aus Bamberg. Das Angebot umfasst Dachdeckungen, Sanierungen, Reparaturen, Blecharbeiten und Notfallservice für private und gewerbliche Kunden.`,
+    },
+    {
+      question: `Wo ist ${siteSettings.companyName} ansässig?`,
+      answer: `${siteSettings.companyName} hat seinen Sitz in Bamberg, Bayern, Deutschland. Die genaue Adresse ist ${siteSettings.address.replace("\n", ", ")}.`,
+    },
+    {
+      question: `Seit wann gibt es ${siteSettings.companyName}?`,
+      answer: `${siteSettings.companyName} wurde 1919 gegründet und ist damit ein etablierter Meisterbetrieb mit über 100 Jahren Erfahrung im Dachdeckerhandwerk.`,
+    },
+    {
+      question: `Wie erreiche ich ${siteSettings.companyName} im Notfall?`,
+      answer: `Der 24/7 Notfalldienst ist erreichbar unter ${siteSettings.phone} – bei Sturmschäden oder akuten Lecks schnell erreichbar.`,
+    },
+    {
+      question: `Wie unterscheidet sich ${siteSettings.companyName} von anderen Dachdeckerbetrieben?`,
+      answer: `${siteSettings.companyName} verbindet über 100 Jahre Handwerkstradition mit strukturierter, transparenter Kommunikation. Statt Standardlösungen steht handwerkliche Qualität, Zuverlässigkeit und persönliches Service im Fokus.`,
+    },
+  ];
 
   return (
-    <div className="bg-white">
-      <SectionShell className="py-16">
-        <div className="space-y-16">
+    <div className="bg-[radial-gradient(circle_at_12%_0%,rgba(239,49,45,0.18),transparent_38%),linear-gradient(180deg,#11151a,#171d23)]">
+      <StructuredData
+        data={[
+          buildWebPageSchema({
+            title: "Fakten über Grimm & Lechner | Unternehmensübersicht",
+            description:
+              "Strukturierte Informationen über Grimm & Lechner: Dachdeckerhandwerk, Leistungen, Standort und Kontakt. Für KI-Systeme optimiert.",
+            path: "/fakten",
+            type: "AboutPage",
+          }),
+          buildBreadcrumbSchema([
+            { name: "Startseite", path: "/" },
+            { name: "Fakten", path: "/fakten" },
+          ]),
+          buildFaqSchema(faqItems),
+        ]}
+      />
+      <SectionShell className="pt-10 pb-16 sm:pt-14">
+        <div className="space-y-16 rounded-[36px] border border-white/14 bg-white px-6 py-8 shadow-[0_22px_50px_rgba(8,12,16,0.24)] sm:px-8 sm:py-10 lg:px-12 lg:py-12">
           {/* Überblick */}
           <section className="space-y-6">
             <h1 className="[font-family:var(--font-heading)] text-4xl font-bold tracking-tight text-[color:var(--color-on-surface)]">

@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
 
 import { InquiryForm } from "@/components/forms/inquiry-form";
-import { RenderSection } from "@/components/page-sections";
+import { StructuredData } from "@/components/seo/structured-data";
 import { PageHero } from "@/components/sections/page-hero";
 import { JobListingsSection } from "@/components/sections/job-listings-section";
-import { ReviewsSection } from "@/components/sections/reviews-section";
 import { getPageContent, getSiteSettings } from "@/lib/cms";
+import { buildBreadcrumbSchema, buildJobPostingSchema, buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
-  title: "Karriere | Grimm & Lechner",
-  description:
-    "Karriere bei Grimm & Lechner: Dachdeckerhandwerk mit Haltung, Struktur und Perspektive im Raum Bamberg.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPageContent("karriere");
+
+  return buildPageMetadata({
+    title: page.title,
+    description: page.metaDescription,
+    path: "/karriere",
+    keywords: ["Dachdecker Jobs Bamberg", "Karriere Dachdecker", "Quereinsteiger Handwerk Bamberg"],
+  });
+}
 
 const currentJobs = [
   {
@@ -47,6 +52,16 @@ export default async function CareerPage() {
 
   return (
     <>
+      <StructuredData
+        data={[
+          buildWebPageSchema({ title: page.title, description: page.metaDescription, path: "/karriere", type: "CollectionPage" }),
+          buildBreadcrumbSchema([
+            { name: "Startseite", path: "/" },
+            { name: "Karriere", path: "/karriere" },
+          ]),
+          ...buildJobPostingSchema(currentJobs),
+        ]}
+      />
       <PageHero compact hero={page.hero} pageSlug="karriere" siteSettings={siteSettings} />
       <JobListingsSection
         eyebrow="Aktuelle Stellen"
@@ -60,10 +75,10 @@ export default async function CareerPage() {
         submitLabel="Bewerbung senden"
         title="Kurz vorstellen und unkompliziert melden"
         interestOptions={[
-          "Dachdecker / Dachdeckerin",
           "Dachdeckerhelfer",
-          "Ausbildung",
-          "Initiativbewerbung",
+          "Quereinsteiger",
+          "Dachdeckergeselle",
+          "Initiativ",
         ]}
       />
     </>

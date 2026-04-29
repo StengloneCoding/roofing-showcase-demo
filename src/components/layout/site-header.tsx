@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, Phone, X } from "lucide-react";
-import { useState } from "react";
+import { type MouseEvent, useEffect, useState } from "react";
 
 import type { LinkItem, SiteSettingsContent } from "@/lib/content";
 import { ButtonLink } from "@/components/ui/button-link";
@@ -11,25 +12,77 @@ type SiteHeaderProps = {
   siteSettings: SiteSettingsContent;
 };
 
-const buildNavigation = (navigation: LinkItem[]) => [...navigation];
+const buildNavigation = (navigation: LinkItem[]) =>
+  navigation.filter(
+    (item) =>
+      item.label.trim().toLowerCase() !== "referenzen" &&
+      !item.href.toLowerCase().includes("#referenzen"),
+  );
 
 export function SiteHeader({ siteSettings }: SiteHeaderProps) {
   const navigation = buildNavigation(siteSettings.navigation);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const useLightHeaderText = ["/", "/karriere", "/kontakt"].includes(pathname);
+  const navTextClassName = useLightHeaderText ? "text-white" : "text-[color:var(--color-on-surface)]";
+  const navMutedTextClassName = useLightHeaderText
+    ? "text-white/78 hover:text-white"
+    : "text-[color:var(--color-on-surface-variant)] hover:text-[color:var(--color-on-surface)]";
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (pathname === "/" && typeof window !== "undefined") {
+      const shouldScrollTop = window.sessionStorage.getItem("scroll-to-top-on-home");
+
+      if (shouldScrollTop === "1") {
+        window.sessionStorage.removeItem("scroll-to-top-on-home");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+  }, [pathname]);
+
+  const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    setMenuOpen(false);
+
+    if (pathname === "/") {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    if (typeof window !== "undefined") {
+      window.sessionStorage.setItem("scroll-to-top-on-home", "1");
+    }
+  };
+
+  const closeMenu = () => setMenuOpen(false);
+  const toggleMenu = () => setMenuOpen((currentValue) => !currentValue);
+  const headerClassName = "absolute inset-x-0 top-0 z-[70] bg-transparent";
+  const logoBadgeClassName =
+    "rounded-2xl bg-white/96 px-3 py-2 shadow-[0_14px_34px_rgba(15,19,24,0.16)] ring-1 ring-black/6 backdrop-blur-sm";
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[color:var(--color-outline-variant)] bg-white/95 backdrop-blur-md">
+    <header className={headerClassName}>
       <div className="mx-auto flex w-full max-w-[1280px] items-center gap-6 px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex min-w-0 items-center">
-          <div className="relative h-14 w-[150px] shrink-0 sm:h-16 sm:w-[188px]">
-            <Image
-              src="/logo.webp"
-              alt={siteSettings.companyName}
-              fill
-              className="object-contain object-left"
-              sizes="(max-width: 640px) 150px, 188px"
-              priority
-            />
+        <Link href="/" className="flex min-w-0 items-center" onClick={handleLogoClick}>
+          <div className={logoBadgeClassName}>
+            <div className="relative h-10 w-[126px] shrink-0 sm:h-11 sm:w-[156px]">
+              <Image
+                src="/logo.webp"
+                alt={siteSettings.companyName}
+                fill
+                className="object-contain object-left"
+                sizes="(max-width: 640px) 126px, 156px"
+                priority
+              />
+            </div>
           </div>
         </Link>
 
@@ -40,8 +93,8 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
               href={item.href}
               className={`pb-1 text-sm font-semibold uppercase tracking-[0.05em] transition ${
                 index === 0
-                  ? "text-[color:var(--color-primary)]"
-                  : "text-[color:var(--color-on-surface-variant)] hover:text-[color:var(--color-secondary)]"
+                  ? navTextClassName
+                  : navMutedTextClassName
               }`}
             >
               {item.label}
@@ -52,9 +105,9 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
         <div className="hidden items-center gap-3 lg:flex">
           <a
             href={`tel:${siteSettings.phone.replace(/\s+/g, "")}`}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-on-surface)]"
+            className={`inline-flex items-center gap-2 text-sm font-semibold ${navTextClassName}`}
           >
-            <Phone className="h-4 w-4 text-[color:var(--color-secondary)]" />
+            <Phone className={`h-4 w-4 ${useLightHeaderText ? "text-white/85" : "text-[color:var(--color-secondary)]"}`} />
             {siteSettings.phone}
           </a>
           <ButtonLink href="/kontakt" className="px-4">
@@ -64,36 +117,88 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
 
         <button
           type="button"
-          className="ml-auto inline-flex h-10 w-10 items-center justify-center border border-[color:var(--color-outline-variant)] bg-white text-[color:var(--color-on-surface)] lg:hidden"
+          className={`ml-auto inline-flex h-10 w-10 items-center justify-center transition lg:hidden ${
+            useLightHeaderText ? "text-white hover:text-white/80" : "text-[color:var(--color-on-surface)] hover:text-[color:var(--color-on-surface-variant)]"
+          }`}
           aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
           aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((v) => !v)}
+          onClick={toggleMenu}
         >
-          {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          <span className="relative block h-6 w-6">
+            <Menu
+              className={`absolute inset-0 h-6 w-6 transition duration-200 ${
+                menuOpen ? "scale-75 opacity-0 -rotate-90" : "scale-100 opacity-100 rotate-0"
+              }`}
+            />
+            <X
+              className={`absolute inset-0 h-6 w-6 transition duration-200 ${
+                menuOpen ? "scale-100 opacity-100 rotate-0" : "scale-75 opacity-0 rotate-90"
+              }`}
+            />
+          </span>
         </button>
       </div>
 
-      {menuOpen ? (
-        <nav className="border-t border-[color:var(--color-outline-variant)] bg-white lg:hidden">
-          <div className="mx-auto flex w-full max-w-[1280px] flex-col px-4 py-4 sm:px-6">
+      <nav
+        className={`fixed inset-0 z-[80] bg-[radial-gradient(circle_at_12%_0%,rgba(239,49,45,0.18),transparent_38%),linear-gradient(180deg,#11151a,#171d23)] transition duration-250 ease-out lg:hidden ${
+          menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        }`}
+        aria-hidden={!menuOpen}
+      >
+        <div
+          className={`mx-auto flex h-full w-full max-w-[1280px] flex-col overflow-y-auto px-6 pb-10 pt-5 transition duration-300 ease-out sm:px-8 sm:pt-6 ${
+            menuOpen ? "translate-y-0 opacity-100" : "-translate-y-3 opacity-0"
+          }`}
+        >
+            <div className="mb-8 flex items-center justify-between gap-4">
+              <Link href="/" className="flex min-w-0 items-center" onClick={handleLogoClick}>
+                <div className={logoBadgeClassName}>
+                  <div className="relative h-10 w-[126px] shrink-0">
+                    <Image
+                      src="/logo.webp"
+                      alt={siteSettings.companyName}
+                      fill
+                      className="object-contain object-left"
+                      sizes="126px"
+                      priority
+                    />
+                  </div>
+                </div>
+              </Link>
+
+              <button
+                type="button"
+                className="inline-flex h-10 w-10 items-center justify-center text-white transition hover:text-white/80"
+                aria-label="Menü schließen"
+                onClick={closeMenu}
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
             {navigation.map((item) => (
               <Link
                 key={`${item.href}-${item.label}-mobile`}
                 href={item.href}
-                className="border-b border-[color:var(--color-outline-variant)] py-3 text-sm font-semibold uppercase tracking-[0.05em] text-[color:var(--color-on-surface)] last:border-b-0"
-                onClick={() => setMenuOpen(false)}
+                className={`border-b border-white/15 py-4 text-base font-semibold uppercase tracking-[0.06em] text-white transition duration-300 last:border-b-0 ${
+                  menuOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
+                }`}
+                onClick={closeMenu}
               >
                 {item.label}
               </Link>
             ))}
-            <div className="pt-4">
+            <div
+              className={`mt-auto pt-6 transition duration-300 ${
+                menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+              }`}
+            >
               <ButtonLink href="/#kontaktformular" className="w-full justify-center" showArrow={false}>
                 Projekt anfragen
               </ButtonLink>
             </div>
-          </div>
-        </nav>
-      ) : null}
+        </div>
+      </nav>
     </header>
   );
 }

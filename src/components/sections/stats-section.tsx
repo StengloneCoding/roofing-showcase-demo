@@ -12,30 +12,32 @@ type StatsSectionProps = {
 
 export function StatsSection({ eyebrow, heading, items }: StatsSectionProps) {
   return (
-    <SectionShell className="py-10">
-      <div className="space-y-8 border border-[color:var(--color-outline-variant)] bg-[color:var(--color-surface-container-lowest)] px-6 py-8 sm:px-8">
-        <SectionHeading eyebrow={eyebrow} heading={heading} />
-        <div className="grid gap-4 md:grid-cols-3">
-          {items.map((item) => (
-            <FramedCard
-              key={item.label}
-              className="bg-[color:var(--color-surface-container-low)] p-5"
-            >
-              <p className="[font-family:var(--font-heading)] text-4xl font-semibold tracking-tight text-[color:var(--color-primary)]">
-                {item.value}
-              </p>
-              <p className="mt-3 text-base font-semibold text-[color:var(--color-on-surface)]">
-                {item.label}
-              </p>
-              {item.description ? (
-                <p className="mt-2 text-sm leading-7 text-[color:var(--color-on-surface-variant)]">
-                  {item.description}
+    <section className="w-full bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(241,244,246,0.72))] py-12 sm:py-14">
+      <SectionShell className="py-0">
+        <div className="space-y-8">
+          <SectionHeading eyebrow={eyebrow} heading={heading} />
+          <div className="grid gap-5 md:grid-cols-3">
+            {items.map((item) => (
+              <FramedCard
+                key={item.label}
+                className="bg-white/90 p-6"
+              >
+                <p className="[font-family:var(--font-heading)] text-4xl font-semibold tracking-tight text-[color:var(--color-primary)]">
+                  {item.value}
                 </p>
-              ) : null}
-            </FramedCard>
-          ))}
+                <p className="mt-3 text-base font-semibold text-[color:var(--color-on-surface)]">
+                  {item.label}
+                </p>
+                {item.description ? (
+                  <p className="mt-2 text-sm leading-7 text-[color:var(--color-on-surface-variant)]">
+                    {item.description}
+                  </p>
+                ) : null}
+              </FramedCard>
+            ))}
+          </div>
         </div>
-      </div>
-    </SectionShell>
+      </SectionShell>
+    </section>
   );
 }

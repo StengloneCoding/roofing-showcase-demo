@@ -14,7 +14,7 @@ export default async function FrontendLayout({ children }: FrontendLayoutProps) 
   return (
     <div className="flex min-h-screen flex-col bg-[color:var(--color-background)]">
       <SiteHeader siteSettings={siteSettings} />
-      <main className="flex-1 pt-20">{children}</main>
+      <main className="flex-1">{children}</main>
       <SiteFooter siteSettings={siteSettings} />
     </div>
   );
