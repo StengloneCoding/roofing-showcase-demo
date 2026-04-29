@@ -57,8 +57,8 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
             <Phone className="h-4 w-4 text-[color:var(--color-secondary)]" />
             {siteSettings.phone}
           </a>
-          <ButtonLink href="/#kontaktformular" className="px-4">
-            Notdienst
+          <ButtonLink href="/kontakt" className="px-4">
+            Kontakt
           </ButtonLink>
         </div>
 
