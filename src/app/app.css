@@ -1,5 +1,6 @@
 :root {
   --header-offset: 104px;
+  --scroll-offset: 0px;
   --background: #f7fafc;
   --surface: #f7fafc;
   --surface-dim: #d7dadc;
@@ -46,11 +47,11 @@
 }
 
 html {
-  scroll-padding-top: var(--header-offset);
+  scroll-padding-top: var(--scroll-offset);
 }
 
 [id] {
-  scroll-margin-top: var(--header-offset);
+  scroll-margin-top: var(--scroll-offset);
 }
 
 body {
@@ -65,6 +66,133 @@ body {
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* ========== FADE & SLIDE ANIMATIONS ========== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ========== ANIMATION UTILITY CLASSES ========== */
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ========== STAGGERED ANIMATIONS ========== */
+
+.animate-stagger > * {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-stagger > :nth-child(1) { animation-delay: 0ms; }
+.animate-stagger > :nth-child(2) { animation-delay: 200ms; }
+.animate-stagger > :nth-child(3) { animation-delay: 400ms; }
+.animate-stagger > :nth-child(4) { animation-delay: 600ms; }
+.animate-stagger > :nth-child(5) { animation-delay: 800ms; }
+.animate-stagger > :nth-child(6) { animation-delay: 1000ms; }
+.animate-stagger > :nth-child(n+7) { animation-delay: 1200ms; }
+
+.animate-stagger.in-view > * {
+  animation-play-state: running;
+}
+
+.animate-stagger:not(.in-view) > * {
+  animation: none;
+}
+
+/* ========== INTERSECTION OBSERVER HELPER ========== */
+
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.in-view {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ========== PARTNER MARQUEE ========== */
 
 @keyframes partner-marquee {
   from {

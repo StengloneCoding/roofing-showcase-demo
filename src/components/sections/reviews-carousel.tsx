@@ -14,7 +14,7 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
   const renderedReviews = hasLoop ? [...reviews, ...reviews, ...reviews] : reviews;
   const middleStartIndex = hasLoop ? reviews.length : 0;
   const trackRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<Array<HTMLArticleElement | null>>([]);
+  const cardRefs = useRef<Array<HTMLElement | null>>([]);
   const [virtualIndex, setVirtualIndex] = useState(middleStartIndex);
   const [isPaused, setIsPaused] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);

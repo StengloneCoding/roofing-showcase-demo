@@ -5,22 +5,15 @@ import { usePathname } from "next/navigation";
 import { Menu, Phone, X } from "lucide-react";
 import { type MouseEvent, useEffect, useState } from "react";
 
-import type { LinkItem, SiteSettingsContent } from "@/lib/content";
+import type { SiteSettingsContent } from "@/lib/content";
 import { ButtonLink } from "@/components/ui/button-link";
 
 type SiteHeaderProps = {
   siteSettings: SiteSettingsContent;
 };
 
-const buildNavigation = (navigation: LinkItem[]) =>
-  navigation.filter(
-    (item) =>
-      item.label.trim().toLowerCase() !== "referenzen" &&
-      !item.href.toLowerCase().includes("#referenzen"),
-  );
-
 export function SiteHeader({ siteSettings }: SiteHeaderProps) {
-  const navigation = buildNavigation(siteSettings.navigation);
+  const navigation = siteSettings.navigation;
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const useLightHeaderText = ["/", "/karriere", "/kontakt"].includes(pathname);
@@ -53,6 +46,10 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
 
     if (pathname === "/") {
       event.preventDefault();
+      // Remove hash from URL
+      if (window.location.hash) {
+        window.history.replaceState(null, "", window.location.pathname);
+      }
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 import type { GalleryProject } from "@/lib/content";
 
@@ -11,6 +14,8 @@ type GalleryShowcaseProps = {
 };
 
 export function GalleryShowcase({ projects }: GalleryShowcaseProps) {
+  const gridRef = useScrollReveal({ threshold: 0.15 });
+
   return (
     <section id="referenzen" className="bg-[color:var(--color-primary)] py-16 text-white">
       <SectionShell className="py-0">
@@ -26,7 +31,7 @@ export function GalleryShowcase({ projects }: GalleryShowcaseProps) {
           </ButtonLink>
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+        <div ref={gridRef} className="mt-10 grid gap-6 lg:grid-cols-3 animate-stagger">
           {projects.map((project, index) => (
             <article
               key={project.slug}

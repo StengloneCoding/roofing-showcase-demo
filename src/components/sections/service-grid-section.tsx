@@ -1,3 +1,6 @@
+"use client";
+
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import type { ServiceItem } from "@/lib/content";
 import {
   Wrench,
@@ -38,13 +41,15 @@ export function ServiceGridSection({
   heading,
   items,
 }: ServiceGridSectionProps) {
+  const gridRef = useScrollReveal({ threshold: 0.15 });
+
   return (
     <SectionShell id="leistungen">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <SectionHeading eyebrow={eyebrow} heading={heading} description={description} />
       </div>
 
-      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div ref={gridRef} className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4 animate-stagger">
         {items.map((item, index) => (
           <FramedCard
             key={item.title}

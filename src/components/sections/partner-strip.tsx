@@ -14,7 +14,10 @@ const marqueePartners = [...partners, ...partners];
 
 export function PartnerStrip() {
   return (
-    <section className="w-full bg-[linear-gradient(180deg,rgba(241,244,246,0.94),rgba(224,227,229,0.9))] py-12 sm:py-14">
+    <section
+      id="material-und-marken"
+      className="w-full bg-[linear-gradient(180deg,rgba(241,244,246,0.94),rgba(224,227,229,0.9))] py-12 sm:py-14"
+    >
       <SectionShell className="py-0">
         <div className="space-y-8 overflow-hidden rounded-[30px] border border-[color:var(--color-outline-variant)]/65 bg-white/65 px-0 py-12 shadow-[0_22px_44px_rgba(20,25,31,0.06)] sm:py-14">
           <div className="mx-auto max-w-3xl px-6 text-center sm:px-10">

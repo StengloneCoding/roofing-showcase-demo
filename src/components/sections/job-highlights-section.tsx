@@ -1,3 +1,6 @@
+"use client";
+
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { SectionShell } from "@/components/ui/section-shell";
 
@@ -16,11 +19,13 @@ export function JobHighlightsSection({
   items,
   note,
 }: JobHighlightsSectionProps) {
+  const highlightsRef = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
+
   return (
     <SectionShell>
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
         <SectionHeading eyebrow={eyebrow} heading={heading} description={description} />
-        <div className="space-y-4">
+        <div ref={highlightsRef} className="space-y-4 animate-stagger">
           {items.map((item) => (
             <div
               key={item}

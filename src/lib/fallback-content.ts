@@ -13,6 +13,7 @@ export const fallbackSiteSettings: SiteSettingsContent = {
   address: "Blumenstr. 3\n96049 Bamberg",
   navigation: [
     { label: "Leistungen", href: "/#leistungen" },
+    { label: "Ablauf", href: "/#prozess" },
     { label: "Über uns", href: "/#über-uns" },
     { label: "Karriere", href: "/karriere" },
   ],
@@ -389,27 +390,6 @@ export const fallbackPages: Record<string, PageContent> = {
         },
       },
     ],
-  },
-  referenzen: {
-    slug: "referenzen",
-    title: "Referenzen | Grimm & Lechner",
-    metaDescription:
-      "Projektbeispiele von Grimm & Lechner rund um Dachsanierung, Blecharbeiten, Dachfenster und Reparaturen.",
-    hero: {
-      eyebrow: "Referenzen",
-      title: "Projektbeispiele aus dem Dachdeckeralltag in Bamberg und Umgebung",
-      description:
-        "Dieser Inhalt ist in der aktuellen Struktur als Abschnitt auf der Startseite gedacht und dort per Hash-Navigation erreichbar.",
-      primaryCta: {
-        label: "Zur Startseite",
-        href: "/#referenzen",
-      },
-      secondaryCta: {
-        label: "Kontakt aufnehmen",
-        href: "/kontakt",
-      },
-    },
-    sections: [],
   },
 };
 

@@ -2,6 +2,7 @@
 
 import { Plus } from "lucide-react";
 import { useState } from "react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 import type { FaqItem } from "@/lib/content";
 
@@ -22,16 +23,17 @@ export function FaqSection({
   items,
 }: FaqSectionProps) {
   const [openIndex, setOpenIndex] = useState(0);
+  const faqRef = useScrollReveal({ threshold: 0.15 });
 
   return (
-    <SectionShell>
+    <SectionShell id="faq">
       <SectionHeading
         eyebrow={eyebrow}
         heading={heading}
         description={description}
         align="center"
       />
-      <div className="mx-auto mt-10 max-w-4xl space-y-3">
+      <div ref={faqRef} className="mx-auto mt-10 max-w-4xl space-y-3 animate-stagger">
         {items.map((item, index) => {
           const isOpen = openIndex === index;
 

@@ -1,4 +1,7 @@
+"use client";
+
 import { Clock3, Mail, MapPinned, Phone } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 import type { ContactCard } from "@/lib/content";
 
@@ -25,10 +28,12 @@ export function ContactCardsSection({
   heading,
   items,
 }: ContactCardsSectionProps) {
+  const cardsRef = useScrollReveal({ threshold: 0.15 });
+
   return (
     <SectionShell>
       <SectionHeading eyebrow={eyebrow} heading={heading} description={description} />
-      <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      <div ref={cardsRef} className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4 animate-stagger">
         {items.map((item) => {
           const Icon = icons[item.icon];
 

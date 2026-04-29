@@ -1,3 +1,7 @@
+"use client";
+
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 type SectionHeadingProps = {
   align?: "center" | "left";
   description?: string;
@@ -13,6 +17,8 @@ export function SectionHeading({
   heading,
   tone = "dark",
 }: SectionHeadingProps) {
+  const ref = useScrollReveal({ threshold: 0.2 });
+
   const headingColor =
     tone === "light" ? "text-white" : "text-[color:var(--color-on-surface)]";
   const descriptionColor =
@@ -22,7 +28,7 @@ export function SectionHeading({
   const alignment = align === "center" ? "mx-auto text-center" : "";
 
   return (
-    <div className={`max-w-3xl space-y-3 ${alignment}`}>
+    <div ref={ref} className={`max-w-3xl space-y-3 animate-on-scroll ${alignment}`}>
       {eyebrow ? (
         <p className={`text-xs font-semibold uppercase tracking-[0.12em] ${eyebrowColor}`}>
           {eyebrow}

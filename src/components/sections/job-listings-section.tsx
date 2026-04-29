@@ -1,3 +1,6 @@
+"use client";
+
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { SectionShell } from "@/components/ui/section-shell";
 import { SectionHeading } from "@/components/sections/section-heading";
 
@@ -21,12 +24,14 @@ export function JobListingsSection({
   heading,
   jobs,
 }: JobListingsSectionProps) {
+  const jobsRef = useScrollReveal<HTMLUListElement>({ threshold: 0.15 });
+
   return (
     <SectionShell>
       <SectionHeading eyebrow={eyebrow} heading={heading} description={description} />
 
       <div className="mt-12">
-        <ul className="space-y-4">
+        <ul ref={jobsRef} className="space-y-4 animate-stagger">
           {jobs.map((job) => (
             <li key={job.title}>
               <article className="border border-[color:var(--color-outline-variant)] bg-white p-6 transition-all hover:border-[color:var(--color-primary)] hover:shadow-md">

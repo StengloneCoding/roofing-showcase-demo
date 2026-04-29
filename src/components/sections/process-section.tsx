@@ -1,3 +1,6 @@
+"use client";
+
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import type { ProcessStep } from "@/lib/content";
 
 import { SectionHeading } from "@/components/sections/section-heading";
@@ -16,8 +19,13 @@ export function ProcessSection({
   heading,
   steps,
 }: ProcessSectionProps) {
+  const stepsRef = useScrollReveal({ threshold: 0.15 });
+
   return (
-    <section className="w-full bg-[radial-gradient(circle_at_12%_0%,rgba(239,49,45,0.18),transparent_38%),linear-gradient(180deg,#11151a,#171d23)] py-16 sm:py-20">
+    <section
+      id="prozess"
+      className="w-full bg-[radial-gradient(circle_at_12%_0%,rgba(239,49,45,0.18),transparent_38%),linear-gradient(180deg,#11151a,#171d23)] py-16 sm:py-20"
+    >
       <SectionShell className="py-0">
         <SectionHeading
           eyebrow={eyebrow}
@@ -27,7 +35,7 @@ export function ProcessSection({
           tone="light"
         />
         <div className="mt-12 grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="space-y-4">
+          <div ref={stepsRef} className="space-y-4 animate-stagger">
             {steps.map((step, index) => (
               <article
                 key={step.title}
