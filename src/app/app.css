@@ -43,7 +43,8 @@
   --color-outline: var(--outline);
   --color-outline-variant: var(--outline-variant);
   --color-border: var(--outline-variant);
-  --font-heading: var(--font-work-sans);
+  --font-body: var(--font-manrope);
+  --font-heading: var(--font-space-grotesk);
 }
 
 html {
@@ -56,6 +57,16 @@ html {
 
 body {
   color: var(--foreground);
+  font-family: var(--font-body);
+  font-feature-settings: "ss01" 1, "cv10" 1;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
 .hide-scrollbar {
