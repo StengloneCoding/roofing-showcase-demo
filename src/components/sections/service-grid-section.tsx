@@ -41,7 +41,7 @@ export function ServiceGridSection({
   heading,
   items,
 }: ServiceGridSectionProps) {
-  const gridRef = useScrollReveal({ threshold: 0.15 });
+  const gridRef = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
 
   return (
     <SectionShell id="leistungen">

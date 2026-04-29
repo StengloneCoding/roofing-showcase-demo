@@ -28,7 +28,7 @@ export function ContactCardsSection({
   heading,
   items,
 }: ContactCardsSectionProps) {
-  const cardsRef = useScrollReveal({ threshold: 0.15 });
+  const cardsRef = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
 
   return (
     <SectionShell>

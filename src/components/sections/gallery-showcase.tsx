@@ -14,7 +14,7 @@ type GalleryShowcaseProps = {
 };
 
 export function GalleryShowcase({ projects }: GalleryShowcaseProps) {
-  const gridRef = useScrollReveal({ threshold: 0.15 });
+  const gridRef = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
 
   return (
     <section id="referenzen" className="bg-[color:var(--color-primary)] py-16 text-white">

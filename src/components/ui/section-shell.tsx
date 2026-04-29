@@ -12,7 +12,7 @@ type SectionShellProps = {
 };
 
 export function SectionShell({ children, className, id }: SectionShellProps) {
-  const ref = useScrollReveal();
+  const ref = useScrollReveal<HTMLElement>();
 
   return (
     <section

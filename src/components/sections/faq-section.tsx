@@ -23,7 +23,7 @@ export function FaqSection({
   items,
 }: FaqSectionProps) {
   const [openIndex, setOpenIndex] = useState(0);
-  const faqRef = useScrollReveal({ threshold: 0.15 });
+  const faqRef = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
 
   return (
     <SectionShell id="faq">

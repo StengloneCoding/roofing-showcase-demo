@@ -19,7 +19,7 @@ export function ProcessSection({
   heading,
   steps,
 }: ProcessSectionProps) {
-  const stepsRef = useScrollReveal({ threshold: 0.15 });
+  const stepsRef = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
 
   return (
     <section

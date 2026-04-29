@@ -17,7 +17,7 @@ export function SectionHeading({
   heading,
   tone = "dark",
 }: SectionHeadingProps) {
-  const ref = useScrollReveal({ threshold: 0.2 });
+  const ref = useScrollReveal<HTMLDivElement>({ threshold: 0.2 });
 
   const headingColor =
     tone === "light" ? "text-white" : "text-[color:var(--color-on-surface)]";
