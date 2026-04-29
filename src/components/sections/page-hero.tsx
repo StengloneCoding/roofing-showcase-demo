@@ -65,23 +65,6 @@ export function PageHero({
               </ButtonLink>
             ) : null}
           </div>
-
-          {isHome ? (
-            <div className="grid max-w-2xl gap-4 pt-6 sm:grid-cols-3">
-              <div className="border border-white/35 bg-black/25 p-4 backdrop-blur-sm">
-                <p className="text-xs uppercase tracking-[0.08em] text-white/72">Standort</p>
-                <p className="mt-2 text-sm font-semibold">Bamberg</p>
-              </div>
-              <div className="border border-white/35 bg-black/25 p-4 backdrop-blur-sm">
-                <p className="text-xs uppercase tracking-[0.08em] text-white/72">Kontakt</p>
-                <p className="mt-2 text-sm font-semibold">{siteSettings.phone}</p>
-              </div>
-              <div className="border border-white/35 bg-black/25 p-4 backdrop-blur-sm">
-                <p className="text-xs uppercase tracking-[0.08em] text-white/72">Seit</p>
-                <p className="mt-2 text-sm font-semibold">1919</p>
-              </div>
-            </div>
-          ) : null}
         </div>
       </div>
     </section>
