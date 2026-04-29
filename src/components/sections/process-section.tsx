@@ -22,21 +22,26 @@ export function ProcessSection({
         eyebrow={eyebrow}
         heading={heading}
         description={description}
-        align="center"
+        align="left"
       />
-      <div className="mt-12 grid items-center gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+      <div className="mt-12 grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="space-y-4">
           {steps.map((step, index) => (
-            <article key={step.title} className="flex gap-5 rounded-[24px] bg-white p-5 shadow-[0_12px_30px_rgba(23,23,23,0.05)]">
-              <div className="mt-1 h-20 w-1 rounded-full bg-[color:var(--color-primary)]/85" />
+            <article
+              key={step.title}
+              className="flex gap-5 border border-[color:var(--color-outline-variant)] bg-white p-5"
+            >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-[color:var(--color-secondary)] text-sm font-bold text-white">
+                {String(index + 1).padStart(2, "0")}
+              </div>
               <div>
-                <p className="text-sm font-medium text-[color:var(--color-primary)]">
+                <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[color:var(--color-secondary)]">
                   Schritt {index + 1}
                 </p>
-                <h3 className="mt-2 text-2xl font-semibold tracking-tight text-[color:var(--color-foreground)]">
+                <h3 className="mt-2 [font-family:var(--font-heading)] text-2xl font-semibold tracking-tight text-[color:var(--color-on-surface)]">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-base leading-7 text-[color:var(--color-muted)]">
+                <p className="mt-3 text-base leading-7 text-[color:var(--color-on-surface-variant)]">
                   {step.description}
                 </p>
               </div>
@@ -44,14 +49,18 @@ export function ProcessSection({
           ))}
         </div>
 
-        <div className="rounded-[32px] bg-[linear-gradient(135deg,#f3efe8,#ddd3c3)] p-5 shadow-[0_18px_40px_rgba(23,23,23,0.07)]">
-          <div className="flex h-[420px] items-end rounded-[24px] bg-[linear-gradient(145deg,#b49b84,#e9dfd2_45%,#8f8f8f)] p-6">
-            <div className="max-w-sm rounded-[24px] bg-black/45 p-5 text-white backdrop-blur">
-              <p className="text-sm text-white/72">Verlässlich organisiert</p>
-              <p className="mt-2 text-xl font-semibold">
-                Von der ersten Beratung bis zur finalen Abstimmung arbeiten wir strukturiert, erreichbar und mit klaren nächsten Schritten.
-              </p>
-            </div>
+        <div className="border border-[color:var(--color-outline-variant)] bg-[color:var(--color-surface-container-low)] p-8">
+          <div className="border-l-4 border-[color:var(--color-secondary)] pl-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[color:var(--color-secondary)]">
+              Verlässlich organisiert
+            </p>
+            <p className="mt-4 [font-family:var(--font-heading)] text-2xl font-semibold leading-tight text-[color:var(--color-on-surface)]">
+              Von der ersten Beratung bis zur finalen Abstimmung arbeiten wir strukturiert,
+              erreichbar und mit klaren nächsten Schritten.
+            </p>
+            <p className="mt-4 text-sm leading-7 text-[color:var(--color-on-surface-variant)]">
+              Keine Show-Effekte, sondern ein handwerklich sauberer Ablauf mit klaren Verantwortlichkeiten.
+            </p>
           </div>
         </div>
       </div>

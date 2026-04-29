@@ -38,19 +38,19 @@ export function FaqSection({
           return (
             <article
               key={item.question}
-              className="rounded-[24px] bg-white px-5 py-5 shadow-[0_12px_30px_rgba(23,23,23,0.05)]"
+              className="border border-[color:var(--color-outline-variant)] bg-white"
             >
               <button
                 type="button"
                 onClick={() => setOpenIndex((current) => (current === index ? -1 : index))}
-                className="flex w-full items-start justify-between gap-4 text-left"
+                className="flex w-full items-start justify-between gap-4 px-6 py-6 text-left transition-colors hover:bg-[color:var(--color-surface-container-low)]"
                 aria-expanded={isOpen}
               >
-                <span className="text-lg font-semibold text-[color:var(--color-foreground)]">
+                <span className="text-lg font-semibold text-[color:var(--color-on-surface)]">
                   {item.question}
                 </span>
                 <span
-                  className={`rounded-full bg-[color:var(--color-surface-muted)] p-2 text-[color:var(--color-foreground)] transition ${
+                  className={`rounded bg-[color:var(--color-surface-container)] p-2 text-[color:var(--color-on-surface)] transition ${
                     isOpen ? "rotate-45" : ""
                   }`}
                 >
@@ -64,7 +64,7 @@ export function FaqSection({
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="pr-8 text-base leading-7 text-[color:var(--color-muted)]">
+                  <p className="px-6 pb-6 pr-8 text-base leading-7 text-[color:var(--color-on-surface-variant)]">
                     {item.answer}
                   </p>
                 </div>

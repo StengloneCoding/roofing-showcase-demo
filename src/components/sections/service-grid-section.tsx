@@ -1,13 +1,28 @@
 import type { ServiceItem } from "@/lib/content";
+import {
+  Wrench,
+  Building2,
+  House,
+  Landmark,
+  ThermometerSun,
+  ShieldAlert,
+  AppWindow,
+  Hammer,
+} from "lucide-react";
 
 import { SectionHeading } from "@/components/sections/section-heading";
-import { ButtonLink } from "@/components/ui/button-link";
+import { FramedCard } from "@/components/ui/framed-card";
 import { SectionShell } from "@/components/ui/section-shell";
 
-const cardAccents = [
-  "from-slate-900 via-slate-700 to-slate-500",
-  "from-zinc-900 via-zinc-700 to-zinc-500",
-  "from-stone-900 via-stone-700 to-stone-500",
+const serviceIcons = [
+  House,
+  Building2,
+  Landmark,
+  ThermometerSun,
+  ShieldAlert,
+  Wrench,
+  AppWindow,
+  Hammer,
 ];
 
 type ServiceGridSectionProps = {
@@ -29,25 +44,27 @@ export function ServiceGridSection({
         <SectionHeading eyebrow={eyebrow} heading={heading} description={description} />
       </div>
 
-      <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {items.map((item, index) => (
-          <article
+          <FramedCard
             key={item.title}
-            className="overflow-hidden rounded-[28px] bg-[color:var(--color-surface)] shadow-[0_20px_45px_rgba(23,23,23,0.07)]"
+            className="flex h-full flex-col p-8"
+            hoverable
           >
-            <div
-              className={`flex min-h-48 items-end bg-gradient-to-br ${cardAccents[index % cardAccents.length]} p-6 text-white`}
-            >
-              <div>
-                <p className="text-sm text-white/72">Leistung</p>
-                <h3 className="mt-2 text-3xl font-semibold tracking-tight">{item.title}</h3>
-              </div>
-            </div>
+            <div className="mb-6 text-[color:var(--color-secondary)]">
+              {(() => {
+                const Icon = serviceIcons[index % serviceIcons.length];
 
-            <div className="space-y-5 p-6">
-              <p className="text-base leading-7 text-[color:var(--color-muted)]">{item.description}</p>
+                return <Icon className="h-8 w-8" />;
+              })()}
             </div>
-          </article>
+            <h3 className="[font-family:var(--font-heading)] text-2xl font-semibold text-[color:var(--color-on-surface)]">
+              {item.title}
+            </h3>
+            <p className="mt-4 text-base leading-7 text-[color:var(--color-on-surface-variant)]">
+              {item.description}
+            </p>
+          </FramedCard>
         ))}
       </div>
     </SectionShell>

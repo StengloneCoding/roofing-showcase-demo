@@ -20,9 +20,9 @@ export function CtaSection({
   secondaryCta,
 }: CtaSectionProps) {
   return (
-    <SectionShell>
-      <div className="grid overflow-hidden rounded-[36px] bg-[color:var(--color-primary)] text-white lg:grid-cols-[0.95fr_1.05fr]">
-        <div className="space-y-6 p-8 sm:p-10">
+    <SectionShell className="bg-[color:var(--color-secondary)] text-white">
+      <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <div className="space-y-6">
           <SectionHeading
             eyebrow={eyebrow}
             heading={heading}
@@ -34,13 +34,17 @@ export function CtaSection({
               {primaryCta.label}
             </ButtonLink>
             {secondaryCta ? (
-              <ButtonLink href={secondaryCta.href} variant="outline">
+              <ButtonLink href={secondaryCta.href} variant="ghost" className="text-white hover:text-white/90">
                 {secondaryCta.label}
               </ButtonLink>
             ) : null}
           </div>
         </div>
-        <div className="min-h-[320px] bg-[linear-gradient(135deg,rgba(255,255,255,0.12),rgba(0,0,0,0.2))]" />
+        <div className="justify-self-end border border-white/35 bg-white/10 p-6 backdrop-blur-sm md:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-white/80">Notfall-Hotline</p>
+          <p className="mt-3 [font-family:var(--font-heading)] text-3xl font-bold md:text-5xl">0951 62840</p>
+          <p className="mt-3 text-sm text-white/85">Bei Sturmschaden oder akutem Leck schnell erreichbar.</p>
+        </div>
       </div>
     </SectionShell>
   );

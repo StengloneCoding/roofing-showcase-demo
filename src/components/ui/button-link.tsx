@@ -12,17 +12,17 @@ type ButtonLinkProps = {
 
 const variants = {
   ghost:
-    "bg-transparent text-[color:var(--color-foreground)] hover:text-[color:var(--color-primary)]",
+    "bg-transparent text-[color:var(--color-on-surface)] hover:text-[color:var(--color-secondary)]",
   light:
-    "bg-white text-[color:var(--color-foreground)] hover:bg-[color:var(--color-secondary)]",
+    "bg-[color:var(--color-surface-container-lowest)] text-[color:var(--color-on-surface)] hover:bg-[color:var(--color-surface-container)]",
   outline:
-    "border border-white/30 bg-white/5 text-white hover:bg-white/10",
+    "border border-[color:var(--color-outline)] bg-transparent text-[color:var(--color-on-surface)] hover:border-[color:var(--color-primary)] hover:text-[color:var(--color-primary)]",
   primary:
-    "bg-[color:var(--color-primary)] text-white hover:bg-[color:var(--color-primary-dark)]",
+    "bg-[color:var(--color-secondary)] text-white hover:bg-[color:var(--color-secondary-dark)]",
 };
 
 const baseClassName =
-  "inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-150";
+  "inline-flex min-h-12 items-center gap-2 rounded px-5 py-3 text-sm font-semibold uppercase tracking-[0.05em] transition duration-150";
 
 export function ButtonLink({
   children,

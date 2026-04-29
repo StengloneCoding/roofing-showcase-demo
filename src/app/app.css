@@ -1,33 +1,51 @@
 :root {
-  --background: #faf8f4;
-  --surface: #ffffff;
-  --surface-muted: #f2eee7;
-  --surface-strong: #1f2933;
-  --surface-strong-muted: #2d3a46;
-  --foreground: #171717;
-  --foreground-inverse: #f8f4ee;
-  --muted: #6a6a6a;
-  --primary: #ef312d;
-  --primary-dark: #d92a26;
-  --secondary: #f5eadb;
-  --border: rgba(23, 23, 23, 0.08);
-  --font-body: "Aptos", "Segoe UI", "Trebuchet MS", sans-serif;
-}
-
-@theme inline {
+  --background: #f7fafc;
+  --surface: #f7fafc;
+  --surface-dim: #d7dadc;
+  --surface-bright: #f7fafc;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f1f4f6;
+  --surface-container: #ebeef0;
+  --surface-container-high: #e5e9eb;
+  --surface-container-highest: #e0e3e5;
+  --surface-variant: #e0e3e5;
+  --foreground: #181c1e;
+  --foreground-variant: #444748;
+  --foreground-inverse: #eef1f3;
+  --surface-strong: #2d3133;
+  --primary: #1e1e1e;
+  --primary-dark: #333333;
+  --secondary: #ef312d;
+  --secondary-dark: #c41e1b;
+  --outline: #747878;
+  --outline-variant: #c4c7c7;
   --color-background: var(--background);
   --color-surface: var(--surface);
-  --color-surface-muted: var(--surface-muted);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-surface-variant: var(--surface-variant);
   --color-surface-strong: var(--surface-strong);
-  --color-surface-strong-muted: var(--surface-strong-muted);
   --color-foreground: var(--foreground);
+  --color-on-surface: var(--foreground);
+  --color-on-surface-variant: var(--foreground-variant);
   --color-foreground-inverse: var(--foreground-inverse);
-  --color-muted: var(--muted);
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
   --color-secondary: var(--secondary);
-  --color-border: var(--border);
-  --font-sans: var(--font-body);
+  --color-secondary-dark: var(--secondary-dark);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-border: var(--outline-variant);
+  --font-heading: var(--font-work-sans);
+}
+
+body {
+  color: var(--foreground);
 }
 
 @keyframes partner-marquee {
@@ -40,10 +58,6 @@
   }
 }
 
-.partner-marquee {
-  animation: partner-marquee 24s linear infinite;
-}
-
 @keyframes reviews-marquee {
   from {
     transform: translateX(0);
@@ -54,10 +68,3 @@
   }
 }
 
-.reviews-marquee {
-  animation: reviews-marquee 42s linear infinite;
-}
-
-.reviews-marquee:hover {
-  animation-play-state: paused;
-}

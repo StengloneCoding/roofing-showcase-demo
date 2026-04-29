@@ -15,12 +15,12 @@ const marqueePartners = [...partners, ...partners];
 export function PartnerStrip() {
   return (
     <SectionShell className="py-10">
-      <div className="space-y-8 overflow-hidden rounded-[32px] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-0 py-8 sm:py-10">
+      <div className="space-y-8 overflow-hidden border-y border-[color:var(--color-outline-variant)] bg-[color:var(--color-surface-container-low)] px-0 py-12 sm:py-14">
         <div className="mx-auto max-w-3xl px-6 text-center sm:px-10">
-          <p className="text-sm font-medium text-[color:var(--color-muted)]">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[color:var(--color-secondary)]">
             Starke Partner für starke Arbeit
           </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[color:var(--color-foreground)] sm:text-4xl">
+          <h2 className="mt-3 [font-family:var(--font-heading)] text-3xl font-semibold tracking-tight text-[color:var(--color-on-surface)] sm:text-4xl">
             Materialien und Marken, auf die wir uns auf dem Dach verlassen.
           </h2>
         </div>
@@ -30,11 +30,11 @@ export function PartnerStrip() {
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[color:var(--color-surface)] to-transparent sm:w-24" />
 
           <div className="overflow-hidden">
-            <div className="partner-marquee flex w-max items-center gap-5 px-6 sm:gap-6 sm:px-10">
+            <div className="animate-[partner-marquee_24s_linear_infinite] flex w-max items-center gap-5 px-6 sm:gap-6 sm:px-10">
               {marqueePartners.map((partner, index) => (
                 <div
                   key={`${partner.name}-${index}`}
-                  className="flex h-24 w-[220px] shrink-0 items-center justify-center rounded-[24px] bg-[color:var(--color-surface-muted)] px-5 shadow-[0_12px_30px_rgba(23,23,23,0.05)]"
+                  className="flex h-24 w-[220px] shrink-0 items-center justify-center border border-[color:var(--color-outline-variant)] bg-white px-5 opacity-65 grayscale transition duration-200 hover:opacity-100 hover:grayscale-0"
                 >
                   <Image src={partner.src} alt={partner.alt} width={220} height={88} className="h-auto w-full" />
                 </div>

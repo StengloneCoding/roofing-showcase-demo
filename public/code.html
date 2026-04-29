@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="light" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Work+Sans:wght@600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2d3133",
+                    "surface-dim": "#d7dadc",
+                    "secondary-fixed": "#ffdad6",
+                    "on-surface": "#181c1e",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#181c1e",
+                    "on-tertiary-fixed-variant": "#3c475a",
+                    "tertiary-fixed-dim": "#bcc7dd",
+                    "secondary": "#ef312d",
+                    "tertiary": "#141f2f",
+                    "surface-variant": "#e0e3e5",
+                    "primary-fixed": "#e4e2e1",
+                    "primary": "#1e1e1e",
+                    "secondary-container": "#c41e1b",
+                    "on-primary-fixed-variant": "#474747",
+                    "surface-tint": "#5f5e5e",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#ffb4ab",
+                    "on-primary-fixed": "#1b1c1c",
+                    "on-tertiary-container": "#919cb2",
+                    "outline-variant": "#c4c7c7",
+                    "background": "#f7fafc",
+                    "on-tertiary-fixed": "#111c2c",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#293446",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#eef1f3",
+                    "on-primary-container": "#9c9b9b",
+                    "primary-container": "#333333",
+                    "on-surface-variant": "#444748",
+                    "tertiary-fixed": "#d8e3fa",
+                    "inverse-primary": "#c8c6c6",
+                    "on-error-container": "#93000a",
+                    "surface": "#f7fafc",
+                    "surface-bright": "#f7fafc",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#410002",
+                    "primary-fixed-dim": "#c8c6c6",
+                    "on-error": "#ffffff",
+                    "surface-container": "#ebeef0",
+                    "surface-container-high": "#e5e9eb",
+                    "outline": "#747878",
+                    "surface-container-low": "#f1f4f6",
+                    "on-secondary-fixed-variant": "#93000a",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-secondary-container": "#fffbff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "section-padding": "80px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "h1": ["Work Sans"],
+                    "h2": ["Work Sans"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "h3": ["Work Sans"],
+                    "label-caps": ["Inter"]
+            },
+            "fontSize": {
+                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "h2": ["36px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600"}],
+                    "label-caps": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0.8));
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary selection:text-white">
+<nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-zinc-200 shadow-sm">
+<div class="max-w-[1280px] mx-auto px-8 flex justify-between items-center h-20">
+<div class="text-xl font-black text-zinc-900 tracking-tighter uppercase font-h2">Grimm &amp; Lechner</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-label-caps text-sm font-semibold tracking-wide uppercase text-zinc-700 hover:text-secondary pb-1 transition-all" href="#">Leistungen</a>
+<a class="font-label-caps text-sm font-semibold tracking-wide uppercase text-zinc-700 hover:text-secondary pb-1 transition-all" href="#">Referenzen</a>
+<a class="font-label-caps text-sm font-semibold tracking-wide uppercase text-zinc-700 hover:text-secondary pb-1 transition-all" href="#">Über uns</a>
+<a class="font-label-caps text-sm font-semibold tracking-wide uppercase text-zinc-700 hover:text-secondary pb-1 transition-all" href="#">Karriere</a>
+<a class="font-label-caps text-sm font-semibold tracking-wide uppercase text-zinc-700 hover:text-secondary pb-1 transition-all" href="#">Kontakt</a>
+</div>
+<button class="bg-secondary text-on-secondary px-6 py-3 font-label-caps text-sm uppercase font-bold hover:bg-secondary-container transition-colors">
+            Notdienst
+        </button>
+</div>
+</nav>
+<main>
+<section class="relative h-[921px] flex items-center pt-20">
+<div class="absolute inset-0 z-0">
+<img alt="Stunning aerial view of traditional slate and clay tile roofs in the historic city of Bamberg, Germany, warm sunset lighting" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcQc_eMHGLhyPCAnfmvLHJTs1nuwikYMiunf91UbBWThFR2UjhzKzKhuBAfGIb5iitU0O0TrSDZpqyAt0v7taHJ3n3w5ShPAjSwWuLkxZfkYjMbqeMmhmsJLl3F3TXr0mYlrUpAj-mrIEva3kasKTUq4E79BgZO9SOu18SSsLPkpTF5X06nqCkKy3zOlk5dJoFSPKzWyS1dZVV-PoJZH2q5DE9Pi_51E-cVd2LPbkcwaogA8mAIIaMWw_IzVK4Q43sq4kD9yTz5vPN"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 max-w-[1280px] mx-auto px-8 w-full">
+<div class="max-w-3xl">
+<span class="text-secondary font-label-caps uppercase tracking-widest mb-4 block">Seit 1919 in vierter Generation</span>
+<h1 class="font-h1 text-h1 text-white mb-8">Dachdeckermeister Grimm &amp; Lechner in Bamberg und Umgebung</h1>
+<p class="font-body-lg text-body-lg text-white/90 mb-10 max-w-xl">
+                    Wir beraten ehrlich, arbeiten sauber und kümmern uns um alles rund ums Dach – von der Reparatur über Sanierung und Wärmedämmung bis zu Dachfenstern und Blecharbeiten.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-secondary text-white px-8 py-5 font-label-caps text-md uppercase font-bold hover:brightness-110 active:opacity-80 transition-all">
+                        Kostenlose Beratung
+                    </button>
+<button class="border-2 border-white text-white px-8 py-5 font-label-caps text-md uppercase font-bold hover:bg-white/10 transition-all">
+                        Unsere Referenzen
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 bg-white border-b border-outline-variant">
+<div class="max-w-[1280px] mx-auto px-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-8 bg-surface-container-low p-8 md:p-12 border border-outline-variant">
+<div class="max-w-2xl">
+<div class="flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-yellow-400 fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-yellow-400 fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-yellow-400 fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-yellow-400 fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="material-symbols-outlined text-yellow-400 fill-1" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="ml-2 font-bold text-primary">5.0 Sterne</span>
+</div>
+<h2 class="font-h2 text-h2 text-primary mb-4">Echte Rückmeldungen von Kundinnen und Kunden aus Bamberg und Umgebung.</h2>
+<p class="font-body-md text-on-surface-variant">Erfahren Sie, warum unsere Kunden uns seit Generationen vertrauen.</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="text-5xl font-black text-primary mb-2">5.0</div>
+<p class="font-label-caps text-xs uppercase text-on-surface-variant">Google Rating</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white">
+<div class="max-w-[1280px] mx-auto px-8">
+<div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div>
+<p class="font-label-caps text-secondary uppercase tracking-widest mb-2">Leistungen</p>
+<h2 class="font-h2 text-h2 text-primary mb-4">Unsere Leistungen rund ums Dach im Überblick</h2>
+<div class="w-20 h-1.5 bg-secondary"></div>
+</div>
+<button class="bg-secondary text-white px-8 py-4 font-label-caps text-sm uppercase font-bold hover:brightness-110 active:opacity-80 transition-all">
+                    Jetzt anfragen
+                </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="group border border-outline-variant hover:border-secondary transition-all p-8 flex flex-col h-full">
+<span class="material-symbols-outlined text-secondary text-3xl mb-6">home</span>
+<h3 class="font-h3 text-xl mb-4 text-primary">Neubauten</h3>
+<p class="font-body-md text-on-surface-variant">Komplette Dacharbeiten für neue Gebäude mit sauberem Aufbau, klarer Abstimmung und fachgerechter Ausführung.</p>
+</div>
+<div class="group border border-outline-variant hover:border-secondary transition-all p-8 flex flex-col h-full">
+<span class="material-symbols-outlined text-secondary text-3xl mb-6">roofing</span>
+<h3 class="font-h3 text-xl mb-4 text-primary">Dachsanierung</h3>
+<p class="font-body-md text-on-surface-variant">Sanierungen im Bestand mit Blick auf Substanz, Details und eine langfristig passende Lösung für Ihr Dach.</p>
+</div>
+<div class="group border border-outline-variant hover:border-secondary transition-all p-8 flex flex-col h-full">
+<span class="material-symbols-outlined text-secondary text-3xl mb-6">account_balance</span>
+<h3 class="font-h3 text-xl mb-4 text-primary">Denkmalpflege</h3>
+<p class="font-body-md text-on-surface-variant">Sorgfältige Arbeiten an sensiblen Bestandsgebäuden mit Respekt vor Material, Bestand und handwerklichem Detail.</p>
+</div>
+<div class="group border border-outline-variant hover:border-secondary transition-all p-8 flex flex-col h-full">
+<span class="material-symbols-outlined text-secondary text-3xl mb-6">thermostat</span>
+<h3 class="font-h3 text-xl mb-4 text-primary">Wärmedämmung</h3>
+<p class="font-body-md text-on-surface-variant">Wärmedämmarbeiten nach Energieeinsparverordnung für mehr Effizienz, besseren Wohnkomfort und einen stimmigen Dachaufbau.</p>
+</div>
+<div class="group border border-outline-variant hover:border-secondary transition-all p-8 flex flex-col h-full">
+<span class="material-symbols-outlined text-secondary text-3xl mb-6">warning</span>
+<h3 class="font-h3 text-xl mb-4 text-primary">Asbestentsorgung</h3>
+<p class="font-body-md text-on-surface-variant">Fachgerechte Entsorgung im Rahmen von Dacharbeiten mit klarem Ablauf und dem nötigen Verantwortungsbewusstsein.</p>
+</div>
+<div class="group border border-outline-variant hover:border-secondary transition-all p-8 flex flex-col h-full">
+<span class="material-symbols-outlined text-secondary text-3xl mb-6">build</span>
+<h3 class="font-h3 text-xl mb-4 text-primary">Reparaturen</h3>
+<p class="font-body-md text-on-surface-variant">Schnelle, pragmatische Hilfe bei Schäden, undichten Stellen oder einzelnen defekten Bauteilen.</p>
+</div>
+<div class="group border border-outline-variant hover:border-secondary transition-all p-8 flex flex-col h-full">
+<span class="material-symbols-outlined text-secondary text-3xl mb-6">window</span>
+<h3 class="font-h3 text-xl mb-4 text-primary">Dachfenster</h3>
+<p class="font-body-md text-on-surface-variant">Mehr Licht und bessere Nutzung unterm Dach durch fachgerechten Einbau und Austausch.</p>
+</div>
+<div class="group border border-outline-variant hover:border-secondary transition-all p-8 flex flex-col h-full">
+<span class="material-symbols-outlined text-secondary text-3xl mb-6">architecture</span>
+<h3 class="font-h3 text-xl mb-4 text-primary">Blecharbeiten</h3>
+<p class="font-body-md text-on-surface-variant">Handwerklich saubere Arbeiten in allen Bereichen des Dachs, abgestimmt auf Bestand, Material und Nutzung.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-surface-container-low border-y border-outline-variant overflow-hidden">
+<div class="max-w-[1280px] mx-auto px-8">
+<div class="mb-12 text-center">
+<p class="font-label-caps text-secondary uppercase tracking-widest mb-2">Starke Partner für starke Arbeit</p>
+<h2 class="font-h2 text-3xl text-primary mb-4">Materialien und Marken, auf die wir uns auf dem Dach verlassen</h2>
+</div>
+<div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+<div class="text-2xl font-black tracking-tighter text-zinc-800">VELUX</div>
+<div class="text-2xl font-black tracking-tighter text-zinc-800">BRAAS</div>
+<div class="text-2xl font-black tracking-tighter text-zinc-800">FAKRO</div>
+<div class="text-2xl font-black tracking-tighter text-zinc-800">ISOVER</div>
+<div class="text-2xl font-black tracking-tighter text-zinc-800">NELSKAMP</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white">
+<div class="max-w-[1280px] mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div>
+<p class="font-label-caps text-secondary uppercase tracking-widest mb-2">Unser Prozess</p>
+<h2 class="font-h2 text-h2 text-primary mb-8">So kommen Sie zu Ihrem neuen Dach</h2>
+<div class="space-y-12">
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 bg-secondary text-white font-bold flex items-center justify-center rounded-sm">01</div>
+<div>
+<h4 class="font-h3 text-lg mb-2 text-primary">Unverbindliches Beratungsgespräch</h4>
+<p class="font-body-md text-on-surface-variant">Sie schildern uns, worum es geht – ob kleiner Schaden oder große Sanierung. Wir hören zu.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 bg-secondary text-white font-bold flex items-center justify-center rounded-sm">02</div>
+<div>
+<h4 class="font-h3 text-lg mb-2 text-primary">Besichtigung und Aufmaß</h4>
+<p class="font-body-md text-on-surface-variant">Vor Ort prüfen wir Dach, Bestand und Details, damit wir eine solide Grundlage für die Planung haben.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 bg-secondary text-white font-bold flex items-center justify-center rounded-sm">03</div>
+<div>
+<h4 class="font-h3 text-lg mb-2 text-primary">Transparentes Angebot</h4>
+<p class="font-body-md text-on-surface-variant">Sie erhalten eine nachvollziehbare Empfehlung und einen fairen Kostenvoranschlag ohne versteckte Posten.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 bg-secondary text-white font-bold flex items-center justify-center rounded-sm">04</div>
+<div>
+<h4 class="font-h3 text-lg mb-2 text-primary">Ausführung und Abstimmung</h4>
+<p class="font-body-md text-on-surface-variant">Auf der Baustelle arbeiten wir strukturiert, sauber und halten Sie über den Fortschritt auf dem Laufenden.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-zinc-100 aspect-square relative border border-outline-variant overflow-hidden">
+<img alt="Roofer measuring a roof carefully with professional tools" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI-A7h5lxXmWdLjvwSEU1-kfSGNvyE4FLxh5xJJFpwOHqvMCAN_2F4uYfUWOmjYCjqdYCuRt-i8c8kxcoqQY4rdB-b24BbXnkr6LTFRqlPkcc9SNf0-7YtA4ta9RUF7gd5TJsnxSgHvCjgCXAvK2WPBw6i6X5R4EtXlmOyX-oXTPMVtTe_P0NlWSZ7SZClSa22jx9wJ1kR8MrNB1_8pxO2JTkQcvajZLnrq0uxuHcXtzPxKWtA75YlStihhN0LfpNa3fChA0xXAvs_"/>
+<div class="absolute inset-0 bg-primary/20"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-surface-container-low border-y border-outline-variant">
+<div class="max-w-[1280px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<p class="font-label-caps text-secondary uppercase tracking-widest mb-2">Über uns</p>
+<h2 class="font-h2 text-h2 text-primary mb-6">Was Grimm &amp; Lechner für Bauherren in Bamberg auszeichnet</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+                    Wir sind mehr als nur ein Handwerksbetrieb. Wir sind Ihr Partner für Sicherheit und Beständigkeit über Ihrem Kopf.
+                </p>
+<div class="space-y-8 mb-10">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">visibility</span>
+<div>
+<h4 class="font-bold text-primary">Beratung auf Augenhöhe</h4>
+<p class="text-on-surface-variant">Wir erklären Ihnen verständlich, was nötig ist und was nicht. Ehrlichkeit steht bei uns an erster Stelle.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">cleaning_services</span>
+<div>
+<h4 class="font-bold text-primary">Saubere Ausführung</h4>
+<p class="text-on-surface-variant">Wir hinterlassen die Baustelle so, wie wir sie gerne selbst vorfinden würden – ordentlich und sicher.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">support_agent</span>
+<div>
+<h4 class="font-bold text-primary">Verlässlich erreichbar</h4>
+<p class="text-on-surface-variant">Kein Ghosting. Wenn Sie eine Frage haben oder Hilfe brauchen, sind wir für Sie da.</p>
+</div>
+</div>
+</div>
+<button class="bg-secondary text-white px-10 py-5 font-label-caps text-md uppercase font-bold hover:brightness-110 active:opacity-80 transition-all">
+                    Kostenlose Beratung
+                </button>
+</div>
+<div class="relative">
+<img alt="Black and white portrait of a master roofer in traditional guild clothing holding a slate hammer, classic craftsmanship vibe" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEP7_N0T3Y765ljbvP9Xj8r7grsxLOPBlaPL15fkX7ZOzfOPWJCHfFn_54861vZoKpBKgqD8V8S8Mv63Xf7Vk2hsrBcFpgGF0Gh_b7C3rTkjJnwaQvmiyGOyjyKXfpwSfSVI1qSkDOTQuKjRz_KdIUboxglEwKMRPetcyveYPeloPw5rp_OIUNYzFgoBCP9cJNC_sfSNcyIgMpLuktJX6umKGGIvAONPecCRbzxYaXeuQdoucAtz0XJdmcsfv4e3EKbvv5Q1unqWMD"/>
+<div class="absolute -bottom-6 -right-6 bg-white p-8 shadow-xl border border-outline-variant hidden md:block max-w-xs">
+<p class="font-h3 text-lg text-primary italic leading-tight">"Ein Dach ist mehr als nur Schutz – es ist der Abschluss Ihrer Vision."</p>
+<p class="mt-4 font-label-caps text-secondary uppercase tracking-widest text-xs">— Klaus Grimm, Inhaber</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white">
+<div class="max-w-[1280px] mx-auto px-8">
+<div class="mb-12 text-center">
+<p class="font-label-caps text-secondary uppercase tracking-widest mb-2">Häufige Fragen</p>
+<h2 class="font-h2 text-h2 text-primary">Das Wichtigste rund ums Dach kurz erklärt</h2>
+</div>
+<div class="max-w-4xl mx-auto space-y-4">
+<div class="border border-outline-variant">
+<button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-surface-container-low transition-colors group">
+<span class="font-bold text-primary">Kostet die erste Besichtigung etwas?</span>
+<span class="material-symbols-outlined text-secondary transition-transform group-hover:rotate-90">chevron_right</span>
+</button>
+<div class="px-8 pb-6 text-on-surface-variant border-t border-outline-variant/50 pt-4 hidden">
+                        Nein, die Erstberatung und Besichtigung zur Angebotserstellung sind für Sie in Bamberg und Umgebung kostenfrei.
+                    </div>
+</div>
+<div class="border border-outline-variant">
+<button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-surface-container-low transition-colors group">
+<span class="font-bold text-primary">Wie schnell liegt ein Angebot vor?</span>
+<span class="material-symbols-outlined text-secondary">chevron_right</span>
+</button>
+</div>
+<div class="border border-outline-variant">
+<button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-surface-container-low transition-colors group">
+<span class="font-bold text-primary">Arbeiten Sie auch an denkmalgeschützten Gebäuden?</span>
+<span class="material-symbols-outlined text-secondary">chevron_right</span>
+</button>
+</div>
+<div class="border border-outline-variant">
+<button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-surface-container-low transition-colors group">
+<span class="font-bold text-primary">Was passiert bei einem akuten Sturmschaden?</span>
+<span class="material-symbols-outlined text-secondary">chevron_right</span>
+</button>
+</div>
+<div class="pt-12 text-center">
+<button class="bg-secondary text-white px-10 py-5 font-label-caps text-md uppercase font-bold hover:brightness-110 active:opacity-80 transition-all">
+                        Jetzt anfragen
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-secondary text-white">
+<div class="max-w-[1280px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left">
+<h2 class="font-h2 text-h2 mb-2">Brauchen Sie schnelle Hilfe?</h2>
+<p class="font-body-lg text-white/80">Unser Notdienst ist bei Sturmschäden sofort für Sie da.</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="bg-white/10 p-4 rounded-full">
+<span class="material-symbols-outlined text-4xl">phone_in_talk</span>
+</div>
+<div>
+<p class="font-label-caps text-xs uppercase opacity-80">24/7 Notfall-Hotline</p>
+<p class="font-h1 text-3xl md:text-5xl">0951 62840</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-zinc-900 text-zinc-400 font-body-md border-t-4 border-secondary">
+<div class="max-w-[1280px] mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1">
+<div class="text-lg font-bold text-white mb-6 uppercase tracking-tighter">Grimm &amp; Lechner</div>
+<p class="mb-6">Meisterbetrieb seit Generationen. Qualität und Zuverlässigkeit am Dach in Bamberg und Umgebung.</p>
+<div class="flex space-x-4">
+<a class="hover:text-white transition-colors" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="hover:text-white transition-colors" href="mailto:grimmundlechner@t-online.de"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-label-caps uppercase text-sm mb-6 tracking-widest">Leistungen</h4>
+<ul class="space-y-4">
+<li><a class="hover:text-white transition-colors" href="#">Steildach</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Flachdach</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Dachfenster</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Bauklempnerei</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-label-caps uppercase text-sm mb-6 tracking-widest">Kontakt</h4>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-sm mt-1">location_on</span>
+<span>Blumenstr. 3<br/>96049 Bamberg</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sm">call</span>
+<span>0951 62840</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sm">mail</span>
+<span>grimmundlechner@t-online.de</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-label-caps uppercase text-sm mb-6 tracking-widest">Unternehmen</h4>
+<ul class="space-y-4">
+<li><a class="hover:text-white transition-colors" href="#">Über uns</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Karriere</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Impressum</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Datenschutz</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-zinc-800 py-8">
+<div class="max-w-[1280px] mx-auto px-8 text-xs text-center flex flex-col md:flex-row justify-between items-center gap-4">
+<p>© 2024 Grimm &amp; Lechner Bedachungen GmbH - Bamberg. Meisterbetrieb seit Generationen.</p>
+<div class="flex gap-8">
+<a class="hover:text-white" href="#">Notdienst</a>
+<a class="hover:text-white" href="#">Kontakt</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

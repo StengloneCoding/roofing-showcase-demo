@@ -11,6 +11,7 @@ import { ReviewsSection } from "@/components/sections/reviews-section";
 import { ServiceGridSection } from "@/components/sections/service-grid-section";
 import { StatsSection } from "@/components/sections/stats-section";
 import { TextColumnsSection } from "@/components/sections/text-columns-section";
+import { NextStepsSection } from "@/components/sections/next-steps-section";
 import { getGalleryProjects, getPageContent, getSiteSettings } from "@/lib/cms";
 
 export const revalidate = 3600;
@@ -41,7 +42,6 @@ export default async function Home() {
   return (
     <>
       <PageHero hero={page.hero} pageSlug="start" siteSettings={siteSettings} />
-      <ReviewsSection />
       {statsSection ? (
         <StatsSection
           eyebrow={statsSection.eyebrow}
@@ -49,6 +49,7 @@ export default async function Home() {
           items={statsSection.items}
         />
       ) : null}
+      <ReviewsSection />
       {serviceSection ? (
         <ServiceGridSection
           description={serviceSection.description}
@@ -84,29 +85,7 @@ export default async function Home() {
           items={faqSection.items}
         />
       ) : null}
-      {ctaSection ? (
-        <CtaSection
-          description={ctaSection.description}
-          eyebrow={ctaSection.eyebrow}
-          heading={ctaSection.heading}
-          primaryCta={ctaSection.primaryCta}
-          secondaryCta={ctaSection.secondaryCta}
-        />
-      ) : null}
-      <InquiryForm
-        id="kontaktformular"
-        sourcePage="startseite"
-        submitLabel="Projekt anfragen"
-        title="Ihr Dachprojekt startet hier mit einer kurzen Nachricht."
-        interestOptions={[
-          "Dachsanierung",
-          "Blecharbeiten",
-          "Wärmedämmung",
-          "Dachfenster",
-          "Reparatur",
-          "Sonstiges Projekt",
-        ]}
-      />
+      <NextStepsSection />
     </>
   );
 }
