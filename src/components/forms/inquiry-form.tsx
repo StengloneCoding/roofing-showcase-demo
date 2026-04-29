@@ -40,9 +40,6 @@ export function InquiryForm({
           <h2 className="text-3xl font-semibold tracking-tight text-[color:var(--color-foreground)] sm:text-4xl">
             {title}
           </h2>
-          <p className="text-base leading-7 text-[color:var(--color-muted)]">
-            Das Formular landet direkt in Payload und ist damit sofort in eurem CMS weiterbearbeitbar.
-          </p>
         </div>
 
         <form
@@ -178,11 +175,10 @@ export function InquiryForm({
           </button>
           {status.kind !== "idle" ? (
             <p
-              className={`text-sm ${
-                status.kind === "success"
-                  ? "text-[color:var(--color-primary)]"
-                  : "text-[#9f2f24]"
-              }`}
+              className={`text-sm ${status.kind === "success"
+                ? "text-[color:var(--color-primary)]"
+                : "text-[#9f2f24]"
+                }`}
             >
               {status.message}
             </p>
