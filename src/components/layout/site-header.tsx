@@ -81,11 +81,10 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
             <Link
               key={`${item.href}-${item.label}`}
               href={item.href}
-              className={`pb-1 text-sm font-semibold uppercase tracking-[0.05em] transition ${
-                index === 0
-                  ? navTextClassName
-                  : navMutedTextClassName
-              }`}
+              className={`pb-1 text-sm font-semibold uppercase tracking-[0.05em] transition ${index === 0
+                ? navTextClassName
+                : navMutedTextClassName
+                }`}
             >
               {item.label}
             </Link>
@@ -97,7 +96,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
             href={`tel:${siteSettings.phone.replace(/\s+/g, "")}`}
             className={`inline-flex items-center gap-2 text-sm font-semibold ${navTextClassName}`}
           >
-            <Phone className={`h-4 w-4 ${useLightHeaderText ? "text-white/85" : "text-[color:var(--color-secondary)]"}`} />
+            <Phone className="h-4 w-4 text-white/85" />
             {siteSettings.phone}
           </a>
           <ButtonLink href="/kontakt" className="px-4">
@@ -107,8 +106,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
 
         <button
           type="button"
-          className={`ml-auto inline-flex h-10 w-10 items-center justify-center transition lg:hidden ${
-            useLightHeaderText ? "text-white hover:text-white/80" : "text-[color:var(--color-on-surface)] hover:text-[color:var(--color-on-surface-variant)]"
+          className={`ml-auto inline-flex h-10 w-10 items-center justify-center transition lg:hidden text-white hover:text-white/80"
           }`}
           aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
           aria-expanded={menuOpen}
@@ -116,70 +114,64 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
         >
           <span className="relative block h-6 w-6">
             <Menu
-              className={`absolute inset-0 h-6 w-6 transition duration-200 ${
-                menuOpen ? "scale-75 opacity-0 -rotate-90" : "scale-100 opacity-100 rotate-0"
-              }`}
+              className={`absolute inset-0 h-6 w-6 transition duration-200 ${menuOpen ? "scale-75 opacity-0 -rotate-90" : "scale-100 opacity-100 rotate-0"
+                }`}
             />
             <X
-              className={`absolute inset-0 h-6 w-6 transition duration-200 ${
-                menuOpen ? "scale-100 opacity-100 rotate-0" : "scale-75 opacity-0 rotate-90"
-              }`}
+              className={`absolute inset-0 h-6 w-6 transition duration-200 ${menuOpen ? "scale-100 opacity-100 rotate-0" : "scale-75 opacity-0 rotate-90"
+                }`}
             />
           </span>
         </button>
       </div>
 
       <nav
-        className={`fixed inset-0 z-[80] bg-[radial-gradient(circle_at_12%_0%,rgba(239,49,45,0.18),transparent_38%),linear-gradient(180deg,#11151a,#171d23)] transition duration-250 ease-out lg:hidden ${
-          menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
-        }`}
+        className={`fixed inset-0 z-[80] bg-[radial-gradient(circle_at_12%_0%,rgba(239,49,45,0.18),transparent_38%),linear-gradient(180deg,#11151a,#171d23)] transition duration-250 ease-out lg:hidden ${menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+          }`}
         aria-hidden={!menuOpen}
       >
         <div
-          className={`mx-auto flex h-full w-full max-w-[1280px] flex-col overflow-y-auto px-6 pb-10 pt-5 transition duration-300 ease-out sm:px-8 sm:pt-6 ${
-            menuOpen ? "translate-y-0 opacity-100" : "-translate-y-3 opacity-0"
-          }`}
+          className={`mx-auto flex h-full w-full max-w-[1280px] flex-col overflow-y-auto px-6 pb-10 pt-5 transition duration-300 ease-out sm:px-8 sm:pt-6 ${menuOpen ? "translate-y-0 opacity-100" : "-translate-y-3 opacity-0"
+            }`}
         >
-            <div className="mb-8 flex items-center justify-between gap-4">
-              <Link href="/" className="flex min-w-0 items-center" onClick={handleLogoClick}>
-                <div className={logoBadgeClassName}>
-                  <div className="shrink-0">
-                    <BrandMark companyName={siteSettings.companyName} />
-                  </div>
+          <div className="mb-8 flex items-center justify-between gap-4">
+            <Link href="/" className="flex min-w-0 items-center" onClick={handleLogoClick}>
+              <div className={logoBadgeClassName}>
+                <div className="shrink-0">
+                  <BrandMark companyName={siteSettings.companyName} />
                 </div>
-              </Link>
+              </div>
+            </Link>
 
-              <button
-                type="button"
-                className="inline-flex h-10 w-10 items-center justify-center text-white transition hover:text-white/80"
-                aria-label="Menü schließen"
-                onClick={closeMenu}
-              >
-                <X className="h-6 w-6" />
-              </button>
-            </div>
-
-            {navigation.map((item) => (
-              <Link
-                key={`${item.href}-${item.label}-mobile`}
-                href={item.href}
-                className={`border-b border-white/15 py-4 text-base font-semibold uppercase tracking-[0.06em] text-white transition duration-300 last:border-b-0 ${
-                  menuOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
-                }`}
-                onClick={closeMenu}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div
-              className={`mt-auto pt-6 transition duration-300 ${
-                menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-              }`}
+            <button
+              type="button"
+              className="inline-flex h-10 w-10 items-center justify-center text-white transition hover:text-white/80"
+              aria-label="Menü schließen"
+              onClick={closeMenu}
             >
-              <ButtonLink href="/#kontaktformular" className="w-full justify-center" showArrow={false}>
-                Projekt anfragen
-              </ButtonLink>
-            </div>
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+
+          {navigation.map((item) => (
+            <Link
+              key={`${item.href}-${item.label}-mobile`}
+              href={item.href}
+              className={`border-b border-white/15 py-4 text-base font-semibold uppercase tracking-[0.06em] text-white transition duration-300 last:border-b-0 ${menuOpen ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
+                }`}
+              onClick={closeMenu}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <div
+            className={`mt-auto pt-6 transition duration-300 ${menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+              }`}
+          >
+            <ButtonLink href="/#kontaktformular" className="w-full justify-center" showArrow={false}>
+              Projekt anfragen
+            </ButtonLink>
+          </div>
         </div>
       </nav>
     </header>
