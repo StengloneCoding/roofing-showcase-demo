@@ -10,12 +10,18 @@ import {
 } from "@/lib/fallback-content";
 import { getPayloadClient } from "@/lib/payload";
 
+const FORCE_GENERIC_DEMO_CONTENT = true;
+
 const normalizeTags = (tags?: Array<{ text?: string } | string> | null) =>
   (tags || [])
     .map((tag) => (typeof tag === "string" ? tag : tag?.text))
     .filter((tag): tag is string => Boolean(tag));
 
 export async function getSiteSettings(): Promise<SiteSettingsContent> {
+  if (FORCE_GENERIC_DEMO_CONTENT) {
+    return fallbackSiteSettings;
+  }
+
   try {
     const payload = await getPayloadClient();
     const settings = (await payload.findGlobal({
@@ -36,6 +42,10 @@ export async function getSiteSettings(): Promise<SiteSettingsContent> {
 }
 
 export async function getPageContent(slug: string): Promise<PageContent> {
+  if (FORCE_GENERIC_DEMO_CONTENT) {
+    return fallbackPages[slug] || fallbackPages.start;
+  }
+
   try {
     const payload = await getPayloadClient();
     const result = await payload.find({
@@ -63,6 +73,12 @@ export async function getPageContent(slug: string): Promise<PageContent> {
 }
 
 export async function getGalleryProjects(limit?: number): Promise<GalleryProject[]> {
+  if (FORCE_GENERIC_DEMO_CONTENT) {
+    return typeof limit === "number"
+      ? fallbackGalleryProjects.slice(0, limit)
+      : fallbackGalleryProjects;
+  }
+
   try {
     const payload = await getPayloadClient();
     const result = await payload.find({

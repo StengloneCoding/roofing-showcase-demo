@@ -47,7 +47,7 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
     if (!track || !targetCard) return;
 
     track.scrollTo({
-      left: targetCard.offsetLeft,
+      left: Math.max(0, targetCard.offsetLeft - (track.clientWidth - targetCard.clientWidth) / 2),
       behavior,
     });
   };
@@ -82,14 +82,17 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
     if (!track) return;
 
     const handleScroll = () => {
-      const trackLeft = track.getBoundingClientRect().left;
+      const trackRect = track.getBoundingClientRect();
+      const trackCenter = trackRect.left + trackRect.width / 2;
       let bestIndex = 0;
       let bestDistance = Number.POSITIVE_INFINITY;
 
       cardRefs.current.forEach((card, index) => {
         if (!card) return;
 
-        const distance = Math.abs(card.getBoundingClientRect().left - trackLeft);
+        const cardRect = card.getBoundingClientRect();
+        const cardCenter = cardRect.left + cardRect.width / 2;
+        const distance = Math.abs(cardCenter - trackCenter);
 
         if (distance < bestDistance) {
           bestDistance = distance;
@@ -147,7 +150,7 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
     >
       <div
         ref={trackRef}
-        className="hide-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2"
+        className="hide-scrollbar -mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto px-[7vw] pb-4 sm:mx-0 sm:px-0"
       >
         {renderedReviews.map((review, index) => (
           <article
@@ -156,7 +159,7 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
             ref={(element) => {
               cardRefs.current[index] = element;
             }}
-            className="min-h-[280px] w-[86vw] max-w-[420px] shrink-0 snap-start rounded-3xl border border-[color:var(--color-outline-variant)]/70 bg-white p-6 shadow-[0_14px_26px_rgba(20,25,31,0.06)]"
+            className="min-h-[280px] w-[86vw] max-w-[420px] shrink-0 snap-center rounded-3xl border border-[color:var(--color-outline-variant)]/70 bg-white p-6 shadow-[0_14px_26px_rgba(20,25,31,0.06)]"
           >
             <p className="text-sm font-semibold uppercase tracking-[0.05em] text-[color:var(--color-primary)]">
               {review.authorName}

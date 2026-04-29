@@ -1,0 +1,57 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="520" rx="40" fill="#EEF2F4"/>
+  <rect x="24" y="24" width="1152" height="472" rx="28" fill="url(#bg)"/>
+  <path d="M0 396C112 352 204 334 314 332C444 330 543 370 660 370C770 370 873 324 984 324C1070 324 1132 346 1200 378V520H0V396Z" fill="url(#roofGlow)" fill-opacity="0.9"/>
+  <path d="M126 334L366 198L607 292L864 160L1062 244" stroke="#D45A3D" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M126 334L366 198L607 292L864 160L1062 244" stroke="#F7B39A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+  <path d="M72 416H1128" stroke="#173340" stroke-width="10" stroke-linecap="round" opacity="0.3"/>
+
+  <g opacity="0.98">
+    <ellipse cx="252" cy="432" rx="74" ry="17" fill="#10222D" fill-opacity="0.24"/>
+    <circle cx="252" cy="296" r="32" fill="#F2C9A4"/>
+    <rect x="212" y="330" width="80" height="88" rx="24" fill="#182C36"/>
+    <path d="M228 336C228 312 240 290 252 278C264 290 276 312 276 336H228Z" fill="#D45A3D"/>
+    <rect x="220" y="350" width="64" height="14" rx="7" fill="#F3F6F7" fill-opacity="0.82"/>
+    <path d="M226 290C232 260 272 250 284 282C270 276 252 276 226 290Z" fill="#0E1B24"/>
+    <rect x="204" y="408" width="26" height="16" rx="8" fill="#182C36"/>
+    <rect x="274" y="408" width="26" height="16" rx="8" fill="#182C36"/>
+  </g>
+
+  <g opacity="0.98">
+    <ellipse cx="524" cy="434" rx="80" ry="18" fill="#10222D" fill-opacity="0.22"/>
+    <circle cx="524" cy="290" r="34" fill="#EBC19B"/>
+    <rect x="478" y="326" width="92" height="94" rx="28" fill="#223844"/>
+    <path d="M492 326H556L544 278H504L492 326Z" fill="#D45A3D"/>
+    <rect x="492" y="352" width="64" height="14" rx="7" fill="#F3F6F7" fill-opacity="0.82"/>
+    <path d="M492 284C498 254 536 244 556 274C542 270 522 270 492 284Z" fill="#0E1B24"/>
+    <rect x="466" y="408" width="28" height="16" rx="8" fill="#223844"/>
+    <rect x="554" y="408" width="28" height="16" rx="8" fill="#223844"/>
+    <rect x="594" y="318" width="28" height="116" rx="14" transform="rotate(-22 594 318)" fill="#A8B7BF"/>
+  </g>
+
+  <g opacity="0.98">
+    <ellipse cx="842" cy="432" rx="76" ry="17" fill="#10222D" fill-opacity="0.22"/>
+    <circle cx="842" cy="300" r="31" fill="#F1C6A1"/>
+    <rect x="804" y="334" width="76" height="86" rx="24" fill="#162A34"/>
+    <path d="M818 334H866L856 292H826L818 334Z" fill="#D45A3D"/>
+    <rect x="814" y="352" width="56" height="14" rx="7" fill="#F3F6F7" fill-opacity="0.82"/>
+    <path d="M814 292C824 262 858 258 874 284C858 280 840 280 814 292Z" fill="#0E1B24"/>
+    <rect x="790" y="408" width="26" height="16" rx="8" fill="#162A34"/>
+    <rect x="868" y="408" width="26" height="16" rx="8" fill="#162A34"/>
+  </g>
+
+  <rect x="56" y="56" width="184" height="54" rx="18" fill="#F8FAFB" fill-opacity="0.18" stroke="#FFFFFF" stroke-opacity="0.18"/>
+  <text x="86" y="88" fill="#F8FAFB" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" letter-spacing="2">TEAM VOR ORT</text>
+
+  <defs>
+    <linearGradient id="bg" x1="600" y1="24" x2="600" y2="496" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3E5662"/>
+      <stop offset="0.46" stop-color="#243844"/>
+      <stop offset="1" stop-color="#18252E"/>
+    </linearGradient>
+    <linearGradient id="roofGlow" x1="600" y1="324" x2="600" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D45A3D" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#111B22" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,16 +1,23 @@
 import type { Metadata } from "next";
 
 import type { FaqItem, PageSection, SiteSettingsContent } from "@/lib/content";
+import {
+  DEMO_CITY,
+  DEMO_COMPANY_NAME,
+  DEMO_REGION,
+  DEMO_SITE_URL,
+  DEMO_STATE,
+} from "@/lib/demo-placeholders";
 
-export const SITE_URL = "https://www.grimm-lechner.de";
-const DEFAULT_OG_IMAGE = "/logo.webp";
+export const SITE_URL = DEMO_SITE_URL;
+const DEFAULT_OG_IMAGE = "/logo-generic.svg";
 const DEFAULT_KEYWORDS = [
-  "Dachdecker Bamberg",
-  "Dachsanierung Bamberg",
-  "Blecharbeiten Bamberg",
-  "Dachfenster Bamberg",
+  "Dachdecker Website Vorlage",
+  "Dachsanierung Demo",
+  "Blecharbeiten Demo",
+  "Dachfenster Demo",
   "Dachdeckermeister",
-  "Grimm und Lechner",
+  "Handwerk Website Demo",
 ];
 
 type MetadataOptions = {
@@ -53,15 +60,15 @@ export function buildPageMetadata({
       title,
       description,
       url,
-      siteName: "Grimm & Lechner",
+      siteName: DEMO_COMPANY_NAME,
       locale: "de_DE",
       type: "website",
       images: [
         {
           url: absoluteUrl(DEFAULT_OG_IMAGE),
-          width: 1200,
-          height: 630,
-          alt: `${title} | Grimm & Lechner`,
+          width: 560,
+          height: 160,
+          alt: `${title} | ${DEMO_COMPANY_NAME}`,
         },
       ],
     },
@@ -100,13 +107,16 @@ export function buildWebsiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Grimm & Lechner",
+    name: DEMO_COMPANY_NAME,
     url: SITE_URL,
     inLanguage: "de-DE",
   };
 }
 
 export function buildLocalBusinessSchema(siteSettings: SiteSettingsContent) {
+  const [streetAddress = "", cityLine = ""] = siteSettings.address.split("\n");
+  const cityLineMatch = cityLine.match(/^(\d{5})\s+(.+)$/);
+
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -118,12 +128,12 @@ export function buildLocalBusinessSchema(siteSettings: SiteSettingsContent) {
     description: siteSettings.tagline,
     address: {
       "@type": "PostalAddress",
-      streetAddress: siteSettings.address.split("\n")[0],
-      postalCode: siteSettings.address.match(/\b\d{5}\b/)?.[0],
-      addressLocality: "Bamberg",
+      streetAddress,
+      postalCode: cityLineMatch?.[1],
+      addressLocality: cityLineMatch?.[2] || DEMO_CITY,
       addressCountry: "DE",
     },
-    areaServed: "Bamberg und Umgebung",
+    areaServed: DEMO_REGION,
     image: absoluteUrl(DEFAULT_OG_IMAGE),
   };
 }
@@ -192,7 +202,10 @@ export function buildContactPageSchema(siteSettings: SiteSettingsContent) {
   };
 }
 
-export function buildJobPostingSchema(jobs: Array<{ description: string; location: string; title: string; type: string }>) {
+export function buildJobPostingSchema(
+  siteSettings: SiteSettingsContent,
+  jobs: Array<{ description: string; location: string; title: string; type: string }>,
+) {
   return jobs.map((job) => ({
     "@context": "https://schema.org",
     "@type": "JobPosting",
@@ -201,15 +214,15 @@ export function buildJobPostingSchema(jobs: Array<{ description: string; locatio
     employmentType: job.type,
     hiringOrganization: {
       "@type": "Organization",
-      name: "Grimm & Lechner",
+      name: siteSettings.companyName,
       sameAs: SITE_URL,
     },
     jobLocation: {
       "@type": "Place",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Bamberg",
-        addressRegion: "Bayern",
+        addressLocality: DEMO_CITY,
+        addressRegion: DEMO_STATE,
         addressCountry: "DE",
         streetAddress: job.location,
       },

@@ -1,7 +1,8 @@
-import Image from "next/image";
 import { ArrowUpRight, MapPin, Phone } from "lucide-react";
 
 import type { SiteSettingsContent } from "@/lib/content";
+import { DEMO_REGION } from "@/lib/demo-placeholders";
+import { BrandMark } from "@/components/layout/brand-mark";
 
 type SiteFooterProps = {
   siteSettings: SiteSettingsContent;
@@ -16,15 +17,7 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
         <div className="grid gap-10 border-b border-white/10 py-14 md:grid-cols-3 lg:grid-cols-4">
           <div className="space-y-4 md:col-span-2 lg:col-span-1">
             <div className="inline-flex rounded-2xl bg-white/96 px-3 py-2 shadow-[0_14px_34px_rgba(15,19,24,0.16)] ring-1 ring-black/6 backdrop-blur-sm">
-              <div className="relative h-10 w-[126px] sm:h-11 sm:w-[156px]">
-                <Image
-                  src="/logo.webp"
-                  alt={siteSettings.companyName}
-                  fill
-                  className="object-contain object-left"
-                  sizes="(max-width: 640px) 126px, 156px"
-                />
-              </div>
+              <BrandMark companyName={siteSettings.companyName} />
             </div>
             <p className="text-sm leading-7 text-white/75">{siteSettings.footerText}</p>
           </div>
@@ -63,17 +56,14 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
 
           <div>
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.12em] text-white/62">Standort</p>
-            <p className="text-sm leading-7 text-white/78">Bamberg und Umgebung</p>
-            <p className="mt-4 text-sm leading-7 text-white/78">Meisterbetrieb seit 1919 mit Fokus auf saubere, verlässliche Dacharbeiten.</p>
+            <p className="text-sm leading-7 text-white/78">{DEMO_REGION}</p>
+            <p className="mt-4 text-sm leading-7 text-white/78">Generische Demo-Version für Präsentationen, Pitches und die Ansprache weiterer Dachdeckerbetriebe.</p>
           </div>
         </div>
 
         <div className="flex flex-col gap-3 py-5 text-sm text-white/58 sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} {siteSettings.legalName}.</p>
-          <div className="flex flex-wrap items-center gap-4">
-            <a href="/impressum">Impressum</a>
-            <a href="/datenschutz">Datenschutz</a>
-          </div>
+          <p>Rechtstexte wurden in dieser Demo bewusst entfernt.</p>
         </div>
       </div>
     </footer>

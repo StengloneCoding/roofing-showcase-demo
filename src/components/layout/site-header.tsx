@@ -1,11 +1,11 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Phone, X } from "lucide-react";
 import { type MouseEvent, useEffect, useState } from "react";
 
 import type { SiteSettingsContent } from "@/lib/content";
+import { BrandMark } from "@/components/layout/brand-mark";
 import { ButtonLink } from "@/components/ui/button-link";
 
 type SiteHeaderProps = {
@@ -16,7 +16,7 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
   const navigation = siteSettings.navigation;
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  const useLightHeaderText = ["/", "/karriere", "/kontakt"].includes(pathname);
+  const useLightHeaderText = ["/", "/karriere", "/kontakt", "/fakten"].includes(pathname);
   const navTextClassName = useLightHeaderText ? "text-white" : "text-[color:var(--color-on-surface)]";
   const navMutedTextClassName = useLightHeaderText
     ? "text-white/78 hover:text-white"
@@ -70,15 +70,8 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
       <div className="mx-auto flex w-full max-w-[1280px] items-center gap-6 px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex min-w-0 items-center" onClick={handleLogoClick}>
           <div className={logoBadgeClassName}>
-            <div className="relative h-10 w-[126px] shrink-0 sm:h-11 sm:w-[156px]">
-              <Image
-                src="/logo.webp"
-                alt={siteSettings.companyName}
-                fill
-                className="object-contain object-left"
-                sizes="(max-width: 640px) 126px, 156px"
-                priority
-              />
+            <div className="shrink-0">
+              <BrandMark companyName={siteSettings.companyName} />
             </div>
           </div>
         </Link>
@@ -150,15 +143,8 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
             <div className="mb-8 flex items-center justify-between gap-4">
               <Link href="/" className="flex min-w-0 items-center" onClick={handleLogoClick}>
                 <div className={logoBadgeClassName}>
-                  <div className="relative h-10 w-[126px] shrink-0">
-                    <Image
-                      src="/logo.webp"
-                      alt={siteSettings.companyName}
-                      fill
-                      className="object-contain object-left"
-                      sizes="126px"
-                      priority
-                    />
+                  <div className="shrink-0">
+                    <BrandMark companyName={siteSettings.companyName} />
                   </div>
                 </div>
               </Link>

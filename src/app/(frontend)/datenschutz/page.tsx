@@ -7,7 +7,7 @@ import { buildBreadcrumbSchema, buildPageMetadata, buildWebPageSchema } from "@/
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Datenschutz",
-  description: "Datenschutzhinweise von Grimm & Lechner in Bamberg.",
+  description: "Platzhalterseite für Datenschutzhinweise in der Demo-Version.",
   path: "/datenschutz",
   noIndex: true,
 });
@@ -17,7 +17,7 @@ export default function DatenschutzPage() {
     <>
       <StructuredData
         data={[
-          buildWebPageSchema({ title: "Datenschutz", description: "Datenschutzhinweise von Grimm & Lechner in Bamberg.", path: "/datenschutz" }),
+          buildWebPageSchema({ title: "Datenschutz", description: "Platzhalterseite für Datenschutzhinweise in der Demo-Version.", path: "/datenschutz" }),
           buildBreadcrumbSchema([
             { name: "Startseite", path: "/" },
             { name: "Datenschutz", path: "/datenschutz" },

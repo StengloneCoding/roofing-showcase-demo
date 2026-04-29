@@ -1,5 +1,6 @@
 import type { StatItem } from "@/lib/content";
 
+import { AnimatedStatValue } from "@/components/sections/animated-stat-value";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { FramedCard } from "@/components/ui/framed-card";
 import { SectionShell } from "@/components/ui/section-shell";
@@ -11,6 +12,22 @@ type StatsSectionProps = {
 };
 
 export function StatsSection({ eyebrow, heading, items }: StatsSectionProps) {
+  const renderValue = (item: StatItem) => {
+    if (item.label === "Tradition im Handwerk") {
+      return <AnimatedStatValue mode="down" target={1950} />;
+    }
+
+    if (item.label === "Leistungsbereiche") {
+      return <AnimatedStatValue mode="up" target={7} />;
+    }
+
+    return (
+      <p className="[font-family:var(--font-heading)] text-4xl font-semibold tracking-tight text-[color:var(--color-primary)]">
+        {item.value}
+      </p>
+    );
+  };
+
   return (
     <section className="w-full bg-[linear-gradient(180deg,rgba(255,255,255,0.9),rgba(241,244,246,0.72))] py-12 sm:py-14">
       <SectionShell className="py-0">
@@ -22,9 +39,7 @@ export function StatsSection({ eyebrow, heading, items }: StatsSectionProps) {
                 key={item.label}
                 className="bg-white/90 p-6"
               >
-                <p className="[font-family:var(--font-heading)] text-4xl font-semibold tracking-tight text-[color:var(--color-primary)]">
-                  {item.value}
-                </p>
+                {renderValue(item)}
                 <p className="mt-3 text-base font-semibold text-[color:var(--color-on-surface)]">
                   {item.label}
                 </p>

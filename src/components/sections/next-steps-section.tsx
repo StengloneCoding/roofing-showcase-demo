@@ -3,6 +3,7 @@
 import { Phone } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+import { DEMO_PHONE, DEMO_PHONE_HREF } from "@/lib/demo-placeholders";
 import { ButtonLink } from "@/components/ui/button-link";
 
 export function NextStepsSection() {
@@ -45,14 +46,14 @@ export function NextStepsSection() {
               <div className="flex items-baseline gap-2">
                 <Phone className="h-6 w-6 text-[color:var(--color-secondary)]" />
                 <a
-                  href="tel:+4995162840"
+                  href={`tel:${DEMO_PHONE_HREF}`}
                   className="text-3xl font-bold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-secondary)]"
                 >
-                  0951 62840
+                  {DEMO_PHONE}
                 </a>
               </div>
               <p className="mt-4 text-sm leading-6 text-[color:var(--color-on-surface-variant)]">
-                Bei Sturmschaden oder akutem Leck schnell erreichbar.
+                Platzhalter für Sturmschäden, Leckagen oder andere akute Anliegen.
               </p>
             </div>
           </div>

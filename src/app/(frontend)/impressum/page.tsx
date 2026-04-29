@@ -7,7 +7,7 @@ import { buildBreadcrumbSchema, buildPageMetadata, buildWebPageSchema } from "@/
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Impressum",
-  description: "Impressum von Grimm & Lechner in Bamberg.",
+  description: "Platzhalterseite für rechtliche Angaben in der Demo-Version.",
   path: "/impressum",
   noIndex: true,
 });
@@ -17,7 +17,7 @@ export default function ImpressumPage() {
     <>
       <StructuredData
         data={[
-          buildWebPageSchema({ title: "Impressum", description: "Impressum von Grimm & Lechner in Bamberg.", path: "/impressum" }),
+          buildWebPageSchema({ title: "Impressum", description: "Platzhalterseite für rechtliche Angaben in der Demo-Version.", path: "/impressum" }),
           buildBreadcrumbSchema([
             { name: "Startseite", path: "/" },
             { name: "Impressum", path: "/impressum" },

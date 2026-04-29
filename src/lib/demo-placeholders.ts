@@ -1,0 +1,13 @@
+export const DEMO_COMPANY_NAME = "{Deine Firma}";
+export const DEMO_LEGAL_NAME = "{Deine Firma} GmbH";
+export const DEMO_CITY = "{Deine Stadt}";
+export const DEMO_REGION = "{Deine Region}";
+export const DEMO_STATE = "{Dein Bundesland}";
+export const DEMO_FOUNDING = "{Gründungsjahr}";
+export const DEMO_PHONE = "0123 456789";
+export const DEMO_PHONE_HREF = "0123456789";
+export const DEMO_EMAIL = "info@deinefirma.de";
+export const DEMO_RECRUITING_EMAIL = "karriere@deinefirma.de";
+export const DEMO_WEBSITE = "www.deinefirma.de";
+export const DEMO_SITE_URL = "https://www.deinefirma.de";
+export const DEMO_ADDRESS = "Musterstraße 1\n12345 Musterstadt";

@@ -3,6 +3,7 @@ import { Inter, Work_Sans } from "next/font/google";
 
 import { StructuredData } from "@/components/seo/structured-data";
 import { getSiteSettings } from "@/lib/cms";
+import { DEMO_COMPANY_NAME } from "@/lib/demo-placeholders";
 import { buildLocalBusinessSchema, buildWebsiteSchema, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
@@ -19,11 +20,11 @@ const workSans = Work_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Grimm & Lechner Dachdeckermeister",
-    template: "%s | Grimm & Lechner",
+    default: `${DEMO_COMPANY_NAME} Dachdeckermeister`,
+    template: `%s | ${DEMO_COMPANY_NAME}`,
   },
   description:
-    "Dachdeckermeister aus Bamberg für Sanierung, Blecharbeiten, Dachfenster und Wartung.",
+    "Generische Demo-Website für Dachdecker: Sanierung, Blecharbeiten, Dachfenster und Wartung.",
   alternates: {
     canonical: "/",
   },

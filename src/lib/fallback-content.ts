@@ -3,14 +3,25 @@ import type {
   PageContent,
   SiteSettingsContent,
 } from "@/lib/content";
+import {
+  DEMO_ADDRESS,
+  DEMO_CITY,
+  DEMO_COMPANY_NAME,
+  DEMO_EMAIL,
+  DEMO_FOUNDING,
+  DEMO_LEGAL_NAME,
+  DEMO_PHONE,
+  DEMO_PHONE_HREF,
+  DEMO_REGION,
+} from "@/lib/demo-placeholders";
 
 export const fallbackSiteSettings: SiteSettingsContent = {
-  companyName: "Grimm & Lechner",
-  legalName: "Grimm GmbH & Co. KG",
-  tagline: "Dachdeckermeister aus Bamberg seit 1919",
-  phone: "0951 62840",
-  email: "grimmundlechner@t-online.de",
-  address: "Blumenstr. 3\n96049 Bamberg",
+  companyName: DEMO_COMPANY_NAME,
+  legalName: DEMO_LEGAL_NAME,
+  tagline: `Dachdeckermeister aus ${DEMO_CITY}`,
+  phone: DEMO_PHONE,
+  email: DEMO_EMAIL,
+  address: DEMO_ADDRESS,
   navigation: [
     { label: "Leistungen", href: "/#leistungen" },
     { label: "Ablauf", href: "/#prozess" },
@@ -18,20 +29,20 @@ export const fallbackSiteSettings: SiteSettingsContent = {
     { label: "Karriere", href: "/karriere" },
   ],
   footerText:
-    "Von der kleinen Reparatur bis zum fertigen Dach begleiten wir Projekte in Bamberg und Umgebung mit Erfahrung, sauberer Ausführung und direkter Kommunikation.",
+    `Von der kleinen Reparatur bis zum kompletten Dachprojekt zeigt diese Demo, wie ${DEMO_COMPANY_NAME} Leistungen, Vertrauen und Kontakt klar präsentieren kann.`,
 };
 
 export const fallbackPages: Record<string, PageContent> = {
   start: {
     slug: "start",
-    title: "Grimm & Lechner – Dachdeckermeister in Bamberg",
+    title: `${DEMO_COMPANY_NAME} - Dachdeckermeister für ${DEMO_REGION}`,
     metaDescription:
-      "Grimm & Lechner ist Ihr Dachdeckermeister in Bamberg für Dachsanierung, Blecharbeiten, Wärmedämmung, Dachfenster und Reparaturen.",
+      `${DEMO_COMPANY_NAME} ist die generische Demo-Website für Dachsanierung, Blecharbeiten, Wärmedämmung, Dachfenster und Reparaturen.`,
     hero: {
-      eyebrow: "Seit 1919 in vierter Generation",
-      title: "Dachdeckermeister Grimm & Lechner in Bamberg und Umgebung",
+      eyebrow: `Seit ${DEMO_FOUNDING} für Kunden im Einsatz`,
+      title: `Dachdeckermeister ${DEMO_COMPANY_NAME} in ${DEMO_REGION}`,
       description:
-        "Wir beraten ehrlich, arbeiten sauber und kümmern uns um alles rund ums Dach – von der Reparatur über Sanierung und Wärmedämmung bis zu Dachfenstern und Blecharbeiten.",
+        `Hier steht die Kernbotschaft von ${DEMO_COMPANY_NAME}: klare Beratung, saubere Ausführung und alle Leistungen rund ums Dach aus einer Hand.`,
       primaryCta: {
         label: "Projekt anfragen",
         href: "/#kontaktformular",
@@ -45,22 +56,22 @@ export const fallbackPages: Record<string, PageContent> = {
       {
         blockType: "stats",
         eyebrow: "Kurz zusammengefasst",
-        heading: "Meisterbetrieb mit klarer Beratung, kurzen Wegen und echter Erfahrung auf dem Dach.",
+        heading: "Meisterbetrieb mit klarer Beratung, kurzen Wegen und einem starken Leistungsversprechen.",
         items: [
           {
-            value: "1919",
+            value: "1950",
             label: "Tradition im Handwerk",
-            description: "Seit über hundert Jahren als Dachdeckerbetrieb in Bamberg verwurzelt.",
+            description: "Die Zahl startet beim aktuellen Jahr und zählt beim Scrollen bis zum Gründungsjahr herunter.",
           },
           {
-            value: "96049",
-            label: "Mitten in Bamberg",
-            description: "Blumenstraße 3 als fester Standort für Beratung und Projektabstimmung.",
+            value: "12345",
+            label: `Standort in ${DEMO_CITY}`,
+            description: "Dieser Platzhalter eignet sich für Postleitzahl, Stadt oder Einsatzgebiet.",
           },
           {
-            value: "7+",
+            value: "7",
             label: "Leistungsbereiche",
-            description: "Von Dachsanierung über Blecharbeiten bis hin zu Dachfenstern und Reparaturen.",
+            description: "Die Zahl zählt beim Sichtbarwerden hoch und zeigt die wichtigsten Leistungsfelder auf einen Blick.",
           },
         ],
       },
@@ -69,7 +80,7 @@ export const fallbackPages: Record<string, PageContent> = {
         eyebrow: "Leistungen",
         heading: "Unsere Leistungen rund ums Dach im Überblick.",
         description:
-          "Ziegel-, Schiefer- und Blecharbeiten in allen Bereichen, sauber strukturiert und als eigene Leistungsbausteine dargestellt.",
+          "Die Leistungsbausteine sind generisch formuliert und können für jeden Dachdeckerbetrieb angepasst werden.",
         items: [
           {
             title: "Neubauten",
@@ -92,8 +103,8 @@ export const fallbackPages: Record<string, PageContent> = {
           {
             title: "Wärmedämmarbeiten",
             description:
-              "Wärmedämmarbeiten nach Energieeinsparverordnung für mehr Effizienz, besseren Wohnkomfort und einen stimmigen Dachaufbau.",
-            bullets: ["Energieeinsparverordnung", "Dämmaufbau", "Effizienz"],
+              "Wärmedämmarbeiten für mehr Effizienz, besseren Wohnkomfort und einen stimmigen Dachaufbau.",
+            bullets: ["Dämmaufbau", "Effizienz", "Wohnkomfort"],
           },
           {
             title: "Asbestentsorgung",
@@ -131,36 +142,36 @@ export const fallbackPages: Record<string, PageContent> = {
           {
             title: "Unverbindliches Beratungsgespräch",
             description:
-              "Sie schildern uns, worum es geht. Wir hören zu, stellen die richtigen Fragen und geben eine erste ehrliche Einschätzung.",
+              "Sie schildern kurz das Projekt. Diese Demo zeigt, wie eine erste ehrliche Einschätzung und ein klarer Einstieg formuliert werden kann.",
           },
           {
             title: "Besichtigung und Aufmaß",
             description:
-              "Vor Ort prüfen wir Dach, Bestand und Gegebenheiten, damit das Angebot nicht nur schön klingt, sondern auch passt.",
+              "Vor Ort prüfen Sie Dach, Bestand und Gegebenheiten, damit das Angebot nicht nur gut klingt, sondern auch passt.",
           },
           {
             title: "Transparentes Angebot",
             description:
-              "Sie erhalten eine nachvollziehbare Empfehlung ohne versteckte Punkte – verständlich, verbindlich und sauber gegliedert.",
+              "Sie erhalten eine nachvollziehbare Empfehlung ohne versteckte Punkte, verständlich, verbindlich und sauber gegliedert.",
           },
           {
             title: "Ausführung und Abstimmung",
             description:
-              "Auf der Baustelle arbeiten wir strukturiert, halten Sie auf dem Laufenden und achten besonders auf Details und Anschlüsse.",
+              "Auf der Baustelle arbeiten Sie strukturiert, halten Kunden auf dem Laufenden und achten besonders auf Details und Anschlüsse.",
           },
         ],
       },
       {
         blockType: "textColumns",
         eyebrow: "Über uns",
-        heading: "Was Grimm & Lechner für Bauherren und Eigentümer in Bamberg auszeichnet.",
+        heading: `Was ${DEMO_COMPANY_NAME} für Bauherren und Eigentümer in ${DEMO_REGION} auszeichnet.`,
         description:
-          "Wir verbinden Erfahrung aus dem klassischen Dachdeckerhandwerk mit einer ruhigen, direkten Art der Projektabwicklung.",
+          "Dieser Abschnitt eignet sich für Haltung, Arbeitsweise und die Tonalität Ihres Dachdeckerbetriebs.",
         columns: [
           {
             title: "Beratung auf Augenhöhe",
             body:
-              "Wir erklären verständlich, welche Lösung sinnvoll ist, welche nicht – und warum. Das spart Missverständnisse und unnötige Maßnahmen.",
+              "Erklären Sie verständlich, welche Lösung sinnvoll ist, welche nicht und warum. Das spart Missverständnisse und unnötige Maßnahmen.",
           },
           {
             title: "Saubere Ausführung",
@@ -170,7 +181,7 @@ export const fallbackPages: Record<string, PageContent> = {
           {
             title: "Verlässlich erreichbar",
             body:
-              "Vom ersten Termin bis zur Abstimmung nach der Ausführung bleiben wir greifbar und kümmern uns um einen klaren Ablauf.",
+              "Vom ersten Termin bis zur Abstimmung nach der Ausführung bleiben Sie greifbar und kümmern sich um einen klaren Ablauf.",
           },
         ],
       },
@@ -179,47 +190,47 @@ export const fallbackPages: Record<string, PageContent> = {
         eyebrow: "Häufige Fragen",
         heading: "Das Wichtigste rund ums Dach kurz und verständlich erklärt.",
         description:
-          "Viele Fragen bekommen wir vor dem ersten Termin immer wieder gestellt. Hier sind die wichtigsten Antworten vorab.",
+          "Viele Fragen tauchen vor dem ersten Termin immer wieder auf. Hier sind generische Antworten für die Demo.",
         items: [
           {
             question: "Kostet die Besichtigung und das Angebot etwas?",
             answer:
-              "Die erste Beratung vor Ort und ein unverbindliches Angebot sind in der Regel kostenfrei. Wenn für eine saubere Einschätzung zusätzlicher Aufwand nötig ist, sprechen wir das vorher offen mit Ihnen ab.",
+              "Die erste Beratung vor Ort und ein unverbindliches Angebot sind in der Regel kostenfrei. Wenn für eine saubere Einschätzung zusätzlicher Aufwand nötig ist, sprechen wir das vorher offen an.",
           },
           {
             question: "Wie schnell liegt ein Angebot normalerweise vor?",
             answer:
-              "Das hängt vom Umfang des Projekts ab. Für kleinere Arbeiten geht es oft recht zügig, bei umfangreicheren Sanierungen brauchen wir etwas mehr Zeit, damit das Angebot nicht nur schnell, sondern auch belastbar ist.",
+              "Das hängt vom Umfang des Projekts ab. Für kleinere Arbeiten geht es oft recht zügig, bei umfangreicheren Sanierungen braucht es etwas mehr Zeit, damit das Angebot belastbar ist.",
           },
           {
             question: "Wann können Dacharbeiten nach der Beauftragung starten?",
             answer:
-              "Der Starttermin richtet sich nach Auftragslage, Material und Jahreszeit. Wir nennen Ihnen nach der Besichtigung eine realistische Einschätzung und halten den Ablauf so planbar wie möglich.",
+              "Der Starttermin richtet sich nach Auftragslage, Material und Jahreszeit. Nach der Besichtigung können Sie eine realistische Einschätzung und einen planbaren Ablauf kommunizieren.",
           },
           {
             question: "Kann auch im Winter am Dach gearbeitet werden?",
             answer:
-              "Ja, viele Arbeiten sind auch in der kühleren Jahreszeit möglich. Entscheidend sind Witterung, Sicherheit und die Art des Dachs. Wenn Bedingungen gegen eine saubere Ausführung sprechen, sagen wir das klar.",
+              "Ja, viele Arbeiten sind auch in der kühleren Jahreszeit möglich. Entscheidend sind Witterung, Sicherheit und die Art des Dachs. Wenn Bedingungen gegen eine saubere Ausführung sprechen, sollte das klar benannt werden.",
           },
           {
             question: "Wie schnell helfen Sie bei einem akuten Schaden?",
             answer:
-              "Bei undichten Stellen oder Sturmschäden versuchen wir so schnell wie möglich zu reagieren. Wie kurzfristig das geht, hängt immer von der aktuellen Situation ab, aber dringende Fälle priorisieren wir selbstverständlich.",
+              "Bei undichten Stellen oder Sturmschäden versuchen Sie so schnell wie möglich zu reagieren. Wie kurzfristig das geht, hängt von der aktuellen Situation ab, dringende Fälle werden priorisiert.",
           },
           {
             question: "Übernehmen Sie auch kleinere Reparaturen?",
             answer:
-              "Ja, selbstverständlich. Nicht jedes Dach braucht sofort eine große Sanierung. Wir kümmern uns auch um kleinere Schäden und sagen ehrlich, ob eine Reparatur ausreicht oder mehr nötig ist.",
+              "Ja, selbstverständlich. Nicht jedes Dach braucht sofort eine große Sanierung. Auch kleinere Schäden können eingeordnet und ehrlich bewertet werden.",
           },
           {
             question: "Mit welchen Materialien arbeiten Sie?",
             answer:
-              "Wir setzen auf bewährte und passende Materialien für das jeweilige Dach. Dazu gehören je nach Projekt zum Beispiel Ziegel, Schiefer, Blech, Dämmstoffe und Komponenten namhafter Hersteller.",
+              "Sie können hier Ihre bevorzugten Materialien nennen, zum Beispiel Ziegel, Schiefer, Blech, Dämmstoffe oder Komponenten ausgewählter Hersteller.",
           },
           {
             question: "Wie lange dauert eine Dachsanierung oder Neueindeckung?",
             answer:
-              "Das lässt sich erst nach Besichtigung seriös einordnen. Größe, Dachform, Detailanschlüsse und Witterung spielen eine große Rolle. Wir geben Ihnen vorab einen realistischen Zeitrahmen statt eines pauschalen Versprechens.",
+              "Das lässt sich erst nach Besichtigung seriös einordnen. Größe, Dachform, Detailanschlüsse und Witterung spielen eine große Rolle. Ein realistischer Zeitrahmen ist besser als ein pauschales Versprechen.",
           },
         ],
       },
@@ -242,21 +253,21 @@ export const fallbackPages: Record<string, PageContent> = {
   },
   kontakt: {
     slug: "kontakt",
-    title: "Kontakt | Grimm & Lechner",
+    title: `Kontakt | ${DEMO_COMPANY_NAME}`,
     metaDescription:
-      "Kontaktieren Sie Grimm & Lechner in Bamberg für Dachsanierung, Blecharbeiten, Dachfenster und Reparaturen.",
+      `Kontaktieren Sie ${DEMO_COMPANY_NAME} für Dachsanierung, Blecharbeiten, Dachfenster und Reparaturen.`,
     hero: {
       eyebrow: "Kontakt",
       title: "Kurze Wege, klare Antworten und ein Termin, der wirklich weiterhilft.",
       description:
-        "Erzählen Sie uns kurz, worum es geht. Wir melden uns mit einer realistischen Einschätzung und dem passenden nächsten Schritt.",
+        "Erzählen Sie uns kurz, worum es geht. Diese Demo zeigt eine kontaktstarke, handwerkliche Ansprache ohne leere Werbephrasen.",
       primaryCta: {
         label: "Anfrage senden",
         href: "#anfrage",
       },
       secondaryCta: {
         label: "Direkt anrufen",
-        href: "tel:095162840",
+        href: `tel:${DEMO_PHONE_HREF}`,
       },
     },
     sections: [
@@ -268,26 +279,26 @@ export const fallbackPages: Record<string, PageContent> = {
           {
             title: "Anrufen",
             body: "Für schnelle Rückfragen oder eine direkte Terminabstimmung.",
-            label: "0951 62840",
-            href: "tel:095162840",
+            label: DEMO_PHONE,
+            href: `tel:${DEMO_PHONE_HREF}`,
             icon: "phone",
           },
           {
             title: "E-Mail",
             body: "Praktisch für Fotos, Unterlagen oder eine kurze Projektbeschreibung.",
-            label: "grimmundlechner@t-online.de",
-            href: "mailto:grimmundlechner@t-online.de",
+            label: DEMO_EMAIL,
+            href: `mailto:${DEMO_EMAIL}`,
             icon: "mail",
           },
           {
             title: "Adresse",
-            body: "Grimm & Lechner, Blumenstraße 3, 96049 Bamberg.",
-            label: "Blumenstraße 3",
+            body: `Platzhalter für Anschrift, Standort oder Büro von ${DEMO_COMPANY_NAME}.`,
+            label: "Musterstraße 1",
             icon: "map",
           },
           {
             title: "Termine",
-            body: "Beratung und unverbindliche Angebote sind selbstverständlich kostenlos.",
+            body: "Beratung und unverbindliche Angebote können hier als Serviceversprechen platziert werden.",
             label: "Nach Vereinbarung",
             icon: "clock",
           },
@@ -319,21 +330,21 @@ export const fallbackPages: Record<string, PageContent> = {
   },
   karriere: {
     slug: "karriere",
-    title: "Karriere | Grimm & Lechner",
+    title: `Karriere | ${DEMO_COMPANY_NAME}`,
     metaDescription:
-      "Karriere bei Grimm & Lechner: motivierte Dachdeckerhelfer, Quereinsteiger und Dachdeckergesellen gesucht.",
+      `Karriere bei ${DEMO_COMPANY_NAME}: motivierte Dachdeckerhelfer, Quereinsteiger und Dachdeckergesellen gesucht.`,
     hero: {
       eyebrow: "Karriere",
-      title: "Wir suchen Verstärkung für unser Team in Bamberg.",
+      title: `Wir suchen Verstärkung für unser Team in ${DEMO_REGION}.`,
       description:
-        "Gesucht werden motivierte Dachdeckerhelfer, gerne auch Quereinsteiger und Dachdeckergesellen – ab sofort und mit übertariflicher Bezahlung.",
+        "Gesucht werden motivierte Dachdeckerhelfer, gerne auch Quereinsteiger und Dachdeckergesellen, ab sofort und mit klarer Kommunikation im Bewerbungsprozess.",
       primaryCta: {
         label: "Jetzt bewerben",
         href: "#bewerbung",
       },
       secondaryCta: {
         label: "Per E-Mail melden",
-        href: "mailto:grimmundlechner@t-online.de",
+        href: `mailto:${DEMO_EMAIL}`,
       },
     },
     sections: [
@@ -344,10 +355,10 @@ export const fallbackPages: Record<string, PageContent> = {
         description:
           "Wir suchen keine große Selbstdarstellung, sondern Leute, die anpacken wollen und sich aufeinander verlassen können.",
         items: [
-          "Übertarifliche Bezahlung und ein ehrlicher Umgang im Alltag.",
+          "Faire Bezahlung und ein ehrlicher Umgang im Alltag.",
           "Einstieg auch für motivierte Quereinsteiger möglich.",
           "Abwechslungsreiche Arbeiten von Reparaturen bis zu kompletten Dachsanierungen.",
-          "Ein Meisterbetrieb mit Geschichte und einem festen Platz in Bamberg.",
+          `Ein eingespieltes Team mit klarem Einsatzgebiet in ${DEMO_REGION}.`,
         ],
         note:
           "Wenn Sie Interesse haben, reicht eine kurze Nachricht oder ein Anruf. Den Rest besprechen wir unkompliziert.",
@@ -360,7 +371,7 @@ export const fallbackPages: Record<string, PageContent> = {
           {
             title: "Dachdeckerhelfer",
             body:
-              "Wer handwerklich zupacken kann und sich in ein eingespieltes Team einbringen möchte, ist bei uns willkommen.",
+              "Wer handwerklich zupacken kann und sich in ein eingespieltes Team einbringen möchte, ist willkommen.",
           },
           {
             title: "Quereinsteiger",
@@ -370,7 +381,7 @@ export const fallbackPages: Record<string, PageContent> = {
           {
             title: "Dachdeckergesellen",
             body:
-              "Fachliche Erfahrung ist natürlich willkommen – besonders dann, wenn Sie sauber arbeiten und Verantwortung übernehmen möchten.",
+              "Fachliche Erfahrung ist natürlich willkommen, besonders dann, wenn Sie sauber arbeiten und Verantwortung übernehmen möchten.",
           },
         ],
       },
@@ -379,14 +390,14 @@ export const fallbackPages: Record<string, PageContent> = {
         eyebrow: "Unkompliziert",
         heading: "Kurz melden, vorstellen und ins Gespräch kommen.",
         description:
-          "Schreiben Sie uns einfach an grimmundlechner@t-online.de oder nutzen Sie das Formular auf dieser Seite.",
+          `Schreiben Sie uns einfach an ${DEMO_EMAIL} oder nutzen Sie das Formular auf dieser Seite.`,
         primaryCta: {
           label: "Zur Bewerbung",
           href: "#bewerbung",
         },
         secondaryCta: {
           label: "Jetzt anrufen",
-          href: "tel:095162840",
+          href: `tel:${DEMO_PHONE_HREF}`,
         },
       },
     ],
@@ -400,7 +411,7 @@ export const fallbackGalleryProjects: GalleryProject[] = [
     serviceType: "Dachsanierung",
     summary:
       "Neuaufbau einer belasteten Dachfläche mit sauber geführten Anschlüssen und einer dauerhaft stimmigen Lösung im Bestand.",
-    location: "Bamberg",
+    location: DEMO_CITY,
     completionYear: 2025,
     result: "Substanz gesichert und Dachaufbau neu geordnet",
     tags: ["Bestand", "Steildach", "Anschlüsse"],
@@ -411,7 +422,7 @@ export const fallbackGalleryProjects: GalleryProject[] = [
     serviceType: "Blecharbeiten",
     summary:
       "Präzise Detailarbeit an Übergängen und Anschlüssen, damit das Dach technisch sauber und optisch ruhig bleibt.",
-    location: "Umgebung Bamberg",
+    location: DEMO_REGION,
     completionYear: 2024,
     result: "Saubere Verwahrungen und langlebige Details",
     tags: ["Gaube", "Rinne", "Detailarbeit"],
@@ -422,7 +433,7 @@ export const fallbackGalleryProjects: GalleryProject[] = [
     serviceType: "Dachfenster",
     summary:
       "Mehr Licht unterm Dach mit fachgerechter Integration in den vorhandenen Aufbau und abgestimmter Wärmedämmung.",
-    location: "Oberfranken",
+    location: DEMO_REGION,
     completionYear: 2026,
     result: "Mehr Tageslicht und bessere Nutzbarkeit",
     tags: ["Dachfenster", "Dämmung", "Sanierung"],

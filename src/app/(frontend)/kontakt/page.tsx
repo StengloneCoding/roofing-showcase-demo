@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: page.title,
     description: page.metaDescription,
     path: "/kontakt",
-    keywords: ["Kontakt Dachdecker Bamberg", "Anfrage Dachsanierung Bamberg"],
+    keywords: ["Kontakt Dachdecker Demo", "Anfrage Dachsanierung", "Handwerk Kontaktseite"],
   });
 }
 
@@ -40,7 +40,7 @@ export default async function ContactPage() {
           ...(faqItems.length > 0 ? [buildFaqSchema(faqItems)] : []),
         ]}
       />
-      <PageHero compact hero={page.hero} pageSlug="kontakt" siteSettings={siteSettings} />
+      <PageHero compact hero={page.hero} pageSlug="kontakt" />
       {page.sections.map((section, index) => (
         <RenderSection key={`${section.blockType}-${index}`} section={section} />
       ))}

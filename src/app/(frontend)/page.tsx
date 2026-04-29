@@ -12,7 +12,7 @@ import { ServiceGridSection } from "@/components/sections/service-grid-section";
 import { StatsSection } from "@/components/sections/stats-section";
 import { TextColumnsSection } from "@/components/sections/text-columns-section";
 import { NextStepsSection } from "@/components/sections/next-steps-section";
-import { getPageContent, getSiteSettings } from "@/lib/cms";
+import { getPageContent } from "@/lib/cms";
 import { buildBreadcrumbSchema, buildFaqSchema, buildPageMetadata, buildWebPageSchema, getFaqItemsFromSections } from "@/lib/seo";
 
 export const revalidate = 3600;
@@ -24,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: page.title,
     description: page.metaDescription,
     path: "/",
-    keywords: ["Dachreparatur Bamberg", "Wärmedämmung Dach", "Dachfenster Einbau"],
+    keywords: ["Dachreparatur Demo", "Dachdecker Website Vorlage", "Dachfenster Einbau"],
   });
 }
 
@@ -36,10 +36,7 @@ function isSectionOfType<TType extends PageSection["blockType"]>(
 }
 
 export default async function Home() {
-  const [page, siteSettings] = await Promise.all([
-    getPageContent("start"),
-    getSiteSettings(),
-  ]);
+  const page = await getPageContent("start");
 
   const statsSection = page.sections.find((section) => isSectionOfType(section, "stats"));
   const serviceSection = page.sections.find((section) =>
@@ -59,7 +56,7 @@ export default async function Home() {
           ...(faqItems.length > 0 ? [buildFaqSchema(faqItems)] : []),
         ]}
       />
-      <PageHero hero={page.hero} pageSlug="start" siteSettings={siteSettings} />
+      <PageHero hero={page.hero} pageSlug="start" />
       {statsSection ? (
         <StatsSection
           eyebrow={statsSection.eyebrow}

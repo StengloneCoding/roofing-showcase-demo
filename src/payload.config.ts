@@ -25,10 +25,10 @@ export default buildConfig({
   },
   collections: [Users, Media, Pages, GalleryItems, Inquiries],
   globals: [SiteSettings],
-  secret: process.env.PAYLOAD_SECRET || "grimmundlechner-local-secret",
+  secret: process.env.PAYLOAD_SECRET || "roofing-showcase-local-secret",
   db: sqliteAdapter({
     client: {
-      url: process.env.DATABASE_URI || "file:./grimmundlechner.db",
+      url: process.env.DATABASE_URI || "file:./roofing-showcase-demo.db",
     },
   }),
   sharp,

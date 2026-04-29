@@ -1,6 +1,7 @@
 "use client";
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { DEMO_RECRUITING_EMAIL } from "@/lib/demo-placeholders";
 import { SectionShell } from "@/components/ui/section-shell";
 import { SectionHeading } from "@/components/sections/section-heading";
 
@@ -69,7 +70,7 @@ export function JobListingsSection({
           <p className="text-sm text-[color:var(--color-on-surface)]">
             <span className="font-semibold">Deine Position nicht dabei?</span> Gerne nehmen wir auch{" "}
             <a
-              href="mailto:bewerbung@grimm-lechner.de"
+              href={`mailto:${DEMO_RECRUITING_EMAIL}`}
               className="font-semibold underline transition hover:text-[color:var(--color-secondary)]"
             >
               Initiativbewerbungen per E-Mail

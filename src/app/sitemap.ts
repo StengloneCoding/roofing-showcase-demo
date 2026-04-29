@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { SITE_URL, absoluteUrl } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/seo";
 
 const routes = [
   {
@@ -22,16 +22,6 @@ const routes = [
     path: "/fakten",
     changeFrequency: "monthly",
     priority: 0.7,
-  },
-  {
-    path: "/impressum",
-    changeFrequency: "yearly",
-    priority: 0.2,
-  },
-  {
-    path: "/datenschutz",
-    changeFrequency: "yearly",
-    priority: 0.2,
   },
 ] satisfies Array<{
   path: string;

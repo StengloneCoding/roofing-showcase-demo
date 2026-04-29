@@ -5,6 +5,7 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { PageHero } from "@/components/sections/page-hero";
 import { JobListingsSection } from "@/components/sections/job-listings-section";
 import { getPageContent, getSiteSettings } from "@/lib/cms";
+import { DEMO_REGION } from "@/lib/demo-placeholders";
 import { buildBreadcrumbSchema, buildJobPostingSchema, buildPageMetadata, buildWebPageSchema } from "@/lib/seo";
 
 export const revalidate = 3600;
@@ -16,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: page.title,
     description: page.metaDescription,
     path: "/karriere",
-    keywords: ["Dachdecker Jobs Bamberg", "Karriere Dachdecker", "Quereinsteiger Handwerk Bamberg"],
+    keywords: ["Dachdecker Jobs", "Karriere Dachdecker", "Quereinsteiger Handwerk"],
   });
 }
 
@@ -26,21 +27,21 @@ const currentJobs = [
     type: "Helfertätigkeit" as const,
     description:
       "Wer handwerklich zupacken kann und sich in ein eingespieltes Team einbringen möchte, ist bei uns willkommen.",
-    location: "Bamberg und Umgebung",
+    location: DEMO_REGION,
   },
   {
     title: "Quereinsteiger",
     type: "Vollzeit" as const,
     description:
       "Auch ohne klassischen Dachdecker-Lebenslauf ist ein Einstieg möglich, wenn Motivation und Verlässlichkeit stimmen.",
-    location: "Bamberg und Umgebung",
+    location: DEMO_REGION,
   },
   {
     title: "Dachdeckergesellen",
     type: "Vollzeit" as const,
     description:
       "Fachliche Erfahrung ist natürlich willkommen – besonders dann, wenn Sie sauber arbeiten und Verantwortung übernehmen möchten.",
-    location: "Bamberg und Umgebung",
+    location: DEMO_REGION,
   },
 ];
 
@@ -59,14 +60,14 @@ export default async function CareerPage() {
             { name: "Startseite", path: "/" },
             { name: "Karriere", path: "/karriere" },
           ]),
-          ...buildJobPostingSchema(currentJobs),
+          ...buildJobPostingSchema(siteSettings, currentJobs),
         ]}
       />
-      <PageHero compact hero={page.hero} pageSlug="karriere" siteSettings={siteSettings} />
+      <PageHero compact hero={page.hero} pageSlug="karriere" />
       <JobListingsSection
         eyebrow="Aktuelle Stellen"
         heading="Wir suchen dich!"
-        description="Drei Positionen für motivierte Menschen, die mit uns Dachdeckerhandwerk mit Haltung ausüben wollen."
+        description="Drei Positionen für motivierte Menschen, die Dachdeckerhandwerk mit Haltung ausüben wollen."
         jobs={currentJobs}
       />
       <InquiryForm
