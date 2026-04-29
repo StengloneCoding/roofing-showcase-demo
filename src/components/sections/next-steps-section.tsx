@@ -20,11 +20,8 @@ export function NextStepsSection() {
               Ein kurzes Gespräch reicht oft schon, um die nächsten sinnvollen Schritte einzuordnen und das Projekt sauber anzustoßen.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/#kontaktformular">
+              <ButtonLink href="/kontakt">
                 Jetzt Anfrage starten
-              </ButtonLink>
-              <ButtonLink href="/kontakt" variant="outline">
-                Kontaktseite öffnen
               </ButtonLink>
             </div>
           </div>
