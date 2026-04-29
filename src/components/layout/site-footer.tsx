@@ -10,7 +10,7 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="mt-24 overflow-hidden border-t-4 border-[color:var(--color-secondary)] bg-[color:var(--color-surface-strong)] text-[color:var(--color-foreground-inverse)]">
+    <footer className="overflow-hidden border-t-4 border-[color:var(--color-secondary)] bg-[color:var(--color-surface-strong)] text-[color:var(--color-foreground-inverse)]">
       <div className="mx-auto w-full max-w-[1280px] px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 border-b border-white/10 py-14 md:grid-cols-3 lg:grid-cols-4">
           <div className="space-y-4 md:col-span-2 lg:col-span-1">
