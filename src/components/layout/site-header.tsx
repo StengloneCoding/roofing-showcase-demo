@@ -11,10 +11,7 @@ type SiteHeaderProps = {
   siteSettings: SiteSettingsContent;
 };
 
-const buildNavigation = (navigation: LinkItem[]) => [
-  { href: "/", label: "Startseite" },
-  ...navigation,
-];
+const buildNavigation = (navigation: LinkItem[]) => [...navigation];
 
 export function SiteHeader({ siteSettings }: SiteHeaderProps) {
   const navigation = buildNavigation(siteSettings.navigation);
