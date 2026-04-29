@@ -5,6 +5,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 import { DEMO_PHONE, DEMO_PHONE_HREF } from "@/lib/demo-placeholders";
 import { ButtonLink } from "@/components/ui/button-link";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function NextStepsSection() {
   const bulletPointsRef = useScrollReveal<HTMLUListElement>({ threshold: 0.2 });
@@ -38,7 +39,7 @@ export function NextStepsSection() {
             </div>
           </div>
 
-          <div className="space-y-6">
+          <ScrollReveal className="space-y-6" threshold={0.15}>
             <div className="rounded-3xl border border-[color:var(--color-outline-variant)]/70 bg-white p-8 shadow-[0_18px_34px_rgba(20,25,31,0.08)]">
               <p className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-[color:var(--color-secondary)]">
                 Notfall-Hotline
@@ -56,7 +57,7 @@ export function NextStepsSection() {
                 Platzhalter für Sturmschäden, Leckagen oder andere akute Anliegen.
               </p>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

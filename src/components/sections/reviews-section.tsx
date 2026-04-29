@@ -1,5 +1,6 @@
 import { getGoogleReviews } from "@/lib/google-reviews";
 import { SectionShell } from "@/components/ui/section-shell";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { ReviewsCarousel } from "@/components/sections/reviews-carousel";
 
 export async function ReviewsSection() {
@@ -21,12 +22,12 @@ export async function ReviewsSection() {
           </p>
         </div>
 
-        <div className="flex justify-end">
+        <ScrollReveal className="flex justify-end" threshold={0.15}>
           <div className="inline-flex items-center gap-4 rounded-2xl border border-[color:var(--color-outline-variant)]/70 bg-white px-5 py-4 text-sm text-[color:var(--color-on-surface)] shadow-[0_12px_26px_rgba(20,25,31,0.06)]">
             <span className="text-lg font-semibold text-[color:var(--color-primary)]">{roundedRating} / 5</span>
             <span>{reviews.totalReviews} Beispielbewertungen</span>
           </div>
-        </div>
+        </ScrollReveal>
 
         {reviews.reviews.length > 0 ? (
           <ReviewsCarousel reviews={reviews.reviews} />

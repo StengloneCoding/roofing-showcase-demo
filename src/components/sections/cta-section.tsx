@@ -3,6 +3,7 @@ import type { LinkItem } from "@/lib/content";
 import { DEMO_PHONE } from "@/lib/demo-placeholders";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { ButtonLink } from "@/components/ui/button-link";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SectionShell } from "@/components/ui/section-shell";
 
 type CtaSectionProps = {
@@ -41,11 +42,13 @@ export function CtaSection({
             ) : null}
           </div>
         </div>
-        <div className="justify-self-end border border-white/35 bg-white/10 p-6 backdrop-blur-sm md:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-white/80">Notfall-Hotline</p>
-          <p className="mt-3 [font-family:var(--font-heading)] text-3xl font-bold md:text-5xl">{DEMO_PHONE}</p>
-          <p className="mt-3 text-sm text-white/85">Platzhalter für schnelle Hilfe bei Sturmschäden oder akuten Leckagen.</p>
-        </div>
+        <ScrollReveal className="justify-self-end" threshold={0.15}>
+          <div className="border border-white/35 bg-white/10 p-6 backdrop-blur-sm md:p-8">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-white/80">Notfall-Hotline</p>
+            <p className="mt-3 [font-family:var(--font-heading)] text-3xl font-bold md:text-5xl">{DEMO_PHONE}</p>
+            <p className="mt-3 text-sm text-white/85">Platzhalter für schnelle Hilfe bei Sturmschäden oder akuten Leckagen.</p>
+          </div>
+        </ScrollReveal>
       </div>
     </SectionShell>
   );

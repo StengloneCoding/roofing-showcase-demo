@@ -4,6 +4,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import type { ProcessStep } from "@/lib/content";
 
 import { SectionHeading } from "@/components/sections/section-heading";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SectionShell } from "@/components/ui/section-shell";
 
 type ProcessSectionProps = {
@@ -59,20 +60,22 @@ export function ProcessSection({
             ))}
           </div>
 
-          <div className="rounded-3xl border border-white/16 bg-white/8 p-8 backdrop-blur-sm">
-            <div className="border-l-4 border-[color:var(--color-secondary)] pl-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[color:var(--color-secondary)]">
-                Verlässlich organisiert
-              </p>
-              <p className="mt-4 [font-family:var(--font-heading)] text-2xl font-semibold leading-tight text-white">
-                Von der ersten Beratung bis zur finalen Abstimmung arbeiten wir strukturiert,
-                erreichbar und mit klaren nächsten Schritten.
-              </p>
-              <p className="mt-4 text-sm leading-7 text-white/74">
-                Keine Show-Effekte, sondern ein handwerklich sauberer Ablauf mit klaren Verantwortlichkeiten.
-              </p>
+          <ScrollReveal threshold={0.15}>
+            <div className="rounded-3xl border border-white/16 bg-white/8 p-8 backdrop-blur-sm">
+              <div className="border-l-4 border-[color:var(--color-secondary)] pl-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[color:var(--color-secondary)]">
+                  Verlässlich organisiert
+                </p>
+                <p className="mt-4 [font-family:var(--font-heading)] text-2xl font-semibold leading-tight text-white">
+                  Von der ersten Beratung bis zur finalen Abstimmung arbeiten wir strukturiert,
+                  erreichbar und mit klaren nächsten Schritten.
+                </p>
+                <p className="mt-4 text-sm leading-7 text-white/74">
+                  Keine Show-Effekte, sondern ein handwerklich sauberer Ablauf mit klaren Verantwortlichkeiten.
+                </p>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </SectionShell>
     </section>

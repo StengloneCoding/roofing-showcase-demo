@@ -2,6 +2,7 @@ import type { TextColumn } from "@/lib/content";
 
 import { SectionHeading } from "@/components/sections/section-heading";
 import { FramedCard } from "@/components/ui/framed-card";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SectionShell } from "@/components/ui/section-shell";
 
 type TextColumnsSectionProps = {
@@ -23,7 +24,7 @@ export function TextColumnsSection({
     <section id={id} className="w-full bg-[linear-gradient(180deg,rgba(229,233,235,0.72),rgba(241,244,246,0.82))] py-16 sm:py-20">
       <SectionShell className="py-0">
         <SectionHeading eyebrow={eyebrow} heading={heading} description={description} />
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+        <ScrollReveal className="mt-10 grid gap-6 lg:grid-cols-3" stagger threshold={0.15}>
           {columns.map((column) => (
             <FramedCard
               key={column.title}
@@ -37,7 +38,7 @@ export function TextColumnsSection({
               </p>
             </FramedCard>
           ))}
-        </div>
+        </ScrollReveal>
       </SectionShell>
     </section>
   );

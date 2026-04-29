@@ -28,50 +28,47 @@ export const fallbackSiteSettings: SiteSettingsContent = {
     { label: "Über uns", href: "/#über-uns" },
     { label: "Karriere", href: "/karriere" },
   ],
-  footerText:
-    `Von der kleinen Reparatur bis zum kompletten Dachprojekt zeigt diese Demo, wie ${DEMO_COMPANY_NAME} Leistungen, Vertrauen und Kontakt klar präsentieren kann.`,
+  footerText: `Von der kleinen Reparatur bis zum kompletten Dachprojekt zeigt diese Demo, wie ${DEMO_COMPANY_NAME} Leistungen, Vertrauen und Kontakt klar präsentieren kann.`,
 };
 
 export const fallbackPages: Record<string, PageContent> = {
   start: {
     slug: "start",
     title: `${DEMO_COMPANY_NAME} - Dachdeckermeister für ${DEMO_REGION}`,
-    metaDescription:
-      `${DEMO_COMPANY_NAME} ist die generische Demo-Website für Dachsanierung, Blecharbeiten, Wärmedämmung, Dachfenster und Reparaturen.`,
+    metaDescription: `${DEMO_COMPANY_NAME} ist die generische Demo-Website für Dachsanierung, Blecharbeiten, Wärmedämmung, Dachfenster und Reparaturen.`,
     hero: {
       eyebrow: `Seit ${DEMO_FOUNDING} für Kunden im Einsatz`,
-      title: `Dachdeckermeister ${DEMO_COMPANY_NAME} in ${DEMO_REGION}`,
-      description:
-        `Hier steht die Kernbotschaft von ${DEMO_COMPANY_NAME}: klare Beratung, saubere Ausführung und alle Leistungen rund ums Dach aus einer Hand.`,
+      title: "Meisterhafte Dacharbeiten in Bamberg",
+      description: "Für Neubau, Sanierung und Reparatur - klar geplant, fachgerecht umgesetzt und zuverlässig begleitet.",
       primaryCta: {
-        label: "Projekt anfragen",
+        label: "Kostenlose Erstberatung sichern",
         href: "/#kontaktformular",
-      },
-      secondaryCta: {
-        label: "Leistungen ansehen",
-        href: "/#leistungen",
       },
     },
     sections: [
       {
         blockType: "stats",
         eyebrow: "Kurz zusammengefasst",
-        heading: "Meisterbetrieb mit klarer Beratung, kurzen Wegen und einem starken Leistungsversprechen.",
+        heading:
+          "Meisterbetrieb mit klarer Beratung, kurzen Wegen und einem starken Leistungsversprechen.",
         items: [
           {
             value: "1950",
             label: "Tradition im Handwerk",
-            description: "Die Zahl startet beim aktuellen Jahr und zählt beim Scrollen bis zum Gründungsjahr herunter.",
+            description:
+              "Die Zahl startet beim aktuellen Jahr und zählt beim Scrollen bis zum Gründungsjahr herunter.",
           },
           {
             value: "12345",
             label: `Standort in ${DEMO_CITY}`,
-            description: "Dieser Platzhalter eignet sich für Postleitzahl, Stadt oder Einsatzgebiet.",
+            description:
+              "Dieser Platzhalter eignet sich für Postleitzahl, Stadt oder Einsatzgebiet.",
           },
           {
             value: "7",
             label: "Leistungsbereiche",
-            description: "Die Zahl zählt beim Sichtbarwerden hoch und zeigt die wichtigsten Leistungsfelder auf einen Blick.",
+            description:
+              "Die Zahl zählt beim Sichtbarwerden hoch und zeigt die wichtigsten Leistungsfelder auf einen Blick.",
           },
         ],
       },
@@ -116,7 +113,11 @@ export const fallbackPages: Record<string, PageContent> = {
             title: "Reparaturarbeiten",
             description:
               "Schnelle, pragmatische Hilfe bei Schäden, undichten Stellen oder einzelnen defekten Bauteilen.",
-            bullets: ["Schadstellen", "kurzfristige Hilfe", "gezielte Maßnahmen"],
+            bullets: [
+              "Schadstellen",
+              "kurzfristige Hilfe",
+              "gezielte Maßnahmen",
+            ],
           },
           {
             title: "Dachfenstereinbau",
@@ -135,7 +136,8 @@ export const fallbackPages: Record<string, PageContent> = {
       {
         blockType: "process",
         eyebrow: "Unser Prozess",
-        heading: "Von der ersten Beratung bis zur fertigen Ausführung begleiten wir Sie zuverlässig durch jeden Schritt.",
+        heading:
+          "Von der ersten Beratung bis zur fertigen Ausführung begleiten wir Sie zuverlässig durch jeden Schritt.",
         description:
           "Kein unnötiges Theater, sondern ein klarer Ablauf mit persönlicher Abstimmung und einem festen Ansprechpartner.",
         steps: [
@@ -170,18 +172,15 @@ export const fallbackPages: Record<string, PageContent> = {
         columns: [
           {
             title: "Beratung auf Augenhöhe",
-            body:
-              "Erklären Sie verständlich, welche Lösung sinnvoll ist, welche nicht und warum. Das spart Missverständnisse und unnötige Maßnahmen.",
+            body: "Erklären Sie verständlich, welche Lösung sinnvoll ist, welche nicht und warum. Das spart Missverständnisse und unnötige Maßnahmen.",
           },
           {
             title: "Saubere Ausführung",
-            body:
-              "Ob Reparatur, Sanierung oder Blecharbeit: Gerade die Details an Anschlüssen und Übergängen entscheiden über die Qualität.",
+            body: "Ob Reparatur, Sanierung oder Blecharbeit: Gerade die Details an Anschlüssen und Übergängen entscheiden über die Qualität.",
           },
           {
             title: "Verlässlich erreichbar",
-            body:
-              "Vom ersten Termin bis zur Abstimmung nach der Ausführung bleiben Sie greifbar und kümmern sich um einen klaren Ablauf.",
+            body: "Vom ersten Termin bis zur Abstimmung nach der Ausführung bleiben Sie greifbar und kümmern sich um einen klaren Ablauf.",
           },
         ],
       },
@@ -237,7 +236,8 @@ export const fallbackPages: Record<string, PageContent> = {
       {
         blockType: "cta",
         eyebrow: "Nächster Schritt",
-        heading: "Wenn Sie ein Dachprojekt planen, schauen wir gemeinsam drauf.",
+        heading:
+          "Wenn Sie ein Dachprojekt planen, schauen wir gemeinsam drauf.",
         description:
           "Ein kurzes Gespräch reicht oft schon, um die nächsten sinnvollen Schritte einzuordnen und das Projekt sauber anzustoßen.",
         primaryCta: {
@@ -254,11 +254,11 @@ export const fallbackPages: Record<string, PageContent> = {
   kontakt: {
     slug: "kontakt",
     title: `Kontakt | ${DEMO_COMPANY_NAME}`,
-    metaDescription:
-      `Kontaktieren Sie ${DEMO_COMPANY_NAME} für Dachsanierung, Blecharbeiten, Dachfenster und Reparaturen.`,
+    metaDescription: `Kontaktieren Sie ${DEMO_COMPANY_NAME} für Dachsanierung, Blecharbeiten, Dachfenster und Reparaturen.`,
     hero: {
       eyebrow: "Kontakt",
-      title: "Kurze Wege, klare Antworten und ein Termin, der wirklich weiterhilft.",
+      title:
+        "Kurze Wege, klare Antworten und ein Termin, der wirklich weiterhilft.",
       description:
         "Erzählen Sie uns kurz, worum es geht. Diese Demo zeigt eine kontaktstarke, handwerkliche Ansprache ohne leere Werbephrasen.",
       primaryCta: {
@@ -311,18 +311,15 @@ export const fallbackPages: Record<string, PageContent> = {
         columns: [
           {
             title: "Art des Projekts",
-            body:
-              "Zum Beispiel Reparatur, Dachsanierung, Wärmedämmung, Blecharbeiten oder Dachfenster.",
+            body: "Zum Beispiel Reparatur, Dachsanierung, Wärmedämmung, Blecharbeiten oder Dachfenster.",
           },
           {
             title: "Ort und Objekt",
-            body:
-              "Ein kurzer Hinweis zu Gebäudeart, Standort und der aktuellen Situation hilft uns bei der Einordnung.",
+            body: "Ein kurzer Hinweis zu Gebäudeart, Standort und der aktuellen Situation hilft uns bei der Einordnung.",
           },
           {
             title: "Dringlichkeit",
-            body:
-              "Wenn es schnell gehen muss oder bereits ein Schaden vorhanden ist, sagen Sie das direkt dazu.",
+            body: "Wenn es schnell gehen muss oder bereits ein Schaden vorhanden ist, sagen Sie das direkt dazu.",
           },
         ],
       },
@@ -331,8 +328,7 @@ export const fallbackPages: Record<string, PageContent> = {
   karriere: {
     slug: "karriere",
     title: `Karriere | ${DEMO_COMPANY_NAME}`,
-    metaDescription:
-      `Karriere bei ${DEMO_COMPANY_NAME}: motivierte Dachdeckerhelfer, Quereinsteiger und Dachdeckergesellen gesucht.`,
+    metaDescription: `Karriere bei ${DEMO_COMPANY_NAME}: motivierte Dachdeckerhelfer, Quereinsteiger und Dachdeckergesellen gesucht.`,
     hero: {
       eyebrow: "Karriere",
       title: `Wir suchen Verstärkung für unser Team in ${DEMO_REGION}.`,
@@ -351,7 +347,8 @@ export const fallbackPages: Record<string, PageContent> = {
       {
         blockType: "jobHighlights",
         eyebrow: "Was Sie erwartet",
-        heading: "Ein Team, das Handwerk ernst nimmt und direkt miteinander arbeitet.",
+        heading:
+          "Ein Team, das Handwerk ernst nimmt und direkt miteinander arbeitet.",
         description:
           "Wir suchen keine große Selbstdarstellung, sondern Leute, die anpacken wollen und sich aufeinander verlassen können.",
         items: [
@@ -360,28 +357,25 @@ export const fallbackPages: Record<string, PageContent> = {
           "Abwechslungsreiche Arbeiten von Reparaturen bis zu kompletten Dachsanierungen.",
           `Ein eingespieltes Team mit klarem Einsatzgebiet in ${DEMO_REGION}.`,
         ],
-        note:
-          "Wenn Sie Interesse haben, reicht eine kurze Nachricht oder ein Anruf. Den Rest besprechen wir unkompliziert.",
+        note: "Wenn Sie Interesse haben, reicht eine kurze Nachricht oder ein Anruf. Den Rest besprechen wir unkompliziert.",
       },
       {
         blockType: "textColumns",
         eyebrow: "Wen wir suchen",
-        heading: "Wichtig sind Haltung, Zuverlässigkeit und Lust auf gutes Handwerk.",
+        heading:
+          "Wichtig sind Haltung, Zuverlässigkeit und Lust auf gutes Handwerk.",
         columns: [
           {
             title: "Dachdeckerhelfer",
-            body:
-              "Wer handwerklich zupacken kann und sich in ein eingespieltes Team einbringen möchte, ist willkommen.",
+            body: "Wer handwerklich zupacken kann und sich in ein eingespieltes Team einbringen möchte, ist willkommen.",
           },
           {
             title: "Quereinsteiger",
-            body:
-              "Auch ohne klassischen Dachdecker-Lebenslauf ist ein Einstieg möglich, wenn Motivation und Verlässlichkeit stimmen.",
+            body: "Auch ohne klassischen Dachdecker-Lebenslauf ist ein Einstieg möglich, wenn Motivation und Verlässlichkeit stimmen.",
           },
           {
             title: "Dachdeckergesellen",
-            body:
-              "Fachliche Erfahrung ist natürlich willkommen, besonders dann, wenn Sie sauber arbeiten und Verantwortung übernehmen möchten.",
+            body: "Fachliche Erfahrung ist natürlich willkommen, besonders dann, wenn Sie sauber arbeiten und Verantwortung übernehmen möchten.",
           },
         ],
       },
@@ -389,8 +383,7 @@ export const fallbackPages: Record<string, PageContent> = {
         blockType: "cta",
         eyebrow: "Unkompliziert",
         heading: "Kurz melden, vorstellen und ins Gespräch kommen.",
-        description:
-          `Schreiben Sie uns einfach an ${DEMO_EMAIL} oder nutzen Sie das Formular auf dieser Seite.`,
+        description: `Schreiben Sie uns einfach an ${DEMO_EMAIL} oder nutzen Sie das Formular auf dieser Seite.`,
         primaryCta: {
           label: "Zur Bewerbung",
           href: "#bewerbung",
