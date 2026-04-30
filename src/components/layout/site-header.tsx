@@ -16,11 +16,8 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
   const navigation = siteSettings.navigation;
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  const useLightHeaderText = ["/", "/karriere", "/kontakt", "/fakten"].includes(pathname);
-  const navTextClassName = useLightHeaderText ? "text-white" : "text-[color:var(--color-on-surface)]";
-  const navMutedTextClassName = useLightHeaderText
-    ? "text-white/78 hover:text-white"
-    : "text-[color:var(--color-on-surface-variant)] hover:text-[color:var(--color-on-surface)]";
+  const navTextClassName = "text-white";
+  const navMutedTextClassName = "text-white/78 hover:text-white";
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
