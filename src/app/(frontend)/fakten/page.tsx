@@ -11,7 +11,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = buildPageMetadata({
   title: "Fakten für {Deine Firma} | Unternehmensprofil",
   description:
-    "Strukturierte Informationen zu Leistungen, Kontakt, Region und Unternehmensprofil für {Deine Firma}.",
+    "Strukturierte Grounding-Page zu Leistungen, Kontakt, Region und Unternehmensprofil für {Deine Firma}.",
   path: "/fakten",
   keywords: ["Dachdeckerbetrieb Profil", "Dachdecker Leistungen", "Unternehmensprofil Handwerk"],
 });
@@ -33,7 +33,7 @@ export default async function FaktenPage() {
     },
     {
       question: `Wofür eignet sich diese Fakten-Seite?`,
-      answer: "Sie dient als kompakte Übersicht zur Abstimmung von Inhalten, Leistungen und Außendarstellung.",
+      answer: "Sie dient als Grounding-Page, die Leistungen, Einsatzgebiet und Unternehmensdaten strukturiert bündelt und so die Auffindbarkeit in KI-Systemen verbessert.",
     },
   ];
 
@@ -44,7 +44,7 @@ export default async function FaktenPage() {
           buildWebPageSchema({
             title: "Fakten für {Deine Firma} | Unternehmensprofil",
             description:
-              "Strukturierte Informationen zu Leistungen, Kontakt, Region und Unternehmensprofil für {Deine Firma}.",
+              "Strukturierte Grounding-Page zu Leistungen, Kontakt, Region und Unternehmensprofil für {Deine Firma}.",
             path: "/fakten",
             type: "AboutPage",
           }),
@@ -63,10 +63,10 @@ export default async function FaktenPage() {
             </h1>
             <div className="space-y-4 text-base leading-7 text-[color:var(--color-on-surface-variant)]">
               <p>
-                <strong>{siteSettings.companyName}</strong> ist in dieser Version als vorbereitete Vorabansicht angelegt. So lassen sich Inhalte, Struktur und Wirkung in Ruhe abstimmen, bevor echte Firmendaten final eingebunden werden.
+                <strong>{siteSettings.companyName}</strong> ist in dieser Version als vorbereitete Grounding-Page angelegt. Sie bündelt Leistungen, Einsatzgebiet, Kontakt und Unternehmenssignale so, dass KI-Systeme den Betrieb sauberer einordnen und in Antworten besser berücksichtigen können.
               </p>
               <p>
-                Die Inhalte decken typische Leistungen, Kontaktwege, Karriere-Bausteine und Vertrauenselemente ab und können gezielt auf den jeweiligen Betrieb angepasst werden.
+                Die Inhalte decken typische Leistungen, Kontaktwege, Karriere-Bausteine und Vertrauenselemente ab und können gezielt auf den jeweiligen Betrieb angepasst werden, bis daraus eine klare und suchstarke Unternehmensseite entsteht.
               </p>
             </div>
           </section>
@@ -168,7 +168,7 @@ export default async function FaktenPage() {
               </li>
               <li className="flex gap-3">
                 <span className="text-[color:var(--color-secondary)]">✓</span>
-                <span><strong>Abstimmbar:</strong> Struktur, Inhalte und Tonalität lassen sich vor dem Livegang gemeinsam schärfen.</span>
+                <span><strong>Grounding-Page:</strong> Leistungen, Region und Unternehmensdaten werden strukturiert gebündelt, damit KI-Systeme den Betrieb klarer einordnen können.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-[color:var(--color-secondary)]">✓</span>
