@@ -162,7 +162,7 @@ export function PageHero({
             </div>
 
             {showInfoCard ? (
-              <div className="w-full max-w-[360px] lg:justify-self-end">
+              <div className="w-full max-w-full md:mx-auto md:max-w-2xl lg:mx-0 lg:max-w-[360px] lg:justify-self-end">
                 <div className="relative overflow-hidden rounded-[32px] border border-white/16 bg-white/10 p-6 shadow-[0_26px_60px_rgba(5,8,12,0.28)] backdrop-blur-md sm:p-7">
                   <div className="absolute -right-12 -top-10 h-28 w-28 rounded-full bg-[color:var(--color-secondary)]/30 blur-3xl" />
                   <div className="absolute -left-8 bottom-0 h-24 w-24 rounded-full bg-white/10 blur-2xl" />
@@ -177,8 +177,8 @@ export function PageHero({
                       </h2>
                     </div>
 
-                    <div className="space-y-3">
-                      <div className="rounded-2xl border border-white/10 bg-black/12 px-4 py-3">
+                    <div className="space-y-3 md:flex md:items-stretch md:justify-center md:gap-4 md:space-y-0 lg:block lg:space-y-3">
+                      <div className="rounded-2xl border border-white/10 bg-black/12 px-4 py-3 md:flex-1 lg:flex-none">
                         <div className="flex items-start gap-3">
                           <ShieldCheck className="mt-0.5 h-5 w-5 text-[color:var(--color-secondary)]" />
                           <div>
@@ -190,7 +190,7 @@ export function PageHero({
                         </div>
                       </div>
 
-                      <div className="rounded-2xl border border-white/10 bg-black/12 px-4 py-3">
+                      <div className="rounded-2xl border border-white/10 bg-black/12 px-4 py-3 md:flex-1 lg:flex-none">
                         <div className="flex items-start gap-3">
                           <Star className="mt-0.5 h-5 w-5 fill-[color:var(--color-secondary)] text-[color:var(--color-secondary)]" />
                           <div>

@@ -74,14 +74,11 @@ export function SiteHeader({ siteSettings }: SiteHeaderProps) {
         </Link>
 
         <nav className="hidden flex-1 items-center justify-center gap-8 lg:flex">
-          {navigation.map((item, index) => (
+          {navigation.map((item) => (
             <Link
               key={`${item.href}-${item.label}`}
               href={item.href}
-              className={`pb-1 text-sm font-semibold uppercase tracking-[0.05em] transition ${index === 0
-                ? navTextClassName
-                : navMutedTextClassName
-                }`}
+              className={`pb-1 text-sm font-semibold uppercase tracking-[0.05em] transition ${navMutedTextClassName}`}
             >
               {item.label}
             </Link>

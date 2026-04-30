@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { getSiteSettings } from "@/lib/cms";
 
 type FrontendLayoutProps = {
@@ -16,6 +17,7 @@ export default async function FrontendLayout({ children }: FrontendLayoutProps) 
       <SiteHeader siteSettings={siteSettings} />
       <main className="flex-1">{children}</main>
       <SiteFooter siteSettings={siteSettings} />
+      <ScrollToTop />
     </div>
   );
 }
