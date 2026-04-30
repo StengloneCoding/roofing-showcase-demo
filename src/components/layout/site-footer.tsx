@@ -63,6 +63,12 @@ export function SiteFooter({ siteSettings }: SiteFooterProps) {
 
         <div className="flex flex-col gap-3 py-5 text-sm text-white/58 sm:flex-row sm:items-center sm:justify-between">
           <p>© {currentYear} {siteSettings.legalName}.</p>
+          <p className="flex items-center gap-1">
+            Erstellt von{" "}
+            <a href="https://www.stenglone.de" target="_blank" rel="noopener noreferrer" className="text-white/78 transition hover:text-white">
+              stenglone.de
+            </a>
+          </p>
           <p>Rechtstexte werden vor der Veröffentlichung ergänzt.</p>
         </div>
       </div>
