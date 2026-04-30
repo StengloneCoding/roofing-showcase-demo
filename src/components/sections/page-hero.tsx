@@ -88,17 +88,16 @@ export function PageHero({
   const isHome = pageSlug === "start";
   const showInfoCard = isHome && !compact;
   const showLogoMarquee = isHome && !compact;
-  const showTeamImage = isHome && !compact;
   const compactHeroConfig = compact ? compactHeroConfigs[pageSlug] : undefined;
   const showCompactPanel = Boolean(compactHeroConfig);
-  const sectionHeightClass = "min-h-screen min-h-[100svh]";
+  const sectionHeightClass = "min-h-screen min-h-[100svh] md:h-screen md:h-[100svh] md:min-h-0";
   const contentAlignmentClass = compact ? "items-center" : "items-center";
   const contentPaddingClass = compact
     ? "pt-36 pb-24 sm:pt-40 sm:pb-28"
-    : "pt-40 pb-10 sm:pt-44 sm:pb-12 lg:pt-48 lg:pb-0";
-  const headingSizeClass = compact ? "text-4xl sm:text-5xl lg:text-6xl" : "text-4xl sm:text-6xl lg:text-7xl";
+    : "pt-32 pb-6 sm:pt-36 sm:pb-8 lg:pt-36 lg:pb-0";
+  const headingSizeClass = compact ? "text-4xl sm:text-5xl lg:text-6xl" : "text-4xl sm:text-5xl lg:text-6xl";
   const contentLayoutClass = showInfoCard || showCompactPanel
-    ? "grid w-full gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center lg:gap-10"
+    ? "flex w-full flex-col gap-8 md:gap-12 xl:grid xl:grid-cols-[minmax(0,1fr)_360px] xl:items-center xl:gap-10"
     : "w-full";
 
   return (
@@ -114,10 +113,10 @@ export function PageHero({
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(20,22,25,0.66),rgba(20,22,25,0.25))]" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.35))]" />
 
-      <div className={`relative z-10 mx-auto flex ${sectionHeightClass} w-full max-w-[1280px] flex-col px-4 sm:px-6 lg:gap-8 lg:px-8`}>
-        <div className={`flex flex-1 w-full ${contentAlignmentClass} ${contentPaddingClass} lg:flex-none`}>
+      <div className={`relative z-10 mx-auto flex ${sectionHeightClass} w-full max-w-[1280px] flex-col justify-between px-4 sm:px-6 lg:px-8`}>
+        <div className={`flex flex-1 min-h-0 w-full ${contentAlignmentClass} ${contentPaddingClass}`}>
           <div className={contentLayoutClass}>
-            <div className="max-w-4xl space-y-8">
+            <div className="max-w-4xl space-y-5">
               {hero.eyebrow ? (
                 <div className="inline-flex w-fit items-center gap-3 rounded-full border border-white/14 bg-black/16 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/78 backdrop-blur-sm shadow-[0_14px_28px_rgba(5,8,12,0.18)]">
                   <span className="h-2 w-2 rounded-full bg-[color:var(--color-secondary)] shadow-[0_0_18px_rgba(239,49,45,0.7)]" />
@@ -126,8 +125,8 @@ export function PageHero({
                   </p>
                 </div>
               ) : null}
-              <div className="space-y-6">
-                <h1 className={`max-w-[13ch] text-balance [font-family:var(--font-heading)] font-bold leading-[1.02] tracking-[-0.03em] text-white drop-shadow-[0_14px_28px_rgba(0,0,0,0.22)] ${headingSizeClass}`}>
+              <div className="space-y-4">
+                <h1 className={`max-w-[13ch] text-balance [font-family:var(--font-heading)] font-bold leading-[1.05] tracking-[-0.03em] text-white drop-shadow-[0_14px_28px_rgba(0,0,0,0.22)] ${headingSizeClass}`}>
                   {hero.title}
                 </h1>
                 <p className="max-w-[34rem] text-pretty [font-family:var(--font-heading)] text-lg font-medium leading-[1.55] tracking-[-0.012em] text-white/84 sm:text-[1.4rem] sm:leading-[1.6]">
@@ -162,23 +161,25 @@ export function PageHero({
             </div>
 
             {showInfoCard ? (
-              <div className="w-full max-w-full md:mx-auto md:max-w-2xl lg:mx-0 lg:max-w-[360px] lg:justify-self-end">
+              <div className="w-full xl:max-w-none xl:justify-self-end">
                 <div className="relative overflow-hidden rounded-[32px] border border-white/16 bg-white/10 p-6 shadow-[0_26px_60px_rgba(5,8,12,0.28)] backdrop-blur-md sm:p-7">
                   <div className="absolute -right-12 -top-10 h-28 w-28 rounded-full bg-[color:var(--color-secondary)]/30 blur-3xl" />
                   <div className="absolute -left-8 bottom-0 h-24 w-24 rounded-full bg-white/10 blur-2xl" />
 
                   <div className="relative space-y-5">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/70">
-                        Ihr nächster Schritt
-                      </p>
-                      <h2 className="mt-3 [font-family:var(--font-heading)] text-3xl font-semibold tracking-tight text-white">
-                        Kostenlose Erstberatung
-                      </h2>
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/70">
+                          Ihr nächster Schritt
+                        </p>
+                        <h2 className="mt-2 [font-family:var(--font-heading)] text-2xl font-semibold tracking-tight text-white xl:text-3xl">
+                          Kostenlose Erstberatung
+                        </h2>
+                      </div>
                     </div>
 
-                    <div className="space-y-3 md:flex md:items-stretch md:justify-center md:gap-4 md:space-y-0 lg:block lg:space-y-3">
-                      <div className="rounded-2xl border border-white/10 bg-black/12 px-4 py-3 md:flex-1 lg:flex-none">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 xl:flex-col xl:gap-3">
+                      <div className="rounded-2xl border border-white/10 bg-black/12 px-4 py-3 sm:flex-1 xl:flex-none">
                         <div className="flex items-start gap-3">
                           <ShieldCheck className="mt-0.5 h-5 w-5 text-[color:var(--color-secondary)]" />
                           <div>
@@ -190,7 +191,7 @@ export function PageHero({
                         </div>
                       </div>
 
-                      <div className="rounded-2xl border border-white/10 bg-black/12 px-4 py-3 md:flex-1 lg:flex-none">
+                      <div className="rounded-2xl border border-white/10 bg-black/12 px-4 py-3 sm:flex-1 xl:flex-none">
                         <div className="flex items-start gap-3">
                           <Star className="mt-0.5 h-5 w-5 fill-[color:var(--color-secondary)] text-[color:var(--color-secondary)]" />
                           <div>
@@ -263,49 +264,29 @@ export function PageHero({
           </div>
         </div>
 
-        {showTeamImage || showLogoMarquee ? (
-          <div className="flex flex-col lg:min-h-0 lg:flex-1">
-            {showTeamImage ? (
-              <div className="pointer-events-none relative z-10 mt-3 hidden md:block sm:mt-5 lg:mt-0 lg:flex lg:flex-1 lg:items-center">
-                <div className="relative mx-auto max-w-[660px] overflow-hidden rounded-[32px] border border-white/14 shadow-[0_26px_60px_rgba(4,8,12,0.24)] lg:w-full">
-                  <Image
-                    src="/team.webp"
-                    alt="Team von Dachdeckern auf der Baustelle"
-                    width={2500}
-                    height={1669}
-                    className="h-auto w-full"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,16,20,0.08),rgba(10,16,20,0.18))]" />
-                </div>
-              </div>
-            ) : null}
+        {showLogoMarquee ? (
+          <div className="pointer-events-none relative z-10 shrink-0 overflow-hidden pb-4 sm:pb-5">
+            <div className="relative overflow-hidden py-3">
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[rgba(17,22,27,0.96)] via-[rgba(17,22,27,0.72)] to-transparent sm:w-24" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[rgba(17,22,27,0.96)] via-[rgba(17,22,27,0.72)] to-transparent sm:w-24" />
 
-            {showLogoMarquee ? (
-              <div className="pointer-events-none relative z-10 mt-5 overflow-hidden pb-5 sm:mt-6 sm:pb-6 lg:mt-0 lg:pb-0">
-                <div className="relative overflow-hidden py-4">
-                  <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-[rgba(17,22,27,0.96)] via-[rgba(17,22,27,0.72)] to-transparent sm:w-24" />
-                  <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-[rgba(17,22,27,0.96)] via-[rgba(17,22,27,0.72)] to-transparent sm:w-24" />
-
-                  <div className="animate-[partner-marquee_28s_linear_infinite] flex w-max items-center gap-9 px-3 sm:gap-11 sm:px-4">
-                    {marqueeDemoLogos.map((item, index) => (
-                      <div
-                        key={`${item.name}-${index}`}
-                        className="flex h-9 shrink-0 items-center px-1 py-1 text-white/76 sm:h-10"
-                      >
-                        <Image
-                          src={item.src}
-                          alt={`${item.name} Demo-Logo`}
-                          width={item.width}
-                          height={item.height}
-                          className="h-6 w-auto opacity-80 brightness-0 invert sm:h-7"
-                        />
-                      </div>
-                    ))}
+              <div className="animate-[partner-marquee_28s_linear_infinite] flex w-max items-center gap-9 px-3 sm:gap-11 sm:px-4">
+                {marqueeDemoLogos.map((item, index) => (
+                  <div
+                    key={`${item.name}-${index}`}
+                    className="flex h-9 shrink-0 items-center px-1 py-1 text-white/76 sm:h-10"
+                  >
+                    <Image
+                      src={item.src}
+                      alt={`${item.name} Demo-Logo`}
+                      width={item.width}
+                      height={item.height}
+                      className="h-6 w-auto opacity-80 brightness-0 invert sm:h-7"
+                    />
                   </div>
-                </div>
+                ))}
               </div>
-            ) : null}
+            </div>
           </div>
         ) : null}
       </div>
